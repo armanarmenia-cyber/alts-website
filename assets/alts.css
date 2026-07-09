@@ -1,4 +1,4 @@
-@font-face{font-family:'Ephesis';src:url('Ephesis-Regular.ttf') format('truetype');font-display:swap}
+@font-face{font-family:'Ogg';src:url('Ogg-Regular.ttf') format('truetype');font-display:swap}
 /* ALTS redesign — shared styles */
 :root{
   --peri:#8A8FD4;
@@ -260,7 +260,7 @@ footer hr{border:none;border-top:1px solid rgba(255,255,255,.25);margin:34px 0}
 .f-bottom{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;font-size:13px}
 .f-bottom .copy{font-weight:300;color:rgba(255,255,255,.85);line-height:1.6}
 .f-motto{font-weight:300;font-size:17px}
-.f-motto em{font-family:'Ephesis',cursive;font-style:normal;font-weight:400;font-size:1.25em}
+.f-motto em{font-family:'Ogg',serif;font-style:normal;font-weight:400;font-size:1.1em}
 
 /* ---------- reveal ---------- */
 .reveal{opacity:0;transform:translateY(26px);transition:opacity .8s ease,transform .8s ease}
