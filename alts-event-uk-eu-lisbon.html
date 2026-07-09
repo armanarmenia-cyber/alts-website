@@ -151,7 +151,8 @@
   .f-bottom{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;font-size:13px}
   .f-bottom .copy{font-weight:300;color:rgba(255,255,255,.85);line-height:1.6}
   .f-motto{font-weight:300;font-size:17px}
-  .f-motto em{font-family:var(--serif);font-style:italic;font-weight:500}
+  @font-face{font-family:'Ephesis';src:url('assets/Ephesis-Regular.ttf') format('truetype');font-display:swap}
+  .f-motto em{font-family:'Ephesis',cursive;font-style:normal;font-weight:400;font-size:1.25em}
 
   .reveal{opacity:0;transform:translateY(26px);transition:opacity .8s ease,transform .8s ease}
   .reveal.on{opacity:1;transform:none}
