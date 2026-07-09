@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Buyer Registration Form | Access Luxury Travel Show</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/alts.css">
+</head>
+<body>
+
+<header id="hdr" class="solid">
+  <div class="wrap nav">
+    <a href="alts-redesign-home.html" class="brand">
+      <img class="logo" src="https://cdn.prod.website-files.com/6899b009eafbcc44466f60d3/6899bc2f414ba1d0943f1657_Logo%20Black.svg" alt="ALTS">
+      <span class="brand-txt">Access Luxury<br>Travel Show</span>
+    </a>
+    <nav class="links">
+      <a href="alts-events.html">Events</a>
+      <a href="alts-buyer-registration.html">For Buyers</a>
+      <a href="alts-exhibitor-registration.html">For Exhibitors</a>
+      <a href="alts-about.html">About ALTS</a>
+      <a href="alts-contact.html">Contacts</a>
+      <a href="alts-exhibitor-registration.html" class="btn btn-grad">Request an Invitation</a>
+          <button class="burger" onclick="document.getElementById('mmenu').classList.add('open')" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </nav>
+  </div>
+</header>
+<div class="m-menu" id="mmenu">
+  <button class="close-m" onclick="this.parentElement.classList.remove('open')" aria-label="Close menu">&times;</button>
+  <a href="alts-events.html">Events</a>
+  <a href="alts-buyer-registration.html">For Buyers</a>
+  <a href="alts-exhibitor-registration.html">For Exhibitors</a>
+  <a href="alts-about.html">About ALTS</a>
+  <a href="alts-contact.html">Contacts</a>
+  <a href="alts-exhibitor-registration.html" class="btn btn-grad">Request an Invitation</a>
+</div>
+
+<section class="form-page">
+  <img class="bg-wave" src="assets/wave-a.svg" alt="">
+  <div class="wrap" style="position:relative;z-index:2;max-width:920px">
+    <h1 class="sec-h big reveal" style="text-align:center">Buyer <em>registration form.</em></h1>
+    <p class="reveal" style="text-align:center;max-width:680px;margin:24px auto 0;font-size:16px;line-height:1.85">Are you a Premium Travel Designer, Travel Agency or Concierge company? Apply for the ALTS events and tap into the world of new business opportunities! <b>The participation for buyers is free of charge.</b></p>
+
+    <div class="crit reveal" style="max-width:760px;margin:30px auto 44px">
+      <b>To participate, we respectfully request that you meet the following conditions:</b>
+      <ul>
+        <li>Operate in outbound travel markets across at least two continents;</li>
+        <li>Represent one of the buyer's markets which we target for the edition you apply to;</li>
+        <li>Provide proof of recent or upcoming bookings within the luxury travel segment;</li>
+        <li>Submit three references, two of which must involve direct bookings with luxury accommodations;</li>
+        <li>Have a minimum of 6 months' experience as a recognized professional in the industry;</li>
+        <li>Not use this opportunity to market or sell your product at our event.</li>
+      </ul>
+    </div>
+
+    <div class="form-card reveal">
+      <!-- EVENTS -->
+      <div class="checks">
+        <p class="q">Choose your ALTS event:</p>
+        <label class="check"><input type="checkbox" class="ev" value="ALTS Baltic Countries Roadshow, Sep 15–17, 2026"> ALTS — Baltic Countries Roadshow · September 15–17, 2026 <span class="sub">Open exclusively to agencies based in the Baltic States</span></label>
+        <label class="check"><input type="checkbox" class="ev" value="ALTS UK & EU Lisbon, Sep 28–30, 2026"> ALTS — UK &amp; EU, Lisbon, Portugal · September 28–30, 2026 <span class="sub">Open to agencies based in the UK, Southern Europe, Benelux, France, and the DACH region</span></label>
+        <label class="check"><input type="checkbox" class="ev" value="ALTS CEE Autumn Edition Warsaw, Oct 21–22, 2026"> ALTS — CEE Autumn Edition, Warsaw, Poland · October 21–22, 2026 <span class="sub">Open to agencies based in Hungary, Poland, Czech Republic, Romania, Bulgaria, Slovakia, Slovenia, Moldova, the Baltic States, and Serbia</span></label>
+      </div>
+
+      <!-- PERSONAL -->
+      <div class="f-block"><h3>Personal information</h3></div>
+      <div class="f-row">
+        <div class="field"><label for="fn">First Name *</label><input type="text" id="fn"></div>
+        <div class="field"><label for="ln">Last Name *</label><input type="text" id="ln"></div>
+      </div>
+      <div class="f-row">
+        <div class="field"><label for="co">Company Full Name</label><input type="text" id="co"></div>
+        <div class="field"><label for="pos">Position</label><input type="text" id="pos"></div>
+      </div>
+      <div class="f-row">
+        <div class="field"><label for="tel">Direct Phone Number</label><input type="tel" id="tel"></div>
+        <div class="field"><label for="email">Email *</label><input type="email" id="email"></div>
+      </div>
+
+      <!-- COMPANY -->
+      <div class="f-block"><h3>Company information</h3></div>
+      <div class="f-row">
+        <div class="field"><label for="web">Website</label><input type="url" id="web"></div>
+        <div class="field"><label for="year">What year your business started?</label><input type="text" id="year"></div>
+      </div>
+      <div class="f-row">
+        <div class="field"><label for="city">City</label><input type="text" id="city"></div>
+        <div class="field"><label for="country">Country</label><input type="text" id="country"></div>
+      </div>
+      <div class="field"><label for="descr">Description</label><textarea id="descr"></textarea></div>
+      <div class="f-row">
+        <div class="field"><label for="btype">Which category best represents your type of business?</label>
+          <select id="btype"><option value="">Please select</option><option>Travel Agency</option><option>Tour Operator</option><option>Lifestyle &amp; Travel Concierge</option><option>Independent Travel Designer</option><option>MICE &amp; Corporate Travel</option><option>Other: Specify</option></select>
+        </div>
+        <div class="field"><label for="btype-other">If other — please specify</label><input type="text" id="btype-other"></div>
+      </div>
+      <div class="f-row">
+        <div class="field"><label for="emp">Total number of employees</label>
+          <select id="emp"><option value="">Please select</option><option>1-5</option><option>6-10</option><option>11-20</option><option>21-50</option><option>51-100</option><option>100+</option></select>
+        </div>
+        <div class="field"><label for="spend">Average client spend per night</label>
+          <select id="spend"><option value="">Please select</option><option>0 - 500€</option><option>500 - 1000€</option><option>1000 - 1500€</option><option>1500 - 2000€</option><option>2000€ +</option></select>
+        </div>
+      </div>
+      <div class="f-row">
+        <div class="field"><label for="turnover">Average annual bookings turnover</label>
+          <select id="turnover"><option value="">Please select</option><option>&lt; 100 000€</option><option>100 000 - 500 000€</option><option>500 000 - 1 000 000€</option><option>1 000 000 - 3 000 000€</option><option>&gt; 3 000 000€</option></select>
+        </div>
+        <div class="field"><label for="five">What percentage of your business is 5*?</label>
+          <select id="five"><option value="">Please select</option><option>0-30%</option><option>30-50%</option><option>50-70%</option><option>70-80%</option><option>80-90%</option><option>90-100%</option></select>
+        </div>
+      </div>
+      <div class="f-row">
+        <div class="field"><label for="consortia">Are you a member of any consortia?</label>
+          <select id="consortia"><option value="">Please select</option><option>Virtuoso</option><option>Serandipians by Traveller Made</option><option>Takumians by Traveller Made</option><option>The Conscious Travel Foundation</option><option>None</option><option>Other (Specify)</option></select>
+        </div>
+        <div class="field"><label for="consortia-other">If other — please specify</label><input type="text" id="consortia-other"></div>
+      </div>
+      <div class="field"><label for="shows">Which other travel industry trade shows have you attended as a Buyer for the last two years?</label><textarea id="shows" style="min-height:70px"></textarea></div>
+
+      <!-- REGIONS -->
+      <div class="f-block"><h3>Which regions do you actively sell and source travel products from?</h3></div>
+      <div class="checks cols">
+        <p class="q" style="grid-column:1/-1">Europe</p>
+        <label class="check"><input type="checkbox" class="rg" value="Western Europe"> Western Europe</label>
+        <label class="check"><input type="checkbox" class="rg" value="Southern Europe (Mediterranean)"> Southern Europe (Mediterranean)</label>
+        <label class="check"><input type="checkbox" class="rg" value="Central & Eastern Europe"> Central &amp; Eastern Europe</label>
+        <label class="check"><input type="checkbox" class="rg" value="Nordics & Baltics"> Nordics &amp; Baltics</label>
+        <label class="check"><input type="checkbox" class="rg" value="UK & Ireland"> UK &amp; Ireland</label>
+      </div>
+      <div class="checks cols">
+        <p class="q" style="grid-column:1/-1">Middle East &amp; Africa</p>
+        <label class="check"><input type="checkbox" class="rg" value="Middle East (GCC & Levant)"> Middle East (GCC &amp; Levant)</label>
+        <label class="check"><input type="checkbox" class="rg" value="North Africa"> North Africa</label>
+        <label class="check"><input type="checkbox" class="rg" value="Sub-Saharan Africa"> Sub-Saharan Africa</label>
+        <label class="check"><input type="checkbox" class="rg" value="Indian Ocean Islands"> Indian Ocean Islands (Maldives, Seychelles, Mauritius)</label>
+      </div>
+      <div class="checks cols">
+        <p class="q" style="grid-column:1/-1">Asia</p>
+        <label class="check"><input type="checkbox" class="rg" value="South Asia"> South Asia (India, Sri Lanka, Nepal, Bhutan)</label>
+        <label class="check"><input type="checkbox" class="rg" value="Southeast Asia"> Southeast Asia</label>
+        <label class="check"><input type="checkbox" class="rg" value="East Asia (Japan, Korea, China)"> East Asia (Japan, Korea, China)</label>
+        <label class="check"><input type="checkbox" class="rg" value="Central Asia"> Central Asia</label>
+      </div>
+      <div class="checks cols">
+        <p class="q" style="grid-column:1/-1">Americas</p>
+        <label class="check"><input type="checkbox" class="rg" value="North America (USA & Canada)"> North America (USA &amp; Canada)</label>
+        <label class="check"><input type="checkbox" class="rg" value="Central America"> Central America</label>
+        <label class="check"><input type="checkbox" class="rg" value="Caribbean"> Caribbean</label>
+        <label class="check"><input type="checkbox" class="rg" value="South America"> South America</label>
+      </div>
+      <div class="checks cols">
+        <p class="q" style="grid-column:1/-1">Oceania &amp; Polar</p>
+        <label class="check"><input type="checkbox" class="rg" value="Australia & New Zealand"> Australia &amp; New Zealand</label>
+        <label class="check"><input type="checkbox" class="rg" value="Pacific Islands"> Pacific Islands</label>
+        <label class="check"><input type="checkbox" class="rg" value="Antarctica & Polar Expeditions"> Antarctica &amp; Polar Expeditions</label>
+      </div>
+
+      <!-- PRODUCTS -->
+      <div class="f-block"><h3>Which types of travel products and suppliers are most relevant for your business at ALTS?</h3></div>
+      <div class="checks cols">
+        <label class="check"><input type="checkbox" class="pr" value="Hotels, Resorts, Lodges & Retreats"> Hotels, Resorts, Lodges &amp; Retreats</label>
+        <label class="check"><input type="checkbox" class="pr" value="DMCs & Inbound Tour Operators"> DMCs &amp; Inbound Tour Operators</label>
+        <label class="check"><input type="checkbox" class="pr" value="Experiential & Specialist Travel"> Experiential &amp; Specialist Travel (Adventure, Culture, Nature)</label>
+        <label class="check"><input type="checkbox" class="pr" value="Small Ship Cruising, Yachting & Expeditions"> Small Ship Cruising, Yachting &amp; Expedition Voyages</label>
+        <label class="check"><input type="checkbox" class="pr" value="Villas & Exclusive Use Properties"> Villas &amp; Exclusive Use Properties</label>
+        <label class="check"><input type="checkbox" class="pr" value="Rail Journeys & Slow Travel"> Rail Journeys &amp; Slow Travel</label>
+        <label class="check"><input type="checkbox" class="pr" value="Private Aviation"> Private Aviation (Private Jets &amp; Helicopters)</label>
+        <label class="check"><input type="checkbox" class="pr" value="Wellness & Health Travel"> Wellness &amp; Health Travel</label>
+        <label class="check"><input type="checkbox" class="pr" value="Tourism Boards & Destination Authorities"> Tourism Boards &amp; Destination Authorities</label>
+        <label class="check"><input type="checkbox" class="pr" value="Travel Tech"> Travel Tech</label>
+      </div>
+
+      <!-- QUALIFICATION -->
+      <div class="f-block"><h3>Qualification details</h3></div>
+      <div class="field"><label for="clients">Where are your clients primarily based? If multiple countries, please provide a percentage per country.</label><textarea id="clients" style="min-height:70px"></textarea></div>
+      <div class="field"><label for="hotels">What are the 3 hotels you book most frequently?</label><textarea id="hotels" style="min-height:70px"></textarea></div>
+      <div class="field"><label for="bookings">Please provide details of your 3 most recent international bookings, including dates and reference numbers.</label><textarea id="bookings" style="min-height:70px"></textarea></div>
+
+      <!-- T&C -->
+      <p class="hint" style="font-size:12.5px;color:var(--grey);margin:10px 0 14px">Please only submit this application if you are able to commit to the dates of the show of your choice, as cancellation upon acceptance of your application is subject to a Cancellation Fee.</p>
+      <div class="checks">
+        <label class="check"><input type="checkbox" id="tc"> I accept the <a href="https://www.altsevents.com/alts-buyer-terms-conditions" style="color:var(--peri);text-decoration:underline">&nbsp;T&amp;C</a>, Payment and Cancellation Policy *</label>
+      </div>
+
+      <button class="btn btn-grad" id="submit-btn" onclick="submitFull()">Submit application</button>
+      <p id="status" style="display:none;margin-top:16px;padding:14px 18px;border-radius:10px;font-size:14px;font-weight:500"></p>
+      <p class="privacy">You agree to our friendly <a href="https://www.altsevents.com/privacy-policy">privacy policy</a>.</p>
+    </div>
+  </div>
+</section>
+
+<footer id="contacts">
+  <div class="wrap">
+    <div class="f-nav">
+      <div class="f-links">
+        <a href="alts-events.html">Events</a><i>•</i>
+        <a href="alts-buyer-registration.html">For Buyers</a><i>•</i>
+        <a href="alts-exhibitor-registration.html">For Exhibitors</a><i>•</i>
+        <a href="alts-about.html">About ALTS</a><i>•</i>
+        <a href="alts-contact.html">Contacts</a>
+      </div>
+      <div class="f-social">
+        <a href="https://www.facebook.com/accessluxurytravelshow" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0 0 22 12Z"/></svg></a>
+        <a href="https://www.linkedin.com/company/access-luxury-travel-show/" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M20.4 3H3.6A.6.6 0 0 0 3 3.6v16.8c0 .3.3.6.6.6h16.8c.3 0 .6-.3.6-.6V3.6a.6.6 0 0 0-.6-.6ZM8.3 18.4H5.7V9.9h2.6v8.5ZM7 8.7a1.5 1.5 0 1 1 0-3.1 1.5 1.5 0 0 1 0 3ZM18.4 18.4h-2.6v-4.1c0-1 0-2.3-1.4-2.3s-1.6 1.1-1.6 2.2v4.2h-2.7V9.9h2.5v1.2h.1a2.8 2.8 0 0 1 2.5-1.4c2.7 0 3.2 1.8 3.2 4v4.7Z"/></svg></a>
+        <a href="https://www.instagram.com/alts.events/" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 1.2 0 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.2.1 1.6.1 4.8s0 3.6-.1 4.8c0 1.2-.2 1.8-.4 2.2a3.9 3.9 0 0 1-2.3 2.3c-.4.2-1 .4-2.2.4-1.2.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-1.2 0-1.8-.2-2.2-.4a3.9 3.9 0 0 1-2.3-2.3c-.2-.4-.4-1-.4-2.2-.1-1.2-.1-1.6-.1-4.8s0-3.6.1-4.8c0-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4 1.2-.1 1.6-.1 4.8-.1Zm0 2A61 61 0 0 0 7.3 4.3c-1.1 0-1.7.2-2 .4-.6.2-.9.5-1.1 1.1-.2.3-.4.9-.4 2-.1 1.2-.1 1.5-.1 4.7s0 3.5.1 4.7c0 1.1.2 1.7.4 2 .2.6.5.9 1.1 1.1.3.2.9.4 2 .4 1.2.1 1.5.1 4.7.1s3.5 0 4.7-.1c1.1 0 1.7-.2 2-.4.6-.2.9-.5 1.1-1.1.2-.3.4-.9.4-2 .1-1.2.1-1.5.1-4.7s0-3.5-.1-4.7c0-1.1-.2-1.7-.4-2a1.9 1.9 0 0 0-1.1-1.1c-.3-.2-.9-.4-2-.4-1.2-.1-1.5-.1-4.7-.1Zm0 3.3a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm5.2-3.5a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4Z"/></svg></a>
+      </div>
+    </div>
+    <hr>
+    <div class="f-brand">
+      <div class="logos">
+        <span style="display:flex;flex-direction:column;gap:6px">
+          <img src="assets/wordmark-white.png" alt="ACCESS" style="height:26px;width:auto">
+          <img src="assets/tagline-white.png" alt="Explore | Connect | Travel" style="height:9px;width:auto">
+        </span>
+        <span class="x">×</span>
+        <img src="https://cdn.prod.website-files.com/6899b009eafbcc44466f60d3/6899bc2f414ba1d0943f1657_Logo%20Black.svg" alt="ALTS" style="height:44px;filter:brightness(0) invert(1)">
+      </div>
+      <p>ALTS is affiliated with Access.Marketing – an international premium travel representation company with 15+ years of exceptional experience in providing custom services of sales, marketing and PR across the markets of CEE, DACH, CIS, Central Asia, and Turkey.</p>
+    </div>
+    <hr>
+    <div class="f-bottom">
+      <p class="copy">© 2026 ALTS EVENTS LIMITED 6 St David Square,<br>London, E14 3WA, United Kingdom</p>
+      <p class="f-motto">we meet <em>differently.</em></p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}}),{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  const MAKE_WEBHOOK_URL = 'https://hook.eu1.make.com/awvokqplkq7yc69hc7s5a641qfs46e7v';
+
+  async function submitFull(){
+    const v=id=>document.getElementById(id).value.trim();
+    const status=document.getElementById('status');
+    const btn=document.getElementById('submit-btn');
+    const show=(ok,msg)=>{status.style.display='block';status.style.background=ok?'#E8F5EC':'#FDECEC';status.style.color=ok?'#1E7A3C':'#B3261E';status.textContent=msg};
+
+    if(!v('fn')||!v('email')){show(false,'Please fill in at least your first name and email.');return}
+    if(!document.getElementById('tc').checked){show(false,'Please accept the T&C, Payment and Cancellation Policy.');return}
+
+    const events=[...document.querySelectorAll('.ev:checked')].map(c=>c.value);
+    const regions=[...document.querySelectorAll('.rg:checked')].map(c=>c.value);
+    const products=[...document.querySelectorAll('.pr:checked')].map(c=>c.value);
+
+    const details=[];
+    if(v('descr')) details.push('DESCRIPTION: '+v('descr'));
+    if(v('year')) details.push('BUSINESS STARTED: '+v('year'));
+    if(v('btype')) details.push('BUSINESS TYPE: '+v('btype')+(v('btype-other')?' ('+v('btype-other')+')':''));
+    if(v('emp')) details.push('EMPLOYEES: '+v('emp'));
+    if(v('spend')) details.push('AVG SPEND/NIGHT: '+v('spend'));
+    if(v('turnover')) details.push('ANNUAL TURNOVER: '+v('turnover'));
+    if(v('five')) details.push('5* SHARE: '+v('five'));
+    if(v('consortia')) details.push('CONSORTIA: '+v('consortia')+(v('consortia-other')?' ('+v('consortia-other')+')':''));
+    if(v('shows')) details.push('TRADE SHOWS: '+v('shows'));
+    if(regions.length) details.push('REGIONS: '+regions.join(', '));
+    if(products.length) details.push('PRODUCTS: '+products.join(', '));
+    if(v('clients')) details.push('CLIENTS BASED: '+v('clients'));
+    if(v('hotels')) details.push('TOP-3 HOTELS: '+v('hotels'));
+    if(v('bookings')) details.push('RECENT BOOKINGS: '+v('bookings'));
+
+    btn.disabled=true;btn.style.opacity=.6;
+    try{
+      const r=await fetch(MAKE_WEBHOOK_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({
+        form:'full-buyer-registration',
+        first_name:v('fn'),last_name:v('ln'),company:v('co'),position:v('pos'),
+        country_city:v('country')+(v('city')?', '+v('city'):''),website:v('web'),email:v('email'),phone:v('tel'),
+        events:events,
+        question:details.join(' | '),
+        page:location.href,submitted_at:new Date().toISOString()
+      })});
+      if(r.ok){show(true,'Thank you for your application! We will contact you within 24 hours.');}
+      else show(false,'Something went wrong while submitting the form. Please try again.');
+    }catch(e){show(false,'Network error. Please try again or email us directly.')}
+    btn.disabled=false;btn.style.opacity=1;
+  }
+</script>
+</body>
+</html>

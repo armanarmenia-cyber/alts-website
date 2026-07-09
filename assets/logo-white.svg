@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 260" fill="none">
+  <defs>
+    <clipPath id="pinShapeW">
+      <path d="M100 8 C 153 8, 192 50, 192 110 C 192 170, 140 230, 100 252 C 60 230, 8 170, 8 110 C 8 50, 47 8, 100 8 Z"/>
+    </clipPath>
+  </defs>
+  <g clip-path="url(#pinShapeW)">
+    <rect width="200" height="260" fill="#ffffff"/>
+    <g stroke="#0a0612" stroke-width="4" stroke-linecap="round" opacity="0.92">
+      <line x1="60" y1="0" x2="55" y2="260"/>
+      <line x1="105" y1="0" x2="100" y2="260"/>
+      <line x1="148" y1="0" x2="158" y2="260"/>
+      <line x1="-10" y1="70" x2="210" y2="65"/>
+      <line x1="-10" y1="130" x2="210" y2="135"/>
+      <line x1="-10" y1="200" x2="210" y2="215"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ALTS UK &amp; EU — Lisbon 2026 | Access Luxury Travel Show</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --peri:#8A8FD4;
+    --peri-soft:#AEB2E2;
+    --peri-bg:#EDEEF8;
+    --navy:#2F3460;
+    --navy-deep:#23264C;
+    --ink:#2B2B33;
+    --grey:#6E6E78;
+    --white:#FFFFFF;
+    --line:rgba(47,52,96,.14);
+    --grad:linear-gradient(120deg,#575D9E 0%,#3A3F78 55%,#23264C 100%);
+    --serif:'Playfair Display',Georgia,serif;
+    --sans:'Montserrat',Helvetica,Arial,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--white);color:var(--ink);font-family:var(--sans);font-weight:400;line-height:1.6;-webkit-font-smoothing:antialiased}
+  img{display:block;max-width:100%}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1240px;margin:0 auto;padding:0 44px}
+  @media(max-width:720px){.wrap{padding:0 20px}}
+
+  /* ================= header ================= */
+  header{position:fixed;inset:0 0 auto 0;z-index:100;transition:background .4s,box-shadow .4s}
+  header.scrolled{background:rgba(24,25,40,.92);backdrop-filter:blur(10px);box-shadow:0 1px 0 rgba(255,255,255,.08)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:88px;gap:28px}
+  .brand{display:flex;align-items:center;gap:16px}
+  .logo{height:46px;filter:brightness(0) invert(1)}
+  .brand .brand-txt{font-size:10.5px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:#fff;line-height:1.55;border-left:1px solid rgba(255,255,255,.4);padding-left:16px}
+  nav.links{display:flex;gap:34px;align-items:center}
+  nav.links a{font-size:12px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:#fff;transition:color .3s}
+  nav.links a:hover{color:var(--peri-soft)}
+  .btn{display:inline-block;font-family:var(--sans);font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;border-radius:100px;padding:16px 34px;transition:opacity .3s,background .3s,color .3s;cursor:pointer;border:none}
+  .btn-grad{background:var(--grad);color:#fff}
+  .btn-grad:hover{opacity:.85}
+  .btn-light{background:#fff;color:var(--navy)}
+  .btn-light:hover{background:var(--peri);color:#fff}
+  .nav .btn{padding:10px 22px;font-size:11px;letter-spacing:.12em}
+  @media(max-width:1080px){nav.links a:not(.btn){display:none}.brand .brand-txt{display:none}}
+
+  /* ================= hero ================= */
+  .hero{position:relative;min-height:88vh;display:flex;align-items:flex-end;overflow:hidden;background:#14151f}
+  .hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.75}
+  .hero::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(10,10,18,.82) 0%,rgba(10,10,18,.25) 50%,rgba(10,10,18,.35) 100%)}
+  .hero-waves{position:absolute;z-index:2;pointer-events:none;opacity:.5}
+  .hero-waves.right{right:-560px;top:-540px;width:1050px}
+  .hero-inner{position:relative;z-index:3;width:100%;padding-top:170px;padding-bottom:90px;color:#fff}
+  .date-pill{display:inline-block;background:var(--peri);color:#fff;font-size:13px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;border-radius:100px;padding:10px 24px;margin-bottom:26px}
+  .hero h1{font-family:var(--sans);font-weight:300;font-size:clamp(46px,6.6vw,96px);line-height:1.04;letter-spacing:.01em}
+  .hero h1 em{font-family:var(--serif);font-style:italic;font-weight:500}
+  .hero .place{margin-top:18px;font-size:18px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--peri-soft)}
+  .hero-cta{display:flex;gap:18px;margin-top:40px;flex-wrap:wrap}
+
+  /* ================= overview ================= */
+  .overview{padding:110px 0;position:relative;overflow:hidden}
+  .ov-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:70px;align-items:start}
+  @media(max-width:900px){.ov-grid{grid-template-columns:1fr;gap:36px}}
+  .ov-title{font-family:var(--sans);font-weight:600;font-size:clamp(30px,3.4vw,44px);line-height:1.1;letter-spacing:.04em;text-transform:uppercase;color:var(--ink)}
+  .ov-title em{display:block;font-family:var(--serif);font-style:italic;font-weight:500;text-transform:none;letter-spacing:0;color:var(--peri)}
+  .ov-text p{font-size:16.5px;font-weight:400;line-height:1.85;color:var(--ink)}
+  .ov-text p+p{margin-top:18px}
+  .ov-text b{font-weight:600;color:var(--navy)}
+
+  /* ================= numbers ================= */
+  .numbers{background:linear-gradient(180deg,#F2F3FA 0%,#E6E8F5 100%);padding:100px 0;position:relative;overflow:hidden}
+  .numbers .bg-wave{position:absolute;left:-320px;bottom:-340px;width:760px;opacity:.6;pointer-events:none}
+  .num-head{text-align:center;margin-bottom:60px;position:relative;z-index:2}
+  .num-head h2{font-family:var(--sans);font-weight:600;font-size:clamp(28px,3vw,40px);letter-spacing:.06em;text-transform:uppercase;color:var(--navy)}
+  .num-head h2 em{font-family:var(--serif);font-style:italic;font-weight:500;text-transform:none;letter-spacing:0;color:var(--peri)}
+  .num-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:26px;position:relative;z-index:2}
+  @media(max-width:960px){.num-grid{grid-template-columns:1fr 1fr}}
+  @media(max-width:560px){.num-grid{grid-template-columns:1fr}}
+  .num-card{background:#fff;border-radius:14px;padding:40px 30px;text-align:center;box-shadow:0 18px 40px rgba(47,52,96,.10)}
+  .num-card b{display:block;font-family:var(--serif);font-style:italic;font-weight:500;font-size:64px;line-height:1;color:var(--peri);margin-bottom:16px}
+  .num-card span{font-size:14px;font-weight:500;line-height:1.55;color:var(--ink)}
+
+  /* ================= agenda ================= */
+  .agenda{padding:110px 0}
+  .ag-head{text-align:center;margin-bottom:64px}
+  .ag-head h2{font-family:var(--sans);font-weight:600;font-size:clamp(28px,3vw,40px);letter-spacing:.06em;text-transform:uppercase;color:var(--ink)}
+  .ag-head h2 em{font-family:var(--serif);font-style:italic;font-weight:500;text-transform:none;letter-spacing:0;color:var(--peri)}
+  .day{display:grid;grid-template-columns:420px 1fr;gap:56px;align-items:center;padding:44px 0;border-top:1px solid var(--line)}
+  .day:last-of-type{border-bottom:1px solid var(--line)}
+  .day:nth-child(odd) .day-img{order:2}
+  @media(max-width:900px){.day{grid-template-columns:1fr;gap:24px}.day:nth-child(odd) .day-img{order:0}}
+  .day-img{position:relative;border-radius:12px;overflow:hidden;aspect-ratio:16/10;box-shadow:0 14px 34px rgba(35,38,76,.18)}
+  .day-img img.ph{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.6,.2,1)}
+  .day:hover .day-img img.ph{transform:scale(1.05)}
+  .day-img .waves{position:absolute;z-index:2;top:-200px;right:-200px;width:380px;opacity:.6;pointer-events:none}
+  .day-txt .d-date{font-family:var(--sans);font-weight:700;font-size:26px;letter-spacing:.08em;text-transform:uppercase;color:var(--navy)}
+  .day-txt .d-time{display:inline-block;background:var(--peri);color:#fff;font-size:12.5px;font-weight:700;letter-spacing:.14em;border-radius:100px;padding:7px 18px;margin:14px 0 20px}
+  .day-txt p{font-size:15.5px;font-weight:400;line-height:1.8;color:var(--ink);max-width:56ch}
+
+  /* ================= apply ================= */
+  .apply{padding:40px 0 110px}
+  .ap-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px}
+  @media(max-width:860px){.ap-grid{grid-template-columns:1fr}}
+  .ap-card{position:relative;border-radius:16px;padding:56px 48px;overflow:hidden;color:#fff;background:var(--grad);display:flex;flex-direction:column;align-items:flex-start}
+  .ap-card.alt{background:linear-gradient(120deg,#8A8FD4 0%,#6F74BC 60%,#575D9E 100%)}
+  .ap-card .waves{position:absolute;top:-240px;right:-240px;width:480px;opacity:.4;pointer-events:none}
+  .ap-card h3{font-family:var(--sans);font-weight:700;font-size:30px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:18px;position:relative;z-index:2}
+  .ap-card p{font-size:15px;font-weight:400;line-height:1.8;margin-bottom:34px;position:relative;z-index:2;color:rgba(255,255,255,.95)}
+  .ap-card .btn{position:relative;z-index:2}
+
+  /* ================= next events ================= */
+  .next{padding:0 0 110px}
+  .next-head{text-align:center;margin-bottom:48px}
+  .next-head h2{font-family:var(--sans);font-weight:600;font-size:clamp(24px,2.6vw,34px);letter-spacing:.08em;text-transform:uppercase;color:var(--ink)}
+  .next-head h2 em{font-family:var(--serif);font-style:italic;font-weight:500;text-transform:none;letter-spacing:0;color:var(--peri)}
+  .next-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px}
+  @media(max-width:860px){.next-grid{grid-template-columns:1fr}}
+  .next-card{position:relative;border-radius:12px;overflow:hidden;aspect-ratio:16/6.4;display:flex;align-items:flex-end;box-shadow:0 14px 34px rgba(35,38,76,.18);transition:transform .4s,box-shadow .4s}
+  .next-card:hover{transform:translateY(-5px);box-shadow:0 22px 44px rgba(35,38,76,.28)}
+  .next-card img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.6,.2,1)}
+  .next-card:hover img.bg{transform:scale(1.05)}
+  .next-card::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(12,13,26,.85) 0%,rgba(12,13,26,.2) 70%)}
+  .next-card .txt{position:relative;z-index:2;padding:26px 30px;color:#fff}
+  .next-card h3{font-weight:600;font-size:22px;line-height:1.25;margin-bottom:6px}
+  .next-card .date{font-size:15px;font-weight:500}
+  .next-card .ev-arrow{position:absolute;right:24px;bottom:24px;z-index:3;width:52px;height:52px;border-radius:50%;background:var(--peri);display:flex;align-items:center;justify-content:center;transition:background .3s,transform .3s}
+  .next-card .ev-arrow svg{width:22px;height:22px;stroke:#fff}
+  .next-card:hover .ev-arrow{background:var(--navy);transform:translateX(4px)}
+
+  /* ================= footer ================= */
+  footer{background:var(--grad);color:#fff;padding:70px 0 56px}
+  .f-nav{display:flex;align-items:center;justify-content:space-between;gap:26px;flex-wrap:wrap}
+  .f-links{display:flex;align-items:center;gap:14px;flex-wrap:wrap;font-size:12px;font-weight:500;letter-spacing:.14em;text-transform:uppercase}
+  .f-links a{transition:color .3s}
+  .f-links a:hover{color:var(--peri-soft)}
+  .f-links i{font-style:normal;color:var(--peri-soft)}
+  .f-social{display:flex;gap:18px}
+  .f-social a{opacity:.9;transition:opacity .3s}
+  .f-social a:hover{opacity:.6}
+  .f-social svg{width:26px;height:26px;fill:#fff}
+  footer hr{border:none;border-top:1px solid rgba(255,255,255,.25);margin:34px 0}
+  .f-brand{display:flex;align-items:center;gap:44px;flex-wrap:wrap}
+  .f-brand .logos{display:flex;align-items:center;gap:26px;flex-shrink:0}
+  .f-brand .logos img{height:44px}
+  .f-brand .logos .x{font-size:20px;font-weight:300}
+  .f-brand p{flex:1;min-width:280px;font-size:14.5px;font-weight:300;line-height:1.8;text-align:justify;color:rgba(255,255,255,.95)}
+  .f-bottom{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;font-size:13px}
+  .f-bottom .copy{font-weight:300;color:rgba(255,255,255,.85);line-height:1.6}
+  .f-motto{font-weight:300;font-size:17px}
+  .f-motto em{font-family:var(--serif);font-style:italic;font-weight:500}
+
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .8s ease,transform .8s ease}
+  .reveal.on{opacity:1;transform:none}
+
+/* ---------- mobile menu ---------- */
+.burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px}
+.burger span{width:26px;height:2px;background:#fff;transition:.3s}
+@media(max-width:1080px){.burger{display:flex}}
+.m-menu{position:fixed;inset:0;background:rgba(20,21,36,.97);z-index:105;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:26px;opacity:0;pointer-events:none;transition:opacity .35s}
+.m-menu.open{opacity:1;pointer-events:auto}
+.m-menu a{color:#fff;font-size:19px;font-weight:500;letter-spacing:.12em;text-transform:uppercase}
+.m-menu a:hover{color:#AEB2E2}
+.m-menu .btn{margin-top:12px;font-size:13px}
+.m-menu .close-m{position:absolute;top:24px;right:26px;font-size:40px;color:#fff;background:none;border:none;cursor:pointer;font-weight:300;line-height:1}
+</style>
+</head>
+<body>
+
+<header id="hdr">
+  <div class="wrap nav">
+    <a href="alts-redesign-home.html" class="brand">
+      <img class="logo" src="https://cdn.prod.website-files.com/6899b009eafbcc44466f60d3/6899bc2f414ba1d0943f1657_Logo%20Black.svg" alt="ALTS">
+      <span class="brand-txt">Access Luxury<br>Travel Show</span>
+    </a>
+    <nav class="links">
+      <a href="alts-events.html">Events</a>
+      <a href="alts-buyer-registration.html">For Buyers</a>
+      <a href="alts-exhibitor-registration.html">For Exhibitors</a>
+      <a href="alts-about.html">About ALTS</a>
+      <a href="alts-contact.html">Contacts</a>
+      <a href="alts-exhibitor-registration.html" class="btn btn-grad">Request an Invitation</a>
+          <button class="burger" onclick="document.getElementById('mmenu').classList.add('open')" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </nav>
+  </div>
+</header>
+<div class="m-menu" id="mmenu">
+  <button class="close-m" onclick="this.parentElement.classList.remove('open')" aria-label="Close menu">&times;</button>
+  <a href="alts-events.html">Events</a>
+  <a href="alts-buyer-registration.html">For Buyers</a>
+  <a href="alts-exhibitor-registration.html">For Exhibitors</a>
+  <a href="alts-about.html">About ALTS</a>
+  <a href="alts-contact.html">Contacts</a>
+  <a href="alts-exhibitor-registration.html" class="btn btn-grad">Request an Invitation</a>
+</div>
+
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <img class="hero-bg" src="https://cdn.prod.website-files.com/6899b009eafbcc44466f60d3/6914c2bc2066f74b6ecec256_LISBON%202026.png" alt="Lisbon">
+  <img class="hero-waves right" src="assets/wave-b.svg" alt="">
+  <div class="hero-inner wrap">
+    <span class="date-pill">September 28–30, 2026</span>
+    <h1>ALTS UK <em>&amp; Europe</em></h1>
+    <p class="place">Lisbon, Portugal</p>
+    <div class="hero-cta">
+      <a class="btn btn-grad" href="alts-buyer-registration.html">Apply as a Buyer</a>
+      <a class="btn btn-light" href="alts-exhibitor-registration.html">Apply as an Exhibitor</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= OVERVIEW ================= -->
+<section class="overview">
+  <div class="wrap ov-grid">
+    <h2 class="ov-title reveal">Event <em>overview</em></h2>
+    <div class="ov-text reveal">
+      <p>Join us in <b>Lisbon — Portugal's soulful capital</b>, known for its warm hospitality, coastal charm, and vibrant culture.</p>
+      <p>Over 2.5 days, this event will bring together exceptional luxury hospitality brands and handpicked European travel designers from the UK, Scandinavia, France, Southern Europe, Switzerland, and more.</p>
+      <p>From insightful conversations to relaxed networking moments, this is your opportunity to forge lasting relationships in a setting as beautiful as the connections you'll make.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= NUMBERS ================= -->
+<section class="numbers">
+  <img class="bg-wave" src="assets/wave-a.svg" alt="" style="filter:invert(.45) sepia(.2) saturate(3) hue-rotate(200deg)">
+  <div class="wrap">
+    <div class="num-head reveal"><h2>Event <em>in numbers</em></h2></div>
+    <div class="num-grid">
+      <div class="num-card reveal"><b>35</b><span>match made pre-scheduled 1:1 meetings</span></div>
+      <div class="num-card reveal"><b>2.5</b><span>days of outstanding networking</span></div>
+      <div class="num-card reveal"><b>50</b><span>hand-picked buyers from the UK and EU</span></div>
+      <div class="num-card reveal"><b>40</b><span>luxury worldwide travel suppliers</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= AGENDA ================= -->
+<section class="agenda">
+  <div class="wrap">
+    <div class="ag-head reveal"><h2>Event <em>agenda</em></h2></div>
+
+    <div class="day reveal">
+      <div class="day-img">
+        <img class="ph" src="https://cdn.prod.website-files.com/6899b009eafbcc44466f60d3/6914c7c079270ebc0d5e78a0_day28.png" alt="Welcome cocktail">
+        <img class="waves" src="assets/wave-a.svg" alt="">
+      </div>
+      <div class="day-txt">
+        <p class="d-date">September 28</p>
+        <span class="d-time">19:00 – 21:00</span>
+        <p>Begin your journey at our warm welcome cocktail. Mingle with fellow attendees during an elegant reception designed to spark meaningful first connections.</p>
+      </div>
+    </div>
+
+    <div class="day reveal">
+      <div class="day-img">
+        <img class="ph" src="https://cdn.prod.website-files.com/6899b009eafbcc44466f60d3/6914c7e01a9c159c1edc9e77_day29.png" alt="1:1 meetings">
+        <img class="waves" src="assets/wave-b.svg" alt="">
+      </div>
+      <div class="day-txt">
+        <p class="d-date">September 29</p>
+        <span class="d-time">09:00 – 21:00</span>
+        <p>Dive into a full day of curated 1:1 meetings, carefully matched to align with your business goals. As the sun sets, enjoy a lively networking dinner featuring a DJ set and a memorable culinary experience.</p>
+      </div>
+    </div>
+
+    <div class="day reveal">
+      <div class="day-img">
+        <img class="ph" src="https://cdn.prod.website-files.com/6899b009eafbcc44466f60d3/6914c7f502722587bae88e06_day%2030.png" alt="Farewell evening">
+        <img class="waves" src="assets/wave-c.svg" alt="">
+      </div>
+      <div class="day-txt">
+        <p class="d-date">September 30</p>
+        <span class="d-time">09:00 – 21:00</span>
+        <p>Spend the morning in a final round of tailored 1:1 meetings, then shift gears for exciting local experiences around Lisbon. Wrap up the day with a festive farewell evening, complete with live music and exceptional cuisine — an unforgettable close to an inspiring event.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= APPLY ================= -->
+<section class="apply">
+  <div class="wrap ap-grid">
+    <div class="ap-card reveal">
+      <img class="waves" src="assets/wave-c.svg" alt="">
+      <h3>Buyer</h3>
+      <p>Are you a luxury segment tour operator, independent travel designer, concierge company, or boutique travel agency from the UK or EU?</p>
+      <a class="btn btn-light" href="alts-buyer-registration.html">Apply as a Buyer</a>
+    </div>
+    <div class="ap-card alt reveal">
+      <img class="waves" src="assets/wave-a.svg" alt="">
+      <h3>Exhibitor</h3>
+      <p>Representing luxury hotels, DMC, destinations, cruise lines, or travel tech products? Get in touch and showcase your product to carefully selected premium buyers.</p>
+      <a class="btn btn-light" href="alts-exhibitor-registration.html">Apply as an Exhibitor</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= NEXT EVENTS ================= -->
+<section class="next">
+  <div class="wrap">
+    <div class="next-head reveal"><h2>More events <em>in 2026</em></h2></div>
+    <div class="next-grid">
+      <a class="next-card reveal" href="alts-event-baltic-roadshow.html">
+        <img class="bg" src="https://cdn.prod.website-files.com/6899b009eafbcc44466f60d3/6917186f01ae026164a1fc65_bcr.png" alt="Baltics">
+        <div class="txt">
+          <h3>ALTS Baltic Countries Roadshow</h3>
+          <p class="date">September 15–17, 2026</p>
+        </div>
+        <span class="ev-arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="next-card reveal" href="alts-event-cee-autumn.html">
+        <img class="bg" src="https://cdn.prod.website-files.com/6899b009eafbcc44466f60d3/691716474fa7b36d015068f3_autumn%20editionbac.png" alt="Warsaw">
+        <div class="txt">
+          <h3>ALTS CEE Autumn Edition</h3>
+          <p class="date">October 21–22, 2026</p>
+        </div>
+        <span class="ev-arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer id="contacts">
+  <div class="wrap">
+    <div class="f-nav">
+      <div class="f-links">
+        <a href="alts-events.html">Events</a><i>•</i>
+        <a href="alts-buyer-registration.html">For Buyers</a><i>•</i>
+        <a href="alts-exhibitor-registration.html">For Exhibitors</a><i>•</i>
+        <a href="alts-about.html">About ALTS</a><i>•</i>
+        <a href="alts-contact.html">Contacts</a>
+      </div>
+      <div class="f-social">
+        <a href="https://www.facebook.com/accessluxurytravelshow" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0 0 22 12Z"/></svg></a>
+        <a href="https://www.linkedin.com/company/access-luxury-travel-show/" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M20.4 3H3.6A.6.6 0 0 0 3 3.6v16.8c0 .3.3.6.6.6h16.8c.3 0 .6-.3.6-.6V3.6a.6.6 0 0 0-.6-.6ZM8.3 18.4H5.7V9.9h2.6v8.5ZM7 8.7a1.5 1.5 0 1 1 0-3.1 1.5 1.5 0 0 1 0 3ZM18.4 18.4h-2.6v-4.1c0-1 0-2.3-1.4-2.3s-1.6 1.1-1.6 2.2v4.2h-2.7V9.9h2.5v1.2h.1a2.8 2.8 0 0 1 2.5-1.4c2.7 0 3.2 1.8 3.2 4v4.7Z"/></svg></a>
+        <a href="https://www.instagram.com/alts.events/" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 1.2 0 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.2.1 1.6.1 4.8s0 3.6-.1 4.8c0 1.2-.2 1.8-.4 2.2a3.9 3.9 0 0 1-2.3 2.3c-.4.2-1 .4-2.2.4-1.2.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-1.2 0-1.8-.2-2.2-.4a3.9 3.9 0 0 1-2.3-2.3c-.2-.4-.4-1-.4-2.2-.1-1.2-.1-1.6-.1-4.8s0-3.6.1-4.8c0-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4 1.2-.1 1.6-.1 4.8-.1Zm0 2A61 61 0 0 0 7.3 4.3c-1.1 0-1.7.2-2 .4-.6.2-.9.5-1.1 1.1-.2.3-.4.9-.4 2-.1 1.2-.1 1.5-.1 4.7s0 3.5.1 4.7c0 1.1.2 1.7.4 2 .2.6.5.9 1.1 1.1.3.2.9.4 2 .4 1.2.1 1.5.1 4.7.1s3.5 0 4.7-.1c1.1 0 1.7-.2 2-.4.6-.2.9-.5 1.1-1.1.2-.3.4-.9.4-2 .1-1.2.1-1.5.1-4.7s0-3.5-.1-4.7c0-1.1-.2-1.7-.4-2a1.9 1.9 0 0 0-1.1-1.1c-.3-.2-.9-.4-2-.4-1.2-.1-1.5-.1-4.7-.1Zm0 3.3a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm5.2-3.5a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4Z"/></svg></a>
+      </div>
+    </div>
+    <hr>
+    <div class="f-brand">
+      <div class="logos">
+        <span style="display:flex;flex-direction:column;gap:6px">
+          <img src="assets/wordmark-white.png" alt="ACCESS" style="height:26px;width:auto">
+          <img src="assets/tagline-white.png" alt="Explore | Connect | Travel" style="height:9px;width:auto">
+        </span>
+        <span class="x">×</span>
+        <img src="https://cdn.prod.website-files.com/6899b009eafbcc44466f60d3/6899bc2f414ba1d0943f1657_Logo%20Black.svg" alt="ALTS" style="filter:brightness(0) invert(1)">
+      </div>
+      <p>ALTS is affiliated with Access.Marketing – an international premium travel representation company with 15+ years of exceptional experience in providing custom services of sales, marketing and PR across the markets of CEE, DACH, CIS, Central Asia, and Turkey.</p>
+    </div>
+    <hr>
+    <div class="f-bottom">
+      <p class="copy">© 2026 ALTS EVENTS LIMITED 6 St David Square,<br>London, E14 3WA, United Kingdom</p>
+      <p class="f-motto">we meet <em>differently.</em></p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const hdr=document.getElementById('hdr');
+  addEventListener('scroll',()=>hdr.classList.toggle('scrolled',scrollY>60),{passive:true});
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}}),{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>

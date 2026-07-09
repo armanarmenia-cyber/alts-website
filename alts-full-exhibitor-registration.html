@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exhibitor Registration Form | Access Luxury Travel Show</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/alts.css">
+</head>
+<body>
+
+<header id="hdr" class="solid">
+  <div class="wrap nav">
+    <a href="alts-redesign-home.html" class="brand">
+      <img class="logo" src="https://cdn.prod.website-files.com/6899b009eafbcc44466f60d3/6899bc2f414ba1d0943f1657_Logo%20Black.svg" alt="ALTS">
+      <span class="brand-txt">Access Luxury<br>Travel Show</span>
+    </a>
+    <nav class="links">
+      <a href="alts-events.html">Events</a>
+      <a href="alts-buyer-registration.html">For Buyers</a>
+      <a href="alts-exhibitor-registration.html">For Exhibitors</a>
+      <a href="alts-about.html">About ALTS</a>
+      <a href="alts-contact.html">Contacts</a>
+      <a href="alts-exhibitor-registration.html" class="btn btn-grad">Request an Invitation</a>
+          <button class="burger" onclick="document.getElementById('mmenu').classList.add('open')" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </nav>
+  </div>
+</header>
+<div class="m-menu" id="mmenu">
+  <button class="close-m" onclick="this.parentElement.classList.remove('open')" aria-label="Close menu">&times;</button>
+  <a href="alts-events.html">Events</a>
+  <a href="alts-buyer-registration.html">For Buyers</a>
+  <a href="alts-exhibitor-registration.html">For Exhibitors</a>
+  <a href="alts-about.html">About ALTS</a>
+  <a href="alts-contact.html">Contacts</a>
+  <a href="alts-exhibitor-registration.html" class="btn btn-grad">Request an Invitation</a>
+</div>
+
+<section class="form-page">
+  <img class="bg-wave" src="assets/wave-c.svg" alt="">
+  <div class="wrap" style="position:relative;z-index:2;max-width:920px">
+    <h1 class="sec-h big reveal" style="text-align:center">Exhibitor <em>registration form.</em></h1>
+    <p class="reveal" style="text-align:center;max-width:640px;margin:24px auto 44px;font-size:16px;line-height:1.85">Dear Partner, thank you for your interest in the upcoming ALTS event! To complete your registration, please fill out the form below.</p>
+
+    <div class="form-card reveal">
+      <!-- EVENTS -->
+      <div class="checks">
+        <p class="q">Choose your ALTS event:</p>
+        <label class="check"><input type="checkbox" class="ev" data-sec="sec-baltic" value="ALTS Baltic Countries Roadshow, Sep 15–17, 2026"> ALTS — Baltic Countries Roadshow · September 15–17, 2026</label>
+        <label class="check"><input type="checkbox" class="ev" data-sec="sec-lisbon" value="ALTS UK & EU Lisbon, Sep 28–30, 2026"> ALTS — UK &amp; EU, Lisbon, Portugal · September 28–30, 2026</label>
+        <label class="check"><input type="checkbox" class="ev" data-sec="sec-warsaw" value="ALTS CEE Autumn Edition Warsaw, Oct 21–22, 2026"> ALTS — CEE Autumn Edition, Warsaw, Poland · October 21–22, 2026</label>
+      </div>
+
+      <!-- PERSONAL -->
+      <div class="f-block"><h3>Your details</h3></div>
+      <div class="f-row">
+        <div class="field"><label for="fn">First Name *</label><input type="text" id="fn"></div>
+        <div class="field"><label for="ln">Last Name *</label><input type="text" id="ln"></div>
+      </div>
+      <div class="f-row">
+        <div class="field"><label for="co">Company Name</label><input type="text" id="co"></div>
+        <div class="field"><label for="countries">Countries Where Your Brand Operates</label><input type="text" id="countries"></div>
+      </div>
+      <div class="f-row">
+        <div class="field"><label for="pos">Position in the Company</label><input type="text" id="pos"></div>
+        <div class="field"><label for="web">Website</label><input type="url" id="web"></div>
+      </div>
+      <div class="f-row">
+        <div class="field"><label for="email">Email Address *</label><input type="email" id="email"></div>
+        <div class="field"><label for="tel">Phone Number</label><input type="tel" id="tel"></div>
+      </div>
+
+      <!-- INVOICING -->
+      <div class="f-block"><h3>Invoicing details</h3></div>
+      <div class="f-row">
+        <div class="field"><label for="legal">Company Legal Name</label><input type="text" id="legal"></div>
+        <div class="field"><label for="vat">VAT Number</label><input type="text" id="vat"></div>
+      </div>
+      <div class="field"><label for="invaddr">Invoicing Address</label><input type="text" id="invaddr"></div>
+      <div class="field"><label for="cat">Description of your product for the exhibitors' catalogue</label><textarea id="cat"></textarea></div>
+      <p class="hint" style="font-size:12.5px;color:var(--grey);margin:-6px 0 10px">Please email at least three photos of your product, service, or destination, as well as your logo, to <a href="mailto:events@altsevents.com" style="color:var(--peri);text-decoration:underline">events@altsevents.com</a> after submitting this form.</p>
+
+      <!-- BALTIC PACKAGES -->
+      <div id="sec-baltic" hidden>
+      <div class="f-block"><h3>ALTS Baltic Countries Roadshow · Sep 15–17, 2026</h3>
+        <p class="hint">Prices include VAT. Available promo rates and discounts will be applied directly in your invoice.</p>
+      </div>
+      <div class="checks">
+        <label class="check"><input type="radio" name="pk-baltic" value="Standard Three Cities — 6900€"> Standard Three Cities (Vilnius, Riga, Tallinn), incl. Accommodation &amp; Transportation between cities — 6900€</label>
+        <label class="check disabled"><input type="radio" name="pk-baltic" value="Partnership All Cities — 9000€" disabled> Partnership All Cities — 9000€ <span class="sub">Sold Out</span></label>
+        <label class="check"><input type="radio" name="pk-baltic" value="" checked> No package for this event</label>
+      </div>
+      </div><!-- /sec-baltic -->
+
+      <!-- LISBON PACKAGES -->
+      <div id="sec-lisbon" hidden>
+      <div class="f-block"><h3>ALTS UK &amp; EU, Lisbon · Sep 28–30, 2026</h3>
+        <p class="hint">Prices include VAT. Available promo rates and discounts will be applied directly in your invoice.</p>
+      </div>
+      <div class="checks">
+        <label class="check"><input type="radio" name="pk-lisbon" value="Standard — 5000€"> Standard — 5000€</label>
+        <label class="check"><input type="radio" name="pk-lisbon" value="Premium — 6700€"> Premium — 6700€</label>
+        <label class="check"><input type="radio" name="pk-lisbon" value="Partnership — 7900€"> Partnership — 7900€</label>
+        <label class="check"><input type="radio" name="pk-lisbon" value="Standard Shared Table — 2850€"> Standard Shared Table — 2850€</label>
+        <label class="check"><input type="radio" name="pk-lisbon" value="Premium Shared Table — 3450€"> Premium Shared Table — 3450€</label>
+        <label class="check"><input type="radio" name="pk-lisbon" value="" checked> No package for this event</label>
+      </div>
+      <div class="checks">
+        <p class="q">Lisbon — additional services:</p>
+        <label class="check"><input type="checkbox" class="ex-lisbon" value="Add Second Attendee — 600€"> Add Second Attendee — 600€</label>
+        <label class="check"><input type="checkbox" class="ex-lisbon" value="Full Travel Package — 1055€"> Full Travel Package — 1055€ <span class="sub">3 nights at Hyatt Regency Lisbon, Sep 28 – Oct 1, 2026 (BB) + round-trip airport transfer</span></label>
+        <label class="check"><input type="checkbox" class="ex-lisbon" value="Accommodation Package — 895€"> Accommodation Package — 895€ <span class="sub">3 nights at Hyatt Regency Lisbon, Sep 28 – Oct 1, 2026 (BB)</span></label>
+      </div>
+      </div><!-- /sec-lisbon -->
+
+      <!-- WARSAW PACKAGES -->
+      <div id="sec-warsaw" hidden>
+      <div class="f-block"><h3>ALTS CEE Autumn Edition, Warsaw · Oct 21–22, 2026</h3>
+        <p class="hint">Prices include VAT. Available promo rates and discounts will be applied directly in your invoice.</p>
+      </div>
+      <div class="checks">
+        <label class="check"><input type="radio" name="pk-warsaw" value="Standard — 4500€"> Standard — 4500€</label>
+        <label class="check"><input type="radio" name="pk-warsaw" value="Premium — 5800€"> Premium — 5800€</label>
+        <label class="check"><input type="radio" name="pk-warsaw" value="Partnership — 7500€"> Partnership — 7500€</label>
+        <label class="check"><input type="radio" name="pk-warsaw" value="Standard Shared Table — 2750€"> Standard Shared Table — 2750€</label>
+        <label class="check"><input type="radio" name="pk-warsaw" value="Premium Shared Table — 3250€"> Premium Shared Table — 3250€</label>
+        <label class="check"><input type="radio" name="pk-warsaw" value="" checked> No package for this event</label>
+      </div>
+      <div class="checks">
+        <p class="q">Warsaw — additional services:</p>
+        <label class="check"><input type="checkbox" class="ex-warsaw" value="Add Second Attendee — 500€"> Add Second Attendee — 500€</label>
+        <label class="check"><input type="checkbox" class="ex-warsaw" value="Full Travel Package — 650€"> Full Travel Package — 650€ <span class="sub">2 nights at Hotel Bristol, a Luxury Collection Hotel, Warsaw, Oct 21–23, 2026 (BB) + round-trip airport transfer</span></label>
+        <label class="check"><input type="checkbox" class="ex-warsaw" value="Accommodation Package — 490€"> Accommodation Package — 490€ <span class="sub">2 nights at Hotel Bristol, a Luxury Collection Hotel, Warsaw, Oct 21–23, 2026 (BB)</span></label>
+      </div>
+      </div><!-- /sec-warsaw -->
+
+      <!-- SECOND ATTENDEE -->
+      <div id="sec-attendee" hidden>
+      <div class="f-block"><h3>Second attendee</h3>
+        <p class="hint">Please fill out the details of the second attendee.</p>
+      </div>
+      <div class="f-row">
+        <div class="field"><label for="a2fn">First Name</label><input type="text" id="a2fn"></div>
+        <div class="field"><label for="a2ln">Last Name</label><input type="text" id="a2ln"></div>
+      </div>
+      <div class="f-row">
+        <div class="field"><label for="a2pos">Position</label><input type="text" id="a2pos"></div>
+        <div class="field"><label for="a2email">Email Address</label><input type="email" id="a2email"></div>
+      </div>
+      <div class="field"><label for="a2tel">Phone Number</label><input type="tel" id="a2tel"></div>
+      </div><!-- /sec-attendee -->
+
+      <!-- T&C -->
+      <div class="checks" style="margin-top:26px">
+        <label class="check"><input type="checkbox" id="tc"> I accept the <a href="https://www.altsevents.com/alts-terms-conditions" style="color:var(--peri);text-decoration:underline">&nbsp;T&amp;C</a>, Payment and Cancellation Policy *</label>
+      </div>
+      <p class="hint" style="font-size:12.5px;color:var(--grey);margin-bottom:18px">You will receive an invoice once your application is processed.</p>
+
+      <button class="btn btn-grad" id="submit-btn" onclick="submitFull()">Submit registration</button>
+      <p id="status" style="display:none;margin-top:16px;padding:14px 18px;border-radius:10px;font-size:14px;font-weight:500"></p>
+      <p class="privacy">You agree to our friendly <a href="https://www.altsevents.com/privacy-policy">privacy policy</a>.</p>
+    </div>
+  </div>
+</section>
+
+<footer id="contacts">
+  <div class="wrap">
+    <div class="f-nav">
+      <div class="f-links">
+        <a href="alts-events.html">Events</a><i>•</i>
+        <a href="alts-buyer-registration.html">For Buyers</a><i>•</i>
+        <a href="alts-exhibitor-registration.html">For Exhibitors</a><i>•</i>
+        <a href="alts-about.html">About ALTS</a><i>•</i>
+        <a href="alts-contact.html">Contacts</a>
+      </div>
+      <div class="f-social">
+        <a href="https://www.facebook.com/accessluxurytravelshow" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0 0 22 12Z"/></svg></a>
+        <a href="https://www.linkedin.com/company/access-luxury-travel-show/" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M20.4 3H3.6A.6.6 0 0 0 3 3.6v16.8c0 .3.3.6.6.6h16.8c.3 0 .6-.3.6-.6V3.6a.6.6 0 0 0-.6-.6ZM8.3 18.4H5.7V9.9h2.6v8.5ZM7 8.7a1.5 1.5 0 1 1 0-3.1 1.5 1.5 0 0 1 0 3ZM18.4 18.4h-2.6v-4.1c0-1 0-2.3-1.4-2.3s-1.6 1.1-1.6 2.2v4.2h-2.7V9.9h2.5v1.2h.1a2.8 2.8 0 0 1 2.5-1.4c2.7 0 3.2 1.8 3.2 4v4.7Z"/></svg></a>
+        <a href="https://www.instagram.com/alts.events/" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 1.2 0 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.2.1 1.6.1 4.8s0 3.6-.1 4.8c0 1.2-.2 1.8-.4 2.2a3.9 3.9 0 0 1-2.3 2.3c-.4.2-1 .4-2.2.4-1.2.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-1.2 0-1.8-.2-2.2-.4a3.9 3.9 0 0 1-2.3-2.3c-.2-.4-.4-1-.4-2.2-.1-1.2-.1-1.6-.1-4.8s0-3.6.1-4.8c0-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4 1.2-.1 1.6-.1 4.8-.1Zm0 2A61 61 0 0 0 7.3 4.3c-1.1 0-1.7.2-2 .4-.6.2-.9.5-1.1 1.1-.2.3-.4.9-.4 2-.1 1.2-.1 1.5-.1 4.7s0 3.5.1 4.7c0 1.1.2 1.7.4 2 .2.6.5.9 1.1 1.1.3.2.9.4 2 .4 1.2.1 1.5.1 4.7.1s3.5 0 4.7-.1c1.1 0 1.7-.2 2-.4.6-.2.9-.5 1.1-1.1.2-.3.4-.9.4-2 .1-1.2.1-1.5.1-4.7s0-3.5-.1-4.7c0-1.1-.2-1.7-.4-2a1.9 1.9 0 0 0-1.1-1.1c-.3-.2-.9-.4-2-.4-1.2-.1-1.5-.1-4.7-.1Zm0 3.3a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm5.2-3.5a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4Z"/></svg></a>
+      </div>
+    </div>
+    <hr>
+    <div class="f-brand">
+      <div class="logos">
+        <span style="display:flex;flex-direction:column;gap:6px">
+          <img src="assets/wordmark-white.png" alt="ACCESS" style="height:26px;width:auto">
+          <img src="assets/tagline-white.png" alt="Explore | Connect | Travel" style="height:9px;width:auto">
+        </span>
+        <span class="x">×</span>
+        <img src="https://cdn.prod.website-files.com/6899b009eafbcc44466f60d3/6899bc2f414ba1d0943f1657_Logo%20Black.svg" alt="ALTS" style="height:44px;filter:brightness(0) invert(1)">
+      </div>
+      <p>ALTS is affiliated with Access.Marketing – an international premium travel representation company with 15+ years of exceptional experience in providing custom services of sales, marketing and PR across the markets of CEE, DACH, CIS, Central Asia, and Turkey.</p>
+    </div>
+    <hr>
+    <div class="f-bottom">
+      <p class="copy">© 2026 ALTS EVENTS LIMITED 6 St David Square,<br>London, E14 3WA, United Kingdom</p>
+      <p class="f-motto">we meet <em>differently.</em></p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}}),{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  const MAKE_WEBHOOK_URL = 'https://hook.eu1.make.com/awvokqplkq7yc69hc7s5a641qfs46e7v';
+
+  // show packages only for selected events
+  document.querySelectorAll('.ev').forEach(cb=>cb.addEventListener('change',()=>{
+    const sec=document.getElementById(cb.dataset.sec);
+    sec.hidden=!cb.checked;
+    if(!cb.checked){ // reset selections of hidden section
+      sec.querySelectorAll('input[type=radio]').forEach(r=>{r.checked=(r.value==='')});
+      sec.querySelectorAll('input[type=checkbox]').forEach(c=>c.checked=false);
+      toggleAttendee();
+    }
+  }));
+  // show second attendee only when an "Add Second Attendee" extra is checked
+  function toggleAttendee(){
+    const need=[...document.querySelectorAll('.ex-lisbon:checked,.ex-warsaw:checked')].some(c=>c.value.includes('Second Attendee'));
+    document.getElementById('sec-attendee').hidden=!need;
+  }
+  document.querySelectorAll('.ex-lisbon,.ex-warsaw').forEach(c=>c.addEventListener('change',toggleAttendee));
+
+  async function submitFull(){
+    const v=id=>document.getElementById(id).value.trim();
+    const status=document.getElementById('status');
+    const btn=document.getElementById('submit-btn');
+    const show=(ok,msg)=>{status.style.display='block';status.style.background=ok?'#E8F5EC':'#FDECEC';status.style.color=ok?'#1E7A3C':'#B3261E';status.textContent=msg};
+
+    if(!v('fn')||!v('email')){show(false,'Please fill in at least your first name and email.');return}
+    if(!document.getElementById('tc').checked){show(false,'Please accept the T&C, Payment and Cancellation Policy.');return}
+
+    const events=[...document.querySelectorAll('.ev:checked')].map(c=>c.value);
+    const pk=n=>{const r=document.querySelector(`input[name="${n}"]:checked`);return r&&r.value?r.value:null};
+    const exs=cls=>[...document.querySelectorAll(`.${cls}:checked`)].map(c=>c.value);
+
+    const details=[];
+    if(pk('pk-baltic')) details.push('BALTIC: '+pk('pk-baltic'));
+    if(pk('pk-lisbon')) details.push('LISBON: '+pk('pk-lisbon'));
+    exs('ex-lisbon').forEach(x=>details.push('LISBON extra: '+x));
+    if(pk('pk-warsaw')) details.push('WARSAW: '+pk('pk-warsaw'));
+    exs('ex-warsaw').forEach(x=>details.push('WARSAW extra: '+x));
+    if(v('legal')||v('vat')||v('invaddr')) details.push(`INVOICING: ${v('legal')} / VAT ${v('vat')} / ${v('invaddr')}`);
+    if(v('a2fn')||v('a2email')) details.push(`SECOND ATTENDEE: ${v('a2fn')} ${v('a2ln')}, ${v('a2pos')}, ${v('a2email')}, ${v('a2tel')}`);
+    if(v('cat')) details.push('CATALOGUE: '+v('cat'));
+
+    btn.disabled=true;btn.style.opacity=.6;
+    try{
+      const r=await fetch(MAKE_WEBHOOK_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({
+        form:'full-exhibitor-registration',
+        first_name:v('fn'),last_name:v('ln'),company:v('co'),position:v('pos'),
+        country_city:v('countries'),website:v('web'),email:v('email'),phone:v('tel'),
+        events:events,
+        question:details.join(' | '),
+        page:location.href,submitted_at:new Date().toISOString()
+      })});
+      if(r.ok){show(true,'Thank you for your application! We will contact you within 24 hours. You will receive an invoice once your application is processed.');}
+      else show(false,'Something went wrong while submitting the form. Please try again.');
+    }catch(e){show(false,'Network error. Please try again or email us directly.')}
+    btn.disabled=false;btn.style.opacity=1;
+  }
+</script>
+</body>
+</html>
