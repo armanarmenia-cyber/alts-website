@@ -84,6 +84,9 @@
   .num-card b{display:block;font-family:var(--serif);font-style:italic;font-weight:500;font-size:64px;line-height:1;color:var(--peri);margin-bottom:16px}
   .num-card span{font-size:14px;font-weight:500;line-height:1.55;color:var(--ink)}
 
+  .sched{list-style:none;margin-top:18px;display:flex;flex-direction:column;gap:10px;padding:0}
+  .sched li{display:flex;gap:18px;font-size:15.5px;line-height:1.55;color:var(--ink)}
+  .sched li span{flex:0 0 112px;font-weight:600;color:var(--peri);font-variant-numeric:tabular-nums;white-space:nowrap}
   /* ================= agenda ================= */
   .agenda{padding:110px 0}
   .ag-head{text-align:center;margin-bottom:64px}
@@ -224,6 +227,18 @@
   </div>
 </section>
 
+<!-- ================= EVENT PARTNERS ================= -->
+<section class="partners" style="padding:64px 0 8px">
+  <div class="wrap" style="text-align:center">
+    <h2 class="reveal" style="font-family:var(--sans);font-weight:600;font-size:15px;letter-spacing:.14em;text-transform:uppercase;color:var(--peri);margin-bottom:38px">Event Partners</h2>
+    <div class="reveal" style="display:flex;gap:70px;align-items:center;justify-content:center;flex-wrap:wrap">
+      <img src="assets/partner-hyatt.png" alt="Hyatt Regency Lisboa" style="height:38px;width:auto;filter:brightness(0);opacity:.72">
+      <img src="assets/partner-excelencia.png" alt="Excelência de Portugal Concierge" style="height:70px;width:auto;filter:brightness(0);opacity:.72">
+    </div>
+  </div>
+</section>
+
+
 <!-- ================= NUMBERS ================= -->
 <section class="numbers">
   <img class="bg-wave" src="assets/wave-a.svg" alt="" style="filter:invert(.45) sepia(.2) saturate(3) hue-rotate(200deg)">
@@ -249,9 +264,10 @@
         <img class="waves" src="assets/wave-a.svg" alt="">
       </div>
       <div class="day-txt">
-        <p class="d-date">September 28</p>
-        <span class="d-time">19:00 – 21:00</span>
-        <p>Begin your journey at our warm welcome cocktail. Mingle with fellow attendees during an elegant reception designed to spark meaningful first connections.</p>
+        <p class="d-date">28 September</p>
+        <ul class="sched">
+          <li><span>18:00–20:30</span>Welcome reception</li>
+        </ul>
       </div>
     </div>
 
@@ -261,9 +277,14 @@
         <img class="waves" src="assets/wave-b.svg" alt="">
       </div>
       <div class="day-txt">
-        <p class="d-date">September 29</p>
-        <span class="d-time">09:00 – 21:00</span>
-        <p>Dive into a full day of curated 1:1 meetings, carefully matched to align with your business goals. As the sun sets, enjoy a lively networking dinner featuring a DJ set and a memorable culinary experience.</p>
+        <p class="d-date">29 September</p>
+        <ul class="sched">
+          <li><span>08:30–09:00</span>Registration</li>
+          <li><span>09:00–16:15</span>Meeting sessions</li>
+          <li><span>16:15–17:50</span>Free time</li>
+          <li><span>18:30–20:30</span>Networking standing dinner</li>
+          <li><span>20:30–21:30</span>Post-dinner cocktails</li>
+        </ul>
       </div>
     </div>
 
@@ -273,26 +294,18 @@
         <img class="waves" src="assets/wave-c.svg" alt="">
       </div>
       <div class="day-txt">
-        <p class="d-date">September 30</p>
-        <span class="d-time">09:00 – 21:00</span>
-        <p>Spend the morning in a final round of tailored 1:1 meetings, then shift gears for exciting local experiences around Lisbon. Wrap up the day with a festive farewell evening, complete with live music and exceptional cuisine – an unforgettable close to an inspiring event.</p>
+        <p class="d-date">30 September</p>
+        <ul class="sched">
+          <li><span>08:30–12:45</span>Meeting sessions</li>
+          <li><span>14:00–17:00</span>Team-building &amp; networking activities across the city</li>
+          <li><span>17:15–17:50</span>Free time</li>
+          <li><span>18:30–21:30</span>Farewell Gala dinner</li>
+        </ul>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ================= EVENT PARTNERS ================= -->
-<section class="partners" style="padding:0 0 30px">
-  <div class="wrap">
-    <div class="reveal" style="background:var(--grad);border-radius:16px;padding:52px 30px;text-align:center">
-      <h2 style="font-family:var(--sans);font-weight:600;font-size:15px;letter-spacing:.14em;text-transform:uppercase;color:#AEB2E2;margin-bottom:36px">Event Partners</h2>
-      <div style="display:flex;gap:64px;align-items:center;justify-content:center;flex-wrap:wrap">
-        <img src="assets/partner-hyatt.png" alt="Hyatt Regency Lisboa" style="height:40px;width:auto;filter:brightness(0) invert(1)">
-        <img src="assets/partner-excelencia.png" alt="Excelência de Portugal Concierge" style="height:72px;width:auto;filter:brightness(0) invert(1)">
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- ================= APPLY ================= -->
 <section class="apply">
