@@ -8,6 +8,13 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/alts.css?v=5">
+<style>
+  .role-opt{cursor:pointer}
+  .role-opt input{position:absolute;opacity:0;pointer-events:none}
+  .role-pill{display:inline-block;padding:10px 22px;border:1.5px solid var(--peri);border-radius:999px;font-size:14px;font-weight:500;color:var(--navy);transition:background .25s,color .25s,border-color .25s}
+  .role-opt input:checked+.role-pill{background:var(--navy);color:#fff;border-color:var(--navy)}
+  .role-opt:hover .role-pill{border-color:var(--navy)}
+</style>
 </head>
 <body>
 
@@ -50,8 +57,8 @@
       <div class="form-card reveal" style="margin-top:40px">
         <div class="field"><label>I am a...</label>
           <div style="display:flex;gap:10px;flex-wrap:wrap">
-            <label style="cursor:pointer"><input type="radio" name="c-role" value="I am a buyer" style="position:absolute;opacity:0" onchange="document.querySelectorAll('.role-pill').forEach(p=>p.style.cssText=p.style.cssText.replace(/background[^;]*;color[^;]*;border-color[^;]*;?/,''));this.parentElement.querySelector('.role-pill').style.cssText+='background:var(--navy);color:#fff;border-color:var(--navy);'"><span class="role-pill" style="display:inline-block;padding:10px 22px;border:1.5px solid var(--peri);border-radius:999px;font-size:14px;font-weight:500;color:var(--navy);transition:all .25s">I am a buyer</span></label>
-            <label style="cursor:pointer"><input type="radio" name="c-role" value="I am a supplier" style="position:absolute;opacity:0" onchange="document.querySelectorAll('.role-pill').forEach(p=>p.style.cssText=p.style.cssText.replace(/background[^;]*;color[^;]*;border-color[^;]*;?/,''));this.parentElement.querySelector('.role-pill').style.cssText+='background:var(--navy);color:#fff;border-color:var(--navy);'"><span class="role-pill" style="display:inline-block;padding:10px 22px;border:1.5px solid var(--peri);border-radius:999px;font-size:14px;font-weight:500;color:var(--navy);transition:all .25s">I am a supplier</span></label>
+            <label class="role-opt"><input type="radio" name="c-role" value="I am a buyer"><span class="role-pill">I am a buyer</span></label>
+            <label class="role-opt"><input type="radio" name="c-role" value="I am a supplier"><span class="role-pill">I am a supplier</span></label>
           </div>
         </div>
         <div class="field"><label for="c-name">Name</label><input type="text" id="c-name" placeholder="Your name"></div>
