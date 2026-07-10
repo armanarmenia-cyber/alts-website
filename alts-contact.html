@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/alts.css?v=3">
+<link rel="stylesheet" href="assets/alts.css?v=4">
 </head>
 <body>
 
@@ -48,6 +48,12 @@
       <a class="mail-link reveal" href="mailto:hello@altsevents.com">hello@altsevents.com</a>
 
       <div class="form-card reveal" style="margin-top:40px">
+        <div class="field"><label>I am a...</label>
+          <div style="display:flex;gap:10px;flex-wrap:wrap">
+            <label style="cursor:pointer"><input type="radio" name="c-role" value="I am a buyer" style="position:absolute;opacity:0" onchange="document.querySelectorAll('.role-pill').forEach(p=>p.style.cssText=p.style.cssText.replace(/background[^;]*;color[^;]*;border-color[^;]*;?/,''));this.parentElement.querySelector('.role-pill').style.cssText+='background:var(--navy);color:#fff;border-color:var(--navy);'"><span class="role-pill" style="display:inline-block;padding:10px 22px;border:1.5px solid var(--peri);border-radius:999px;font-size:14px;font-weight:500;color:var(--navy);transition:all .25s">I am a buyer</span></label>
+            <label style="cursor:pointer"><input type="radio" name="c-role" value="I am a supplier" style="position:absolute;opacity:0" onchange="document.querySelectorAll('.role-pill').forEach(p=>p.style.cssText=p.style.cssText.replace(/background[^;]*;color[^;]*;border-color[^;]*;?/,''));this.parentElement.querySelector('.role-pill').style.cssText+='background:var(--navy);color:#fff;border-color:var(--navy);'"><span class="role-pill" style="display:inline-block;padding:10px 22px;border:1.5px solid var(--peri);border-radius:999px;font-size:14px;font-weight:500;color:var(--navy);transition:all .25s">I am a supplier</span></label>
+          </div>
+        </div>
         <div class="field"><label for="c-name">Name</label><input type="text" id="c-name" placeholder="Your name"></div>
         <div class="field"><label for="c-email">Email</label><input type="email" id="c-email" placeholder="you@company.com"></div>
         <div class="field"><label for="c-msg">Message</label><textarea id="c-msg" placeholder="How can we help?"></textarea></div>
@@ -112,13 +118,15 @@
     const btn=document.getElementById('c-submit');
     const show=(ok,msg)=>{status.style.display='block';status.style.background=ok?'#E8F5EC':'#FDECEC';status.style.color=ok?'#1E7A3C':'#B3261E';status.textContent=msg};
 
+    if(!document.querySelector('input[name=\'c-role\']:checked')){show(false,'Please select: are you a buyer or a supplier?');return}
     if(!v('c-name')||!v('c-email')||!v('c-msg')){show(false,'Please fill in your name, email and message.');return}
-    if(MAKE_WEBHOOK_URL.startsWith('PASTE')){show(false,'Webhook is not configured yet — add your Make webhook URL to this page.');return}
+    if(MAKE_WEBHOOK_URL.startsWith('PASTE')){show(false,'Webhook is not configured yet – add your Make webhook URL to this page.');return}
 
     btn.disabled=true;btn.style.opacity=.6;
     try{
       const r=await fetch(MAKE_WEBHOOK_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({
         form:'contact',
+        role:(document.querySelector('input[name=\'c-role\']:checked')||{}).value||'',
         name:v('c-name'),email:v('c-email'),message:v('c-msg'),
         page:location.href,submitted_at:new Date().toISOString()
       })});

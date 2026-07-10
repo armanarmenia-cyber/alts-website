@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/alts.css?v=3">
+<link rel="stylesheet" href="assets/alts.css?v=4">
 </head>
 <body>
 
@@ -67,9 +67,9 @@
       </div>
       <div class="checks">
         <p class="q">What event are you interested in?</p>
-        <label class="check"><input type="checkbox"> ALTS — Baltic Countries Roadshow · September 15–17, 2026</label>
-        <label class="check"><input type="checkbox"> ALTS — UK &amp; EU, Lisbon, Portugal · September 28–30, 2026</label>
-        <label class="check"><input type="checkbox"> ALTS — CEE Autumn Edition, Warsaw, Poland · October 21–22, 2026</label>
+        <label class="check"><input type="checkbox"> ALTS – Baltic Countries Roadshow · September 15–17, 2026</label>
+        <label class="check"><input type="checkbox"> ALTS – UK &amp; EU, Lisbon, Portugal · September 28–30, 2026</label>
+        <label class="check"><input type="checkbox"> ALTS – CEE Autumn Edition, Warsaw, Poland · October 21–22, 2026</label>
       </div>
       <div class="field"><label for="b-q">Your Question</label><textarea id="b-q"></textarea></div>
       <button class="btn btn-grad" id="b-submit" onclick="submitBuyer()">Submit application</button>
@@ -131,7 +131,7 @@
     const show=(ok,msg)=>{status.style.display='block';status.style.background=ok?'#E8F5EC':'#FDECEC';status.style.color=ok?'#1E7A3C':'#B3261E';status.textContent=msg};
 
     if(!v('b-fn')||!v('b-email')){show(false,'Please fill in at least your first name and email.');return}
-    if(MAKE_WEBHOOK_URL.startsWith('PASTE')){show(false,'Webhook is not configured yet — add your Make webhook URL to this page.');return}
+    if(MAKE_WEBHOOK_URL.startsWith('PASTE')){show(false,'Webhook is not configured yet – add your Make webhook URL to this page.');return}
 
     btn.disabled=true;btn.style.opacity=.6;
     try{
