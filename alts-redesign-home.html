@@ -84,6 +84,15 @@
   .view-all{display:inline-block;margin-top:34px;font-size:14px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--peri);padding-bottom:8px;border-bottom:2px solid var(--peri);transition:color .3s,border-color .3s}
   .view-all:hover{color:var(--navy);border-color:var(--navy)}
 
+
+  /* exhibitors marquee */
+  .logo-marquee{overflow-x:auto;scrollbar-width:none;cursor:grab;margin-bottom:40px;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 6%,#000 94%,transparent 100%);mask-image:linear-gradient(90deg,transparent 0,#000 6%,#000 94%,transparent 100%)}
+  .logo-marquee::-webkit-scrollbar{display:none}
+  .logo-marquee.dragging{cursor:grabbing}
+  .logo-mq-track{display:flex;align-items:center;width:max-content}
+  .logo-mq-cell{flex:0 0 auto;display:flex;align-items:center;justify-content:center;padding:26px 36px;border-left:1px solid var(--line)}
+  .logo-mq-cell:first-child{border-left:none}
+  .logo-mq-cell img{width:auto;object-fit:contain;opacity:.8;user-select:none}
   /* ================= logos ================= */
   .trust{padding:60px 0 80px;border-top:1px solid var(--line)}
   .logo-row{display:flex;align-items:stretch;overflow:hidden;margin-bottom:40px}
@@ -246,14 +255,71 @@
 <section class="trust" id="exhibitors">
   <div class="wrap">
     <h2 class="sec-title-c reveal">These Exhibitors Trust Us</h2>
-    <div class="logo-row reveal">
-      <div class="logo-cell"><img src="https://cdn.prod.website-files.com/6899b009eafbcc44466f60d3/69259699d451c3014e83eb13_four%20seasons.svg" alt="Four Seasons"></div>
-      <div class="logo-cell"><img src="https://cdn.prod.website-files.com/6899b009eafbcc44466f60d3/68d406657a2b169a8e8be08f_six_senses_logo.png" alt="Six Senses"></div>
-      <div class="logo-cell"><img src="https://cdn.prod.website-files.com/6899b009eafbcc44466f60d3/6932cea75187d244b4ca3ad9_nobu%20hotel.svg" alt="Nobu Hotel Warsaw"></div>
-      <div class="logo-cell"><img src="https://cdn.prod.website-files.com/6899b009eafbcc44466f60d3/68f75ff363cb077f13c5e5d7_w-budapest.svg" alt="W Budapest"></div>
-      <div class="logo-cell"><img src="https://cdn.prod.website-files.com/6899b009eafbcc44466f60d3/69259921da31c0494e4b8975_raffles.svg" alt="Raffles"></div>
-      <div class="logo-cell"><img src="https://cdn.prod.website-files.com/6899b009eafbcc44466f60d3/69259ffadd78545bf8cdd67c_regnum_logo.svg" alt="Regnum"></div>
-      <div class="logo-cell"><img src="https://cdn.prod.website-files.com/6899b009eafbcc44466f60d3/6932cc577046e1752e5a7136_reid%27s_palace_logo.svg" alt="Reid's Palace"></div>
+    <div class="logo-marquee reveal" id="exh-mq" aria-label="ALTS exhibitors">
+      <div class="logo-mq-track">
+      <div class="logo-mq-cell"><img src="assets/exh-17.png" alt="Luxperia" style="height:26px" draggable="false"></div>
+      <div class="logo-mq-cell"><img src="assets/exh-15.png" alt="Lungarno Collection" style="height:58px" draggable="false"></div>
+      <div class="logo-mq-cell"><img src="assets/exh-13.png" alt="Hankyu Travel DMC Japan" style="height:26px" draggable="false"></div>
+      <div class="logo-mq-cell"><img src="assets/exh-20.png" alt="Michel Reybier Hospitality" style="height:58px" draggable="false"></div>
+      <div class="logo-mq-cell"><img src="assets/exh-08.png" alt="Constance" style="height:27px" draggable="false"></div>
+      <div class="logo-mq-cell"><img src="assets/exh-18.png" alt="Marquis Reforma Hotels &amp; Spa" style="height:58px" draggable="false"></div>
+      <div class="logo-mq-cell"><img src="assets/exh-19.png" alt="Maxx Royal Resorts" style="height:28px" draggable="false"></div>
+      <div class="logo-mq-cell"><img src="assets/exh-07.png" alt="Cap St Georges" style="height:57px" draggable="false"></div>
+      <div class="logo-mq-cell"><img src="assets/exh-24.png" alt="Reid's Palace, a Belmond Hotel, Madeira" style="height:29px" draggable="false"></div>
+      <div class="logo-mq-cell"><img src="assets/exh-27.png" alt="Six Senses Douro Valley" style="height:55px" draggable="false"></div>
+      <div class="logo-mq-cell"><img src="assets/exh-09.png" alt="Emerald Cruises" style="height:29px" draggable="false"></div>
+      <div class="logo-mq-cell"><img src="assets/exh-01.png" alt="Accor" style="height:54px" draggable="false"></div>
+      <div class="logo-mq-cell"><img src="assets/exh-22.png" alt="Radisson Hotel Group" style="height:29px" draggable="false"></div>
+      <div class="logo-mq-cell"><img src="assets/exh-02.png" alt="Amoh, a Luxury Collection Resort, Rhodes" style="height:54px" draggable="false"></div>
+      <div class="logo-mq-cell"><img src="assets/exh-26.png" alt="Simbavati Lodge Collection" style="height:31px" draggable="false"></div>
+      <div class="logo-mq-cell"><img src="assets/exh-14.png" alt="Lujo Art &amp; Joy Bodrum" style="height:51px" draggable="false"></div>
+      <div class="logo-mq-cell"><img src="assets/exh-10.png" alt="Exploor Peru" style="height:31px" draggable="false"></div>
+      <div class="logo-mq-cell"><img src="assets/exh-23.png" alt="Raffles Seychelles" style="height:50px" draggable="false"></div>
+      <div class="logo-mq-cell"><img src="assets/exh-25.png" alt="Scenic Cruises" style="height:32px" draggable="false"></div>
+      <div class="logo-mq-cell"><img src="assets/exh-11.png" alt="Four Seasons Resort Mauritius at Anahita" style="height:48px" draggable="false"></div>
+      <div class="logo-mq-cell"><img src="assets/exh-06.png" alt="Bushtracks" style="height:32px" draggable="false"></div>
+      <div class="logo-mq-cell"><img src="assets/exh-16.png" alt="LUX* Resorts &amp; Hotels" style="height:42px" draggable="false"></div>
+      <div class="logo-mq-cell"><img src="assets/exh-31.png" alt="ZEM Wellness Clinic Altea" style="height:33px" draggable="false"></div>
+      <div class="logo-mq-cell"><img src="assets/exh-03.png" alt="Andean Travel Company &amp; Oniric Safari Cruises" style="height:41px" draggable="false"></div>
+      <div class="logo-mq-cell"><img src="assets/exh-28.png" alt="The Mall Luxury Outlets" style="height:35px" draggable="false"></div>
+      <div class="logo-mq-cell"><img src="assets/exh-12.png" alt="Galaxy Cruises" style="height:39px" draggable="false"></div>
+      <div class="logo-mq-cell"><img src="assets/exh-30.png" alt="Wabunka | Luxury DMC in Japan" style="height:37px" draggable="false"></div>
+      <div class="logo-mq-cell"><img src="assets/exh-05.png" alt="BE Travel Morocco" style="height:38px" draggable="false"></div>
+      <div class="logo-mq-cell"><img src="assets/exh-21.png" alt="Pliant" style="height:37px" draggable="false"></div>
+      <div class="logo-mq-cell"><img src="assets/exh-29.png" alt="Visit Saudi" style="height:38px" draggable="false"></div>
+      <div class="logo-mq-cell"><img src="assets/exh-04.png" alt="Aqua Expeditions" style="height:37px" draggable="false"></div>
+      <div class="logo-mq-cell"><img src="assets/exh-17.png" alt="Luxperia" style="height:26px" draggable="false"></div>
+      <div class="logo-mq-cell"><img src="assets/exh-15.png" alt="Lungarno Collection" style="height:58px" draggable="false"></div>
+      <div class="logo-mq-cell"><img src="assets/exh-13.png" alt="Hankyu Travel DMC Japan" style="height:26px" draggable="false"></div>
+      <div class="logo-mq-cell"><img src="assets/exh-20.png" alt="Michel Reybier Hospitality" style="height:58px" draggable="false"></div>
+      <div class="logo-mq-cell"><img src="assets/exh-08.png" alt="Constance" style="height:27px" draggable="false"></div>
+      <div class="logo-mq-cell"><img src="assets/exh-18.png" alt="Marquis Reforma Hotels &amp; Spa" style="height:58px" draggable="false"></div>
+      <div class="logo-mq-cell"><img src="assets/exh-19.png" alt="Maxx Royal Resorts" style="height:28px" draggable="false"></div>
+      <div class="logo-mq-cell"><img src="assets/exh-07.png" alt="Cap St Georges" style="height:57px" draggable="false"></div>
+      <div class="logo-mq-cell"><img src="assets/exh-24.png" alt="Reid's Palace, a Belmond Hotel, Madeira" style="height:29px" draggable="false"></div>
+      <div class="logo-mq-cell"><img src="assets/exh-27.png" alt="Six Senses Douro Valley" style="height:55px" draggable="false"></div>
+      <div class="logo-mq-cell"><img src="assets/exh-09.png" alt="Emerald Cruises" style="height:29px" draggable="false"></div>
+      <div class="logo-mq-cell"><img src="assets/exh-01.png" alt="Accor" style="height:54px" draggable="false"></div>
+      <div class="logo-mq-cell"><img src="assets/exh-22.png" alt="Radisson Hotel Group" style="height:29px" draggable="false"></div>
+      <div class="logo-mq-cell"><img src="assets/exh-02.png" alt="Amoh, a Luxury Collection Resort, Rhodes" style="height:54px" draggable="false"></div>
+      <div class="logo-mq-cell"><img src="assets/exh-26.png" alt="Simbavati Lodge Collection" style="height:31px" draggable="false"></div>
+      <div class="logo-mq-cell"><img src="assets/exh-14.png" alt="Lujo Art &amp; Joy Bodrum" style="height:51px" draggable="false"></div>
+      <div class="logo-mq-cell"><img src="assets/exh-10.png" alt="Exploor Peru" style="height:31px" draggable="false"></div>
+      <div class="logo-mq-cell"><img src="assets/exh-23.png" alt="Raffles Seychelles" style="height:50px" draggable="false"></div>
+      <div class="logo-mq-cell"><img src="assets/exh-25.png" alt="Scenic Cruises" style="height:32px" draggable="false"></div>
+      <div class="logo-mq-cell"><img src="assets/exh-11.png" alt="Four Seasons Resort Mauritius at Anahita" style="height:48px" draggable="false"></div>
+      <div class="logo-mq-cell"><img src="assets/exh-06.png" alt="Bushtracks" style="height:32px" draggable="false"></div>
+      <div class="logo-mq-cell"><img src="assets/exh-16.png" alt="LUX* Resorts &amp; Hotels" style="height:42px" draggable="false"></div>
+      <div class="logo-mq-cell"><img src="assets/exh-31.png" alt="ZEM Wellness Clinic Altea" style="height:33px" draggable="false"></div>
+      <div class="logo-mq-cell"><img src="assets/exh-03.png" alt="Andean Travel Company &amp; Oniric Safari Cruises" style="height:41px" draggable="false"></div>
+      <div class="logo-mq-cell"><img src="assets/exh-28.png" alt="The Mall Luxury Outlets" style="height:35px" draggable="false"></div>
+      <div class="logo-mq-cell"><img src="assets/exh-12.png" alt="Galaxy Cruises" style="height:39px" draggable="false"></div>
+      <div class="logo-mq-cell"><img src="assets/exh-30.png" alt="Wabunka | Luxury DMC in Japan" style="height:37px" draggable="false"></div>
+      <div class="logo-mq-cell"><img src="assets/exh-05.png" alt="BE Travel Morocco" style="height:38px" draggable="false"></div>
+      <div class="logo-mq-cell"><img src="assets/exh-21.png" alt="Pliant" style="height:37px" draggable="false"></div>
+      <div class="logo-mq-cell"><img src="assets/exh-29.png" alt="Visit Saudi" style="height:38px" draggable="false"></div>
+      <div class="logo-mq-cell"><img src="assets/exh-04.png" alt="Aqua Expeditions" style="height:37px" draggable="false"></div>
+      </div>
     </div>
     <p class="desc reveal">Suppliers at ALTS include premier luxury hospitality brands, destinations, experience creators, luxury cruise lines, airlines, travel tech solutions, villas, and boutique hotels. Our exhibitors are united by their exceptional service, outstanding products, and meticulous attention to detail.</p>
 
@@ -448,6 +514,22 @@
 <script>
   const hdr=document.getElementById('hdr');
   addEventListener('scroll',()=>hdr.classList.toggle('scrolled',scrollY>60),{passive:true});
+
+  // exhibitors marquee: auto-run at photo-strip speed + drag & wheel
+  (function(){
+    const mq=document.getElementById('exh-mq'); if(!mq) return;
+    const st=document.querySelector('.strip-track');
+    let speed=66; if(st){ speed=(st.scrollWidth/2)/140; }
+    let pos=0,dragging=false,sx=0,sp=0,last=performance.now();
+    function wrap(){const half=mq.scrollWidth/2; if(pos>=half)pos-=half; if(pos<0)pos+=half;}
+    function loop(t){const dt=(t-last)/1000;last=t; if(!dragging){pos+=speed*dt;} wrap(); mq.scrollLeft=pos; requestAnimationFrame(loop);}
+    requestAnimationFrame(loop);
+    mq.addEventListener('pointerdown',e=>{dragging=true;mq.classList.add('dragging');sx=e.clientX;sp=pos;mq.setPointerCapture(e.pointerId)});
+    mq.addEventListener('pointermove',e=>{if(dragging){pos=sp-(e.clientX-sx);}});
+    ['pointerup','pointercancel'].forEach(ev=>mq.addEventListener(ev,()=>{dragging=false;mq.classList.remove('dragging')}));
+    mq.addEventListener('wheel',e=>{e.preventDefault();pos+=(Math.abs(e.deltaX)>Math.abs(e.deltaY)?e.deltaX:e.deltaY);wrap();mq.scrollLeft=pos;},{passive:false});
+  })();
+
   const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}}),{threshold:.12});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
