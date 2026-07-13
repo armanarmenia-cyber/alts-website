@@ -54,19 +54,19 @@
       <!-- PERSONAL -->
       <div class="f-block"><h3>Your details</h3></div>
       <div class="f-row">
-        <div class="field"><label for="fn">First Name *</label><input type="text" id="fn"></div>
-        <div class="field"><label for="ln">Last Name *</label><input type="text" id="ln"></div>
+        <div class="field"><label for="fn">First Name *</label><input type="text" id="fn" placeholder="Participant's First Name. This name will be used on your badge"></div>
+        <div class="field"><label for="ln">Last Name *</label><input type="text" id="ln" placeholder="Participant's Last Name. This name will be used on your badge"></div>
       </div>
       <div class="f-row">
-        <div class="field"><label for="co">Company Name</label><input type="text" id="co"></div>
+        <div class="field"><label for="co">Company Name</label><input type="text" id="co" placeholder="Company Name. This name will be used in the Exhibitor Directory and on your Table Sign"></div>
         <div class="field"><label for="countries">Countries Where Your Brand Operates</label><input type="text" id="countries"></div>
       </div>
       <div class="f-row">
-        <div class="field"><label for="pos">Position in the Company</label><input type="text" id="pos"></div>
+        <div class="field"><label for="pos">Position in the Company</label><input type="text" id="pos" placeholder="Position In The Company"></div>
         <div class="field"><label for="web">Website</label><input type="url" id="web"></div>
       </div>
       <div class="f-row">
-        <div class="field"><label for="email">Email Address *</label><input type="email" id="email"></div>
+        <div class="field"><label for="email">Email Address *</label><input type="email" id="email" placeholder="Your Email Address"></div>
         <div class="field"><label for="tel">Phone Number</label><input type="tel" id="tel"></div>
       </div>
 
@@ -77,8 +77,8 @@
         <div class="field"><label for="vat">VAT Number</label><input type="text" id="vat"></div>
       </div>
       <div class="field"><label for="invaddr">Invoicing Address</label><input type="text" id="invaddr"></div>
-      <div class="field"><label for="cat">Description of your product for the exhibitors' catalogue</label><textarea id="cat"></textarea></div>
-      <p class="hint" style="font-size:12.5px;color:var(--grey);margin:-6px 0 10px">Please email at least three photos of your product, service, or destination, as well as your logo, to <a href="mailto:events@altsevents.com" style="color:var(--peri);text-decoration:underline">events@altsevents.com</a> after submitting this form.</p>
+      <div class="field"><label for="cat">Description of your product for the exhibitors' catalogue</label><textarea id="cat" placeholder="Provide a brief and compelling overview highlighting the key strengths and unique aspects of your company. If your application is approved, ALTS buyers will use this information to determine their interest in scheduling a meeting with you and this text will be used in our catalogue. Maximum length: 400 characters."></textarea></div>
+      <div class="field"><label for="materials">Please provide at least three photos of your product, service, or destination, as well as your logo *</label><input type="url" id="materials" placeholder="Please provide a download link (e.g., WeTransfer, Google Drive, Dropbox, etc.)"></div>
 
       <!-- BALTIC PACKAGES -->
       <div id="sec-baltic" hidden>
@@ -88,7 +88,6 @@
       <div class="checks">
         <label class="check"><input type="radio" name="pk-baltic" value="Standard Three Cities – 6900€"> Standard Three Cities (Vilnius, Riga, Tallinn), incl. Accommodation &amp; Transportation between cities – 6900€</label>
         <label class="check disabled"><input type="radio" name="pk-baltic" value="Partnership All Cities – 9000€" disabled> Partnership All Cities – 9000€ <span class="sub">Sold Out</span></label>
-        <label class="check"><input type="radio" name="pk-baltic" value="" checked> No package for this event</label>
       </div>
       </div><!-- /sec-baltic -->
 
@@ -103,7 +102,6 @@
         <label class="check"><input type="radio" name="pk-lisbon" value="Partnership – 7900€"> Partnership – 7900€</label>
         <label class="check"><input type="radio" name="pk-lisbon" value="Standard Shared Table – 2850€"> Standard Shared Table – 2850€</label>
         <label class="check"><input type="radio" name="pk-lisbon" value="Premium Shared Table – 3450€"> Premium Shared Table – 3450€</label>
-        <label class="check"><input type="radio" name="pk-lisbon" value="" checked> No package for this event</label>
       </div>
       <div class="checks">
         <p class="q">Lisbon – additional services:</p>
@@ -124,7 +122,6 @@
         <label class="check"><input type="radio" name="pk-warsaw" value="Partnership – 7500€"> Partnership – 7500€</label>
         <label class="check"><input type="radio" name="pk-warsaw" value="Standard Shared Table – 2750€"> Standard Shared Table – 2750€</label>
         <label class="check"><input type="radio" name="pk-warsaw" value="Premium Shared Table – 3250€"> Premium Shared Table – 3250€</label>
-        <label class="check"><input type="radio" name="pk-warsaw" value="" checked> No package for this event</label>
       </div>
       <div class="checks">
         <p class="q">Warsaw – additional services:</p>
@@ -210,7 +207,7 @@
     const sec=document.getElementById(cb.dataset.sec);
     sec.hidden=!cb.checked;
     if(!cb.checked){ // reset selections of hidden section
-      sec.querySelectorAll('input[type=radio]').forEach(r=>{r.checked=(r.value==='')});
+      sec.querySelectorAll('input[type=radio]').forEach(r=>{r.checked=false});
       sec.querySelectorAll('input[type=checkbox]').forEach(c=>c.checked=false);
       toggleAttendee();
     }
@@ -229,6 +226,7 @@
     const show=(ok,msg)=>{status.style.display='block';status.style.background=ok?'#E8F5EC':'#FDECEC';status.style.color=ok?'#1E7A3C':'#B3261E';status.textContent=msg};
 
     if(!v('fn')||!v('email')){show(false,'Please fill in at least your first name and email.');return}
+    if(!v('materials')){show(false,'Please provide a download link to your photos and logo (WeTransfer, Google Drive, Dropbox, etc.).');return}
     if(!document.getElementById('tc').checked){show(false,'Please accept the T&C, Payment and Cancellation Policy.');return}
 
     const events=[...document.querySelectorAll('.ev:checked')].map(c=>c.value);
@@ -244,6 +242,7 @@
     if(v('legal')||v('vat')||v('invaddr')) details.push(`INVOICING: ${v('legal')} / VAT ${v('vat')} / ${v('invaddr')}`);
     if(v('a2fn')||v('a2email')) details.push(`SECOND ATTENDEE: ${v('a2fn')} ${v('a2ln')}, ${v('a2pos')}, ${v('a2email')}, ${v('a2tel')}`);
     if(v('cat')) details.push('CATALOGUE: '+v('cat'));
+    if(v('materials')) details.push('MATERIALS LINK: '+v('materials'));
 
     btn.disabled=true;btn.style.opacity=.6;
     try{
