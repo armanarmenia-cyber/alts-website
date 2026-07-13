@@ -296,3 +296,5 @@ footer hr{border:none;border-top:1px solid rgba(255,255,255,.25);margin:34px 0}
 .year-div{border:none;border-top:1px solid var(--line);margin:64px 0 46px}
 .list-card .card-btn{margin-top:16px;padding:11px 24px;font-size:11px;align-self:flex-start}
 .list-card .txt{display:flex;flex-direction:column;align-items:flex-start}
+
+.tag-new{background:var(--grad)!important;color:#fff!important}
