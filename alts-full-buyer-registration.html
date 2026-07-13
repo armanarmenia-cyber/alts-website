@@ -70,7 +70,7 @@
         <div class="field"><label for="ln">Last Name *</label><input type="text" id="ln"></div>
       </div>
       <div class="f-row">
-        <div class="field"><label for="co">Company Full Name *</label><input type="text" id="co"></div>
+        <div class="field"><label for="co">Company Full Name *</label><input type="text" id="co" placeholder="To be used in profile and your badge"></div>
         <div class="field"><label for="pos">Position *</label><input type="text" id="pos"></div>
       </div>
       <div class="f-row">
@@ -88,7 +88,7 @@
         <div class="field"><label for="city">City *</label><input type="text" id="city"></div>
         <div class="field"><label for="country">Country *</label><input type="text" id="country"></div>
       </div>
-      <div class="field"><label for="descr">Description *</label><textarea id="descr"></textarea></div>
+      <div class="field"><label for="descr">Description *</label><textarea id="descr" placeholder="Company Description. Provide a brief and compelling overview highlighting the key strengths and unique aspects of your company. If your application is approved, ALTS exhibitors will use this information to determine their interest in scheduling a meeting with you. Maximum length: 400 characters."></textarea></div>
       <div class="f-row">
         <div class="field"><label for="btype">Which category best represents your type of business? *</label>
           <select id="btype"><option value="">Please select</option><option>Travel Agency</option><option>Tour Operator</option><option>Lifestyle &amp; Travel Concierge</option><option>Independent Travel Designer</option><option>MICE &amp; Corporate Travel</option><option>Other: Specify</option></select>
@@ -176,14 +176,14 @@
       <div class="f-block"><h3>Qualification details</h3></div>
       <div class="field"><label for="clients">Where are your clients primarily based? If multiple countries, please provide a percentage per country. *</label><textarea id="clients" style="min-height:70px"></textarea></div>
       <div class="field"><label>What are the 3 hotels you book most frequently? *</label>
-        <input type="text" id="hotel1" placeholder="Hotel 1" style="margin-bottom:10px">
-        <input type="text" id="hotel2" placeholder="Hotel 2" style="margin-bottom:10px">
-        <input type="text" id="hotel3" placeholder="Hotel 3">
+        <input type="text" id="hotel1" placeholder="Top Hotel #1" style="margin-bottom:10px">
+        <input type="text" id="hotel2" placeholder="Top Hotel #2" style="margin-bottom:10px">
+        <input type="text" id="hotel3" placeholder="Top Hotel #3">
       </div>
       <div class="field"><label>Please provide details of your 3 most recent international bookings, including dates and reference numbers. *</label>
-        <input type="text" id="booking1" placeholder="Booking 1 – dates and reference number" style="margin-bottom:10px">
-        <input type="text" id="booking2" placeholder="Booking 2 – dates and reference number" style="margin-bottom:10px">
-        <input type="text" id="booking3" placeholder="Booking 3 – dates and reference number">
+        <input type="text" id="booking1" placeholder="Example: Lisbon – Paris | 12–15 March 2025 | Booking ref: AF7X2L" style="margin-bottom:10px">
+        <input type="text" id="booking2" placeholder="Example: Madrid – New York | 18–26 Jun 2024 | Booking ref: IB93QK" style="margin-bottom:10px">
+        <input type="text" id="booking3" placeholder="Example: Porto – Milan | 6–9 Nov 2024 | Booking ref: AZM489">
       </div>
 
       <!-- T&C -->
@@ -261,21 +261,45 @@
     const regions=[...document.querySelectorAll('.rg:checked')].map(c=>c.value);
     const products=[...document.querySelectorAll('.pr:checked')].map(c=>c.value);
 
-    const details=[];
-    if(v('descr')) details.push('DESCRIPTION: '+v('descr'));
-    if(v('year')) details.push('BUSINESS STARTED: '+v('year'));
-    if(v('btype')) details.push('BUSINESS TYPE: '+v('btype')+(v('btype-other')?' ('+v('btype-other')+')':''));
-    if(v('emp')) details.push('EMPLOYEES: '+v('emp'));
-    if(v('spend')) details.push('AVG SPEND/NIGHT: '+v('spend'));
-    if(v('turnover')) details.push('ANNUAL TURNOVER: '+v('turnover'));
-    if(v('five')) details.push('5* SHARE: '+v('five'));
-    if(v('consortia')) details.push('CONSORTIA: '+v('consortia')+(v('consortia-other')?' ('+v('consortia-other')+')':''));
-    if(v('shows')) details.push('TRADE SHOWS: '+v('shows'));
-    if(regions.length) details.push('REGIONS: '+regions.join(', '));
-    if(products.length) details.push('PRODUCTS: '+products.join(', '));
-    if(v('clients')) details.push('CLIENTS BASED: '+v('clients'));
-    details.push('TOP-3 HOTELS: '+[v('hotel1'),v('hotel2'),v('hotel3')].join(' | '));
-    details.push('RECENT BOOKINGS: '+[v('booking1'),v('booking2'),v('booking3')].join(' | '));
+    const report=[
+      'Personal Information:','',
+      'First Name: '+v('fn'),
+      'Last Name: '+v('ln'),
+      'Company Full Name: '+v('co'),
+      'Position: '+v('pos'),
+      'Direct Phone Number: '+v('tel'),
+      'Email: '+v('email'),'','',
+      'Company Information:','',
+      'Website: '+v('web'),
+      'City: '+v('city'),
+      'Country: '+v('country'),
+      'Description: '+v('descr'),'','',
+      'Business started: '+v('year'),
+      'Type of business: '+v('btype'),
+      'Other business type: '+v('btype-other'),'','',
+      'Employees in company: '+v('emp'),
+      'Client spend per night: '+v('spend'),
+      'Bookings turnover: '+v('turnover'),
+      'Percentage of business is 5*: '+v('five'),'','',
+      'Consortium membership: '+v('consortia'),
+      'Other consortium: '+v('consortia-other'),
+      'Exhibitions as a buyer over the last two years: '+v('shows'),'',
+      'Presence in the regions:','',
+      ...regions.map(r=>'• '+r),'',
+      'Relevant products and suppliers:','',
+      ...products.map(p=>'• '+p),'',
+      'Clients primarily based: '+v('clients'),'',
+      'Top 3 hotels:',
+      '1. '+v('hotel1'),
+      '2. '+v('hotel2'),
+      '3. '+v('hotel3'),'',
+      '3 most recent international bookings:',
+      '1. '+v('booking1'),
+      '2. '+v('booking2'),
+      '3. '+v('booking3'),'',
+      'Selected events:','',
+      ...events.map(e=>'• '+e)
+    ].join('\n');
 
     btn.disabled=true;btn.style.opacity=.6;
     try{
@@ -284,7 +308,7 @@
         first_name:v('fn'),last_name:v('ln'),company:v('co'),position:v('pos'),
         country_city:v('country')+(v('city')?', '+v('city'):''),website:v('web'),email:v('email'),phone:v('tel'),
         events:events,
-        question:details.join(' | '),
+        question:report,
         page:location.href,submitted_at:new Date().toISOString()
       })});
       if(r.ok){show(true,'Thank you for your application! We will contact you within 24 hours.');}

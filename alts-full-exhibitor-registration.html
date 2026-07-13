@@ -233,16 +233,36 @@
     const pk=n=>{const r=document.querySelector(`input[name="${n}"]:checked`);return r&&r.value?r.value:null};
     const exs=cls=>[...document.querySelectorAll(`.${cls}:checked`)].map(c=>c.value);
 
-    const details=[];
-    if(pk('pk-baltic')) details.push('BALTIC: '+pk('pk-baltic'));
-    if(pk('pk-lisbon')) details.push('LISBON: '+pk('pk-lisbon'));
-    exs('ex-lisbon').forEach(x=>details.push('LISBON extra: '+x));
-    if(pk('pk-warsaw')) details.push('WARSAW: '+pk('pk-warsaw'));
-    exs('ex-warsaw').forEach(x=>details.push('WARSAW extra: '+x));
-    if(v('legal')||v('vat')||v('invaddr')) details.push(`INVOICING: ${v('legal')} / VAT ${v('vat')} / ${v('invaddr')}`);
-    if(v('a2fn')||v('a2email')) details.push(`SECOND ATTENDEE: ${v('a2fn')} ${v('a2ln')}, ${v('a2pos')}, ${v('a2email')}, ${v('a2tel')}`);
-    if(v('cat')) details.push('CATALOGUE: '+v('cat'));
-    if(v('materials')) details.push('MATERIALS LINK: '+v('materials'));
+    const att2=(v('a2fn')||v('a2email'))?[v('a2fn')+' '+v('a2ln'),v('a2pos'),v('a2email'),v('a2tel')].filter(Boolean).join(', '):'';
+    const pkLines=[];
+    if(pk('pk-baltic')) pkLines.push('BALTIC ROADSHOW: '+pk('pk-baltic'));
+    if(pk('pk-lisbon')) pkLines.push('LISBON: '+pk('pk-lisbon'));
+    exs('ex-lisbon').forEach(x=>pkLines.push('LISBON extra: '+x));
+    if(pk('pk-warsaw')) pkLines.push('WARSAW: '+pk('pk-warsaw'));
+    exs('ex-warsaw').forEach(x=>pkLines.push('WARSAW extra: '+x));
+    const report=[
+      'Personal Information:','',
+      'First Name: '+v('fn'),
+      'Last Name: '+v('ln'),
+      'Company Name: '+v('co'),
+      'Countries Where Your Brand Operates: '+v('countries'),
+      'Position: '+v('pos'),
+      'Email: '+v('email'),
+      'Phone Number: '+v('tel'),
+      'Website: '+v('web'),'','',
+      'Invoicing Details:','',
+      'Company Legal Name: '+v('legal'),
+      'VAT Number: '+v('vat'),
+      'Invoicing Address: '+v('invaddr'),'','',
+      'Description for the exhibitors\' catalogue:','',
+      v('cat'),'',
+      'Materials link (photos & logo): '+v('materials'),'','',
+      'Selected events:','',
+      ...events.map(e=>'• '+e),'',
+      'Packages & additional services:','',
+      ...(pkLines.length?pkLines.map(x=>'• '+x):['–']),'',
+      'Second attendee: '+(att2||'–')
+    ].join('\n');
 
     btn.disabled=true;btn.style.opacity=.6;
     try{
@@ -251,7 +271,7 @@
         first_name:v('fn'),last_name:v('ln'),company:v('co'),position:v('pos'),
         country_city:v('countries'),website:v('web'),email:v('email'),phone:v('tel'),
         events:events,
-        question:details.join(' | '),
+        question:report,
         page:location.href,submitted_at:new Date().toISOString()
       })});
       if(r.ok){show(true,'Thank you for your application! We will contact you within 24 hours. You will receive an invoice once your application is processed.');}
