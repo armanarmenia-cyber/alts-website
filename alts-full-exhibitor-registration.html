@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/alts.css?v=9">
+<link rel="stylesheet" href="assets/alts.css?v=10">
 </head>
 <body>
 
@@ -54,11 +54,11 @@
       <!-- PERSONAL -->
       <div class="f-block"><h3>Your details</h3></div>
       <div class="f-row">
-        <div class="field"><label for="fn">First Name *</label><input type="text" id="fn" placeholder="Participant's First Name. This name will be used on your badge"></div>
-        <div class="field"><label for="ln">Last Name *</label><input type="text" id="ln" placeholder="Participant's Last Name. This name will be used on your badge"></div>
+        <div class="field"><label for="fn">First Name *</label><span class="fhint">Participant's First Name. This name will be used on your badge</span><input type="text" id="fn"></div>
+        <div class="field"><label for="ln">Last Name *</label><span class="fhint">Participant's Last Name. This name will be used on your badge</span><input type="text" id="ln"></div>
       </div>
       <div class="f-row">
-        <div class="field"><label for="co">Company Name</label><input type="text" id="co" placeholder="Company Name. This name will be used in the Exhibitor Directory and on your Table Sign"></div>
+        <div class="field"><label for="co">Company Name</label><span class="fhint">Company Name. This name will be used in the Exhibitor Directory and on your Table Sign</span><input type="text" id="co"></div>
         <div class="field"><label for="countries">Countries Where Your Brand Operates</label><input type="text" id="countries"></div>
       </div>
       <div class="f-row">
@@ -149,7 +149,7 @@
 
       <!-- T&C -->
       <div class="checks" style="margin-top:26px">
-        <label class="check"><input type="checkbox" id="tc"> I accept the <a href="alts-exhibitor-terms-conditions.html" style="color:var(--peri);text-decoration:underline">&nbsp;T&amp;C</a>, Payment and Cancellation Policy *</label>
+        <label class="check"><input type="checkbox" id="tc"> <span>I accept the <a href="alts-exhibitor-terms-conditions.html" style="color:var(--peri);text-decoration:underline">Terms &amp; Conditions</a>, Payment and Cancellation Policy *</span></label>
       </div>
       <p class="hint" style="font-size:12.5px;color:var(--grey);margin-bottom:18px">You will receive an invoice once your application is processed.</p>
 
@@ -227,7 +227,7 @@
 
     if(!v('fn')||!v('email')){show(false,'Please fill in at least your first name and email.');return}
     if(!v('materials')){show(false,'Please provide a download link to your photos and logo (WeTransfer, Google Drive, Dropbox, etc.).');return}
-    if(!document.getElementById('tc').checked){show(false,'Please accept the T&C, Payment and Cancellation Policy.');return}
+    if(!document.getElementById('tc').checked){show(false,'Please accept the Terms & Conditions, Payment and Cancellation Policy.');return}
 
     const events=[...document.querySelectorAll('.ev:checked')].map(c=>c.value);
     const pk=n=>{const r=document.querySelector(`input[name="${n}"]:checked`);return r&&r.value?r.value:null};

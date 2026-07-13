@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/alts.css?v=9">
+<link rel="stylesheet" href="assets/alts.css?v=10">
 </head>
 <body>
 
@@ -70,54 +70,54 @@
         <div class="field"><label for="ln">Last Name *</label><input type="text" id="ln"></div>
       </div>
       <div class="f-row">
-        <div class="field"><label for="co">Company Full Name</label><input type="text" id="co"></div>
-        <div class="field"><label for="pos">Position</label><input type="text" id="pos"></div>
+        <div class="field"><label for="co">Company Full Name *</label><input type="text" id="co"></div>
+        <div class="field"><label for="pos">Position *</label><input type="text" id="pos"></div>
       </div>
       <div class="f-row">
-        <div class="field"><label for="tel">Direct Phone Number</label><input type="tel" id="tel"></div>
+        <div class="field"><label for="tel">Direct Phone Number *</label><input type="tel" id="tel"></div>
         <div class="field"><label for="email">Email *</label><input type="email" id="email"></div>
       </div>
 
       <!-- COMPANY -->
       <div class="f-block"><h3>Company information</h3></div>
       <div class="f-row">
-        <div class="field"><label for="web">Website</label><input type="url" id="web"></div>
-        <div class="field"><label for="year">What year your business started?</label><input type="text" id="year"></div>
+        <div class="field"><label for="web">Website *</label><input type="url" id="web"></div>
+        <div class="field"><label for="year">What year your business started? *</label><input type="text" id="year"></div>
       </div>
       <div class="f-row">
-        <div class="field"><label for="city">City</label><input type="text" id="city"></div>
-        <div class="field"><label for="country">Country</label><input type="text" id="country"></div>
+        <div class="field"><label for="city">City *</label><input type="text" id="city"></div>
+        <div class="field"><label for="country">Country *</label><input type="text" id="country"></div>
       </div>
-      <div class="field"><label for="descr">Description</label><textarea id="descr"></textarea></div>
+      <div class="field"><label for="descr">Description *</label><textarea id="descr"></textarea></div>
       <div class="f-row">
-        <div class="field"><label for="btype">Which category best represents your type of business?</label>
+        <div class="field"><label for="btype">Which category best represents your type of business? *</label>
           <select id="btype"><option value="">Please select</option><option>Travel Agency</option><option>Tour Operator</option><option>Lifestyle &amp; Travel Concierge</option><option>Independent Travel Designer</option><option>MICE &amp; Corporate Travel</option><option>Other: Specify</option></select>
         </div>
         <div class="field"><label for="btype-other">If other – please specify</label><input type="text" id="btype-other"></div>
       </div>
       <div class="f-row">
-        <div class="field"><label for="emp">Total number of employees</label>
+        <div class="field"><label for="emp">Total number of employees *</label>
           <select id="emp"><option value="">Please select</option><option>1-5</option><option>6-10</option><option>11-20</option><option>21-50</option><option>51-100</option><option>100+</option></select>
         </div>
-        <div class="field"><label for="spend">Average client spend per night</label>
+        <div class="field"><label for="spend">Average client spend per night *</label>
           <select id="spend"><option value="">Please select</option><option>0 - 500€</option><option>500 - 1000€</option><option>1000 - 1500€</option><option>1500 - 2000€</option><option>2000€ +</option></select>
         </div>
       </div>
       <div class="f-row">
-        <div class="field"><label for="turnover">Average annual bookings turnover</label>
+        <div class="field"><label for="turnover">Average annual bookings turnover *</label>
           <select id="turnover"><option value="">Please select</option><option>&lt; 100 000€</option><option>100 000 - 500 000€</option><option>500 000 - 1 000 000€</option><option>1 000 000 - 3 000 000€</option><option>&gt; 3 000 000€</option></select>
         </div>
-        <div class="field"><label for="five">What percentage of your business is 5*?</label>
+        <div class="field"><label for="five">What percentage of your business is 5*? *</label>
           <select id="five"><option value="">Please select</option><option>0-30%</option><option>30-50%</option><option>50-70%</option><option>70-80%</option><option>80-90%</option><option>90-100%</option></select>
         </div>
       </div>
       <div class="f-row">
-        <div class="field"><label for="consortia">Are you a member of any consortia?</label>
+        <div class="field"><label for="consortia">Are you a member of any consortia? *</label>
           <select id="consortia"><option value="">Please select</option><option>Virtuoso</option><option>Serandipians by Traveller Made</option><option>Takumians by Traveller Made</option><option>The Conscious Travel Foundation</option><option>None</option><option>Other (Specify)</option></select>
         </div>
         <div class="field"><label for="consortia-other">If other – please specify</label><input type="text" id="consortia-other"></div>
       </div>
-      <div class="field"><label for="shows">Which other travel industry trade shows have you attended as a Buyer for the last two years?</label><textarea id="shows" style="min-height:70px"></textarea></div>
+      <div class="field"><label for="shows">Which other travel industry trade shows have you attended as a Buyer for the last two years? *</label><textarea id="shows" style="min-height:70px"></textarea></div>
 
       <!-- REGIONS -->
       <div class="f-block"><h3>Which regions do you actively sell and source travel products from?</h3></div>
@@ -174,14 +174,22 @@
 
       <!-- QUALIFICATION -->
       <div class="f-block"><h3>Qualification details</h3></div>
-      <div class="field"><label for="clients">Where are your clients primarily based? If multiple countries, please provide a percentage per country.</label><textarea id="clients" style="min-height:70px"></textarea></div>
-      <div class="field"><label for="hotels">What are the 3 hotels you book most frequently?</label><textarea id="hotels" style="min-height:70px"></textarea></div>
-      <div class="field"><label for="bookings">Please provide details of your 3 most recent international bookings, including dates and reference numbers.</label><textarea id="bookings" style="min-height:70px"></textarea></div>
+      <div class="field"><label for="clients">Where are your clients primarily based? If multiple countries, please provide a percentage per country. *</label><textarea id="clients" style="min-height:70px"></textarea></div>
+      <div class="field"><label>What are the 3 hotels you book most frequently? *</label>
+        <input type="text" id="hotel1" placeholder="Hotel 1" style="margin-bottom:10px">
+        <input type="text" id="hotel2" placeholder="Hotel 2" style="margin-bottom:10px">
+        <input type="text" id="hotel3" placeholder="Hotel 3">
+      </div>
+      <div class="field"><label>Please provide details of your 3 most recent international bookings, including dates and reference numbers. *</label>
+        <input type="text" id="booking1" placeholder="Booking 1 – dates and reference number" style="margin-bottom:10px">
+        <input type="text" id="booking2" placeholder="Booking 2 – dates and reference number" style="margin-bottom:10px">
+        <input type="text" id="booking3" placeholder="Booking 3 – dates and reference number">
+      </div>
 
       <!-- T&C -->
       <p class="hint" style="font-size:12.5px;color:var(--grey);margin:10px 0 14px">Please only submit this application if you are able to commit to the dates of the show of your choice, as cancellation upon acceptance of your application is subject to a Cancellation Fee.</p>
       <div class="checks">
-        <label class="check"><input type="checkbox" id="tc"> I accept the <a href="alts-buyer-terms-conditions.html" style="color:var(--peri);text-decoration:underline">&nbsp;T&amp;C</a>, Payment and Cancellation Policy *</label>
+        <label class="check"><input type="checkbox" id="tc"> <span>I accept the <a href="alts-buyer-terms-conditions.html" style="color:var(--peri);text-decoration:underline">Terms &amp; Conditions</a>, Payment and Cancellation Policy *</span></label>
       </div>
 
       <button class="btn btn-grad" id="submit-btn" onclick="submitFull()">Submit application</button>
@@ -239,8 +247,15 @@
     const btn=document.getElementById('submit-btn');
     const show=(ok,msg)=>{status.style.display='block';status.style.background=ok?'#E8F5EC':'#FDECEC';status.style.color=ok?'#1E7A3C':'#B3261E';status.textContent=msg};
 
-    if(!v('fn')||!v('email')){show(false,'Please fill in at least your first name and email.');return}
-    if(!document.getElementById('tc').checked){show(false,'Please accept the T&C, Payment and Cancellation Policy.');return}
+    const reqText=['fn','ln','co','pos','tel','email','web','year','city','country','descr','shows','clients','hotel1','hotel2','hotel3','booking1','booking2','booking3'];
+    const reqSel=['btype','emp','spend','turnover','five','consortia'];
+    if(reqText.some(i=>!v(i))||reqSel.some(i=>!v(i))){show(false,'All questions in this form are required – please fill in every field.');return}
+    if(v('btype')==='Other: Specify'&&!v('btype-other')){show(false,'Please specify your type of business.');return}
+    if(v('consortia')==='Other (Specify)'&&!v('consortia-other')){show(false,'Please specify your consortia.');return}
+    if(![...document.querySelectorAll('.ev:checked')].length){show(false,'Please select at least one event.');return}
+    if(![...document.querySelectorAll('.rg:checked')].length){show(false,'Please select at least one region you sell and source from.');return}
+    if(![...document.querySelectorAll('.pr:checked')].length){show(false,'Please select at least one type of travel products.');return}
+    if(!document.getElementById('tc').checked){show(false,'Please accept the Terms & Conditions, Payment and Cancellation Policy.');return}
 
     const events=[...document.querySelectorAll('.ev:checked')].map(c=>c.value);
     const regions=[...document.querySelectorAll('.rg:checked')].map(c=>c.value);
@@ -259,8 +274,8 @@
     if(regions.length) details.push('REGIONS: '+regions.join(', '));
     if(products.length) details.push('PRODUCTS: '+products.join(', '));
     if(v('clients')) details.push('CLIENTS BASED: '+v('clients'));
-    if(v('hotels')) details.push('TOP-3 HOTELS: '+v('hotels'));
-    if(v('bookings')) details.push('RECENT BOOKINGS: '+v('bookings'));
+    details.push('TOP-3 HOTELS: '+[v('hotel1'),v('hotel2'),v('hotel3')].join(' | '));
+    details.push('RECENT BOOKINGS: '+[v('booking1'),v('booking2'),v('booking3')].join(' | '));
 
     btn.disabled=true;btn.style.opacity=.6;
     try{

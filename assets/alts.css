@@ -311,3 +311,5 @@ footer hr{border:none;border-top:1px solid rgba(255,255,255,.25);margin:34px 0}
 .legal li{font-size:15.5px;line-height:1.8;color:var(--ink);margin-bottom:7px}
 .legal a{color:var(--peri);text-decoration:underline}
 .legal b{color:var(--navy)}
+
+.fhint{display:block;font-size:12px;font-weight:500;color:var(--grey);margin:4px 0 8px;line-height:1.55;letter-spacing:.01em;text-transform:none}
