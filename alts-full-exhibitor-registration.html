@@ -271,6 +271,17 @@
         first_name:v('fn'),last_name:v('ln'),company:v('co'),position:v('pos'),
         country_city:v('countries'),website:v('web'),email:v('email'),phone:v('tel'),
         events:events,
+        package_baltic:pk('pk-baltic')||'',
+        package_lisbon:pk('pk-lisbon')||'',
+        extras_lisbon:exs('ex-lisbon').join(', '),
+        package_warsaw:pk('pk-warsaw')||'',
+        extras_warsaw:exs('ex-warsaw').join(', '),
+        legal_name:v('legal'),
+        vat:v('vat'),
+        invoice_address:v('invaddr'),
+        attendee2:att2,
+        catalogue:v('cat'),
+        materials:v('materials'),
         question:report,
         page:location.href,submitted_at:new Date().toISOString()
       })});

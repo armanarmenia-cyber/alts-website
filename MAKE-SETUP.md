@@ -15,7 +15,11 @@
 
 Поля buyer-формы: `form, first_name, last_name, position, company, country_city, website, email, phone, events[], question, page, submitted_at`
 Exhibitor: `form, first_name, last_name, email, phone, brand, website, events[], question, page, submitted_at`
-Contact: `form, name, email, message, page, submitted_at`
+Contact: `form, role, name, email, message, page, submitted_at`
+Full-buyer: всё из buyer + `city, country, description, business_started, business_type, employees, client_spend, turnover, five_star_share, consortia, trade_shows, regions, products, clients_based, top_hotels, recent_bookings` (каждый ответ анкеты — отдельный ключ; `question` дублирует всё одним текстом для совместимости)
+Full-exhibitor: `first_name, last_name, company, position, country_city, website, email, phone, events[]` + `package_baltic, package_lisbon, extras_lisbon, package_warsaw, extras_warsaw, legal_name, vat, invoice_address, attendee2, catalogue, materials` (+ `question` — дубль одним текстом)
+
+**Важно:** после добавления новых полей в форму нужно в Make открыть модуль Webhook → **Redetermine data structure** → отправить тестовую заявку с сайта, иначе новые поля не появятся в маппинге.
 
 ## Шаг 3. Добавить получателей (после webhook)
 
