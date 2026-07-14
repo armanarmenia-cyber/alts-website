@@ -1,3 +1,4 @@
+@font-face{font-family:'Cormorant Garamond';src:url('CormorantGaramond-Italic.ttf') format('truetype');font-style:italic;font-weight:400;font-display:swap}
 @font-face{font-family:'Ogg';src:url('Ogg-Regular.ttf') format('truetype');font-display:swap}
 /* ALTS redesign – shared styles */
 :root{
@@ -13,6 +14,7 @@
   --grad:linear-gradient(120deg,#575D9E 0%,#3A3F78 55%,#23264C 100%);
   --grad-soft:linear-gradient(120deg,#8A8FD4 0%,#6F74BC 60%,#575D9E 100%);
   --serif:'Playfair Display',Georgia,serif;
+  --serif-it:'Cormorant Garamond',Georgia,serif;
   --sans:'Montserrat',Helvetica,Arial,sans-serif;
 }
 *{margin:0;padding:0;box-sizing:border-box}
@@ -52,13 +54,13 @@ nav.links a:hover{color:var(--peri-soft)}
 .hero-inner{position:relative;z-index:3;width:100%;padding-top:170px;padding-bottom:90px;color:#fff}
 .date-pill{display:inline-block;background:var(--peri);color:#fff;font-size:13px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;border-radius:100px;padding:10px 24px;margin-bottom:26px}
 .hero h1{font-family:var(--sans);font-weight:300;font-size:clamp(42px,6.2vw,90px);line-height:1.04;letter-spacing:.01em}
-.hero h1 em{font-family:var(--serif);font-style:italic;font-weight:500}
+.hero h1 em{font-family:var(--serif-it);font-style:italic;font-weight:400}
 .hero .place{margin-top:18px;font-size:18px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--peri-soft)}
 .hero-cta{display:flex;gap:18px;margin-top:40px;flex-wrap:wrap}
 
 /* ---------- section titles ---------- */
 .sec-h{font-family:var(--sans);font-weight:600;font-size:clamp(28px,3vw,40px);letter-spacing:.06em;text-transform:uppercase;color:var(--ink)}
-.sec-h em{font-family:var(--serif);font-style:italic;font-weight:500;text-transform:none;letter-spacing:0;color:var(--peri)}
+.sec-h em{font-family:var(--serif-it);font-style:italic;font-weight:400;text-transform:none;letter-spacing:0;color:var(--peri)}
 .sec-h.big{font-size:clamp(30px,3.4vw,44px);line-height:1.1;letter-spacing:.04em}
 .center{text-align:center}
 
@@ -78,7 +80,7 @@ nav.links a:hover{color:var(--peri-soft)}
 @media(max-width:960px){.num-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:560px){.num-grid{grid-template-columns:1fr}}
 .num-card{background:#fff;border-radius:14px;padding:40px 30px;text-align:center;box-shadow:0 18px 40px rgba(47,52,96,.10)}
-.num-card b{display:block;font-family:var(--serif);font-style:italic;font-weight:500;font-size:60px;line-height:1;color:var(--peri);margin-bottom:16px}
+.num-card b{display:block;font-family:var(--serif-it);font-style:italic;font-weight:400;font-size:60px;line-height:1;color:var(--peri);margin-bottom:16px}
 .num-card span{font-size:14px;font-weight:500;line-height:1.55;color:var(--ink)}
 
 /* ---------- agenda ---------- */
@@ -108,7 +110,7 @@ nav.links a:hover{color:var(--peri-soft)}
 @media(max-width:960px){.hl-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:560px){.hl-grid{grid-template-columns:1fr}}
 .hl-card{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:14px;padding:34px 28px}
-.hl-card .n{font-family:var(--serif);font-style:italic;font-weight:500;font-size:44px;color:var(--peri-soft);margin-bottom:14px}
+.hl-card .n{font-family:var(--serif-it);font-style:italic;font-weight:400;font-size:44px;color:var(--peri-soft);margin-bottom:14px}
 .hl-card p{font-size:14.5px;line-height:1.7;color:rgba(255,255,255,.95)}
 .hl-card p b{display:block;font-weight:700;margin-bottom:6px}
 .hl-note{max-width:680px;margin:46px auto 0;text-align:center;font-size:12.5px;font-weight:300;font-style:italic;color:rgba(255,255,255,.7);position:relative;z-index:2}
@@ -171,7 +173,7 @@ nav.links a:hover{color:var(--peri-soft)}
 .tl-item:nth-child(even){margin-left:50%;padding:0 0 56px 56px;text-align:left}
 .tl-item::after{content:'';position:absolute;top:6px;right:-9px;width:18px;height:18px;border-radius:50%;background:var(--peri);border:4px solid #fff;box-shadow:0 4px 12px rgba(47,52,96,.25)}
 .tl-item:nth-child(even)::after{right:auto;left:-9px}
-.tl-item .year{font-family:var(--serif);font-style:italic;font-weight:500;font-size:40px;color:var(--peri);line-height:1;margin-bottom:10px}
+.tl-item .year{font-family:var(--serif-it);font-style:italic;font-weight:400;font-size:40px;color:var(--peri);line-height:1;margin-bottom:10px}
 .tl-item h3{font-size:17px;font-weight:700;letter-spacing:.04em;color:var(--navy);margin-bottom:8px}
 .tl-item p{font-size:14.5px;color:var(--ink)}
 @media(max-width:760px){.tl::before{left:8px}.tl-item,.tl-item:nth-child(even){width:100%;margin:0;padding:0 0 44px 40px;text-align:left}.tl-item::after,.tl-item:nth-child(even)::after{left:0;right:auto}}
@@ -292,7 +294,7 @@ footer hr{border:none;border-top:1px solid rgba(255,255,255,.25);margin:34px 0}
 .sched li span{flex:0 0 112px;font-weight:600;color:var(--peri);font-variant-numeric:tabular-nums;white-space:nowrap}
 
 /* events year sections */
-.year-h{font-family:var(--serif);font-style:italic;font-weight:500;font-size:36px;color:var(--peri);margin:6px 0 28px}
+.year-h{font-family:var(--serif-it);font-style:italic;font-weight:400;font-size:36px;color:var(--peri);margin:6px 0 28px}
 .year-div{border:none;border-top:1px solid var(--line);margin:64px 0 46px}
 .list-card .card-btn{margin-top:16px;padding:11px 24px;font-size:11px;align-self:flex-start}
 .list-card .txt{display:flex;flex-direction:column;align-items:flex-start}
