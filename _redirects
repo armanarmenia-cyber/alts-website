@@ -1,0 +1,14 @@
+# old site URLs -> new pages
+/buyer-registration              /alts-buyer-registration              301
+/exhibitor-registration          /alts-exhibitor-registration          301
+/full-form-buyer-registration    /alts-full-buyer-registration         301
+/full-form-exhibitor-registration /alts-full-exhibitor-registration    301
+/privacy-policy                  /alts-privacy-policy                  301
+/cookie-policy                   /alts-cookie-policy                   301
+/alts-terms-conditions           /alts-exhibitor-terms-conditions      301
+/events-2026                     /alts-events                          301
+/past-events                     /alts-events                          301
+/contact-access-luxury-travel-show          /alts-contact              301
+/about-contact-access-luxury-travel-show    /alts-about                301
+# home without "redesign" in url
+/alts-redesign-home              /                                     301
