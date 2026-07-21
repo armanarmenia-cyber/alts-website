@@ -51,20 +51,20 @@
     </div>
     <div class="form-card reveal">
       <div class="f-row">
-        <div class="field"><label for="b-fn">First Name</label><input type="text" id="b-fn"></div>
-        <div class="field"><label for="b-ln">Last Name</label><input type="text" id="b-ln"></div>
+        <div class="field"><label for="b-fn">First Name *</label><input type="text" id="b-fn"></div>
+        <div class="field"><label for="b-ln">Last Name *</label><input type="text" id="b-ln"></div>
       </div>
       <div class="f-row">
-        <div class="field"><label for="b-pos">Your Position</label><input type="text" id="b-pos"></div>
-        <div class="field"><label for="b-co">Company Name</label><input type="text" id="b-co"></div>
+        <div class="field"><label for="b-pos">Your Position *</label><input type="text" id="b-pos"></div>
+        <div class="field"><label for="b-co">Company Name *</label><input type="text" id="b-co"></div>
       </div>
       <div class="f-row">
-        <div class="field"><label for="b-city">Country &amp; City</label><input type="text" id="b-city"></div>
-        <div class="field"><label for="b-web">Website</label><input type="url" id="b-web"></div>
+        <div class="field"><label for="b-city">Country &amp; City *</label><input type="text" id="b-city"></div>
+        <div class="field"><label for="b-web">Website *</label><input type="url" id="b-web"></div>
       </div>
       <div class="f-row">
-        <div class="field"><label for="b-email">Email</label><input type="email" id="b-email"></div>
-        <div class="field"><label for="b-tel">Phone Number</label><input type="tel" id="b-tel"></div>
+        <div class="field"><label for="b-email">Email *</label><input type="email" id="b-email"></div>
+        <div class="field"><label for="b-tel">Phone Number *</label><input type="tel" id="b-tel"></div>
       </div>
       <div class="checks">
         <p class="q">What event are you interested in?</p>
@@ -77,7 +77,7 @@
         <label class="check"><input type="checkbox"> ALTS – UK &amp; Europe Autumn Edition, Porto, Portugal · September 28–30, 2027</label>
         <label class="check"><input type="checkbox"> ALTS – CEE Autumn Edition, Warsaw, Poland · November 8–9, 2027</label>
       </div>
-      <div class="field"><label for="b-q">Your Question</label><textarea id="b-q"></textarea></div>
+      <div class="field"><label for="b-q">Your Question *</label><textarea id="b-q"></textarea></div>
       <button class="btn btn-grad" id="b-submit" onclick="submitBuyer()">Submit application</button>
       <p id="b-status" style="display:none;margin-top:16px;padding:14px 18px;border-radius:10px;font-size:14px;font-weight:500"></p>
       <p class="privacy">You agree to our friendly <a href="alts-privacy-policy.html">privacy policy</a>.</p>
@@ -137,7 +137,9 @@
     const events=[...document.querySelectorAll('.checks input:checked')].map(c=>c.parentElement.textContent.trim());
     const show=(ok,msg)=>{status.style.display='block';status.style.background=ok?'#E8F5EC':'#FDECEC';status.style.color=ok?'#1E7A3C':'#B3261E';status.textContent=msg};
 
-    if(!v('b-fn')||!v('b-email')){show(false,'Please fill in at least your first name and email.');return}
+    const req=['b-fn','b-ln','b-pos','b-co','b-city','b-web','b-email','b-tel','b-q'];
+    if(req.some(i=>!v(i))){show(false,'All fields in this form are required – please fill in every field.');return}
+    if(![...document.querySelectorAll('.checks input:checked')].length){show(false,'Please select at least one event.');return}
     if(MAKE_WEBHOOK_URL.startsWith('PASTE')){show(false,'Webhook is not configured yet – add your Make webhook URL to this page.');return}
 
     btn.disabled=true;btn.style.opacity=.6;
