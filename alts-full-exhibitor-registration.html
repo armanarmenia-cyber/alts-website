@@ -66,7 +66,7 @@
         <div class="field"><label for="ln">Last Name *</label><span class="fhint">Participant's Last Name. This name will be used on your badge</span><input type="text" id="ln"></div>
       </div>
       <div class="f-row">
-        <div class="field"><label for="co">Company Name</label><span class="fhint">Company Name. This name will be used in the Exhibitor Directory and on your Table Sign</span><input type="text" id="co"></div>
+        <div class="field"><label for="co">Company Name *</label><span class="fhint">Company Name. This name will be used in the Exhibitor Directory and on your Table Sign</span><input type="text" id="co"></div>
         <div class="field"><label for="countries">Countries Where Your Brand Operates</label><input type="text" id="countries"></div>
       </div>
       <div class="f-row">
@@ -75,16 +75,16 @@
       </div>
       <div class="f-row">
         <div class="field"><label for="email">Email Address *</label><input type="email" id="email" placeholder="Your Email Address"></div>
-        <div class="field"><label for="tel">Phone Number</label><input type="tel" id="tel"></div>
+        <div class="field"><label for="tel">Phone Number *</label><input type="tel" id="tel"></div>
       </div>
 
       <!-- INVOICING -->
       <div class="f-block"><h3>Invoicing details</h3></div>
       <div class="f-row">
-        <div class="field"><label for="legal">Company Legal Name</label><input type="text" id="legal"></div>
-        <div class="field"><label for="vat">VAT Number</label><input type="text" id="vat"></div>
+        <div class="field"><label for="legal">Company Legal Name *</label><input type="text" id="legal"></div>
+        <div class="field"><label for="vat">VAT Number *</label><input type="text" id="vat"></div>
       </div>
-      <div class="field"><label for="invaddr">Invoicing Address</label><input type="text" id="invaddr"></div>
+      <div class="field"><label for="invaddr">Invoicing Address *</label><input type="text" id="invaddr"></div>
       <div class="field"><label for="cat">Description of your product for the exhibitors' catalogue</label><textarea id="cat" placeholder="Provide a brief and compelling overview highlighting the key strengths and unique aspects of your company. If your application is approved, ALTS buyers will use this information to determine their interest in scheduling a meeting with you and this text will be used in our catalogue. Maximum length: 400 characters."></textarea></div>
       <div class="field"><label for="materials">Please provide at least three photos of your product, service, or destination, as well as your logo *</label><input type="url" id="materials" placeholder="Please provide a download link (e.g., WeTransfer, Google Drive, Dropbox, etc.)"></div>
 
@@ -316,13 +316,50 @@
   }
   document.querySelectorAll('.ex-lisbon,.ex-warsaw,.ex-seville,.ex-astana,.ex-kotor,.ex-porto,.ex-warsaw27').forEach(c=>c.addEventListener('change',toggleAttendee));
 
+  // Second badge availability depends on selected package:
+  // Standard -> paid, Premium/Partnership -> free, Shared Table -> not available
+  const badgeCfg=[
+    {pk:'pk-lisbon',cls:'ex-lisbon'},{pk:'pk-warsaw',cls:'ex-warsaw'},
+    {pk:'pk-seville',cls:'ex-seville'},{pk:'pk-astana',cls:'ex-astana'},
+    {pk:'pk-kotor',cls:'ex-kotor'},{pk:'pk-porto',cls:'ex-porto'},{pk:'pk-warsaw27',cls:'ex-warsaw27'}
+  ];
+  function tierOf(val){ if(/Shared Table/i.test(val)) return 'shared'; if(/Premium|Partnership/i.test(val)) return 'free'; return 'paid'; }
+  badgeCfg.forEach(cfg=>{
+    const badge=[...document.querySelectorAll('.'+cfg.cls)].find(c=>/Second (badge|Attendee)/i.test(c.value));
+    if(!badge) return;
+    const label=badge.closest('label');
+    const tn=[...label.childNodes].find(n=>n.nodeType===3&&n.textContent.trim());
+    badge.dataset.orig=badge.value; const origText=tn.textContent;
+    const base=/Second badge/i.test(badge.dataset.orig)?'Second badge':'Add Second Attendee';
+    function update(){
+      const r=document.querySelector('input[name="'+cfg.pk+'"]:checked');
+      const tier=r?tierOf(r.value):'paid';
+      if(tier==='shared'){
+        badge.checked=false; badge.disabled=true; label.style.opacity=.45; label.style.pointerEvents='none';
+        tn.textContent=' '+base+' — not available with Shared Table packages';
+        toggleAttendee();
+      } else if(tier==='free'){
+        badge.disabled=false; label.style.opacity=1; label.style.pointerEvents='';
+        tn.textContent=' '+base+' — free with Premium / Partnership package';
+        badge.value=base+' – free (Premium/Partnership)';
+      } else {
+        badge.disabled=false; label.style.opacity=1; label.style.pointerEvents='';
+        tn.textContent=origText; badge.value=badge.dataset.orig;
+      }
+    }
+    document.querySelectorAll('input[name="'+cfg.pk+'"]').forEach(r=>r.addEventListener('change',update));
+    document.querySelectorAll('.ev').forEach(cb=>cb.addEventListener('change',update));
+    update();
+  });
+
   async function submitFull(){
     const v=id=>document.getElementById(id).value.trim();
     const status=document.getElementById('status');
     const btn=document.getElementById('submit-btn');
     const show=(ok,msg)=>{status.style.display='block';status.style.background=ok?'#E8F5EC':'#FDECEC';status.style.color=ok?'#1E7A3C':'#B3261E';status.textContent=msg};
 
-    if(!v('fn')||!v('email')){show(false,'Please fill in at least your first name and email.');return}
+    if(!v('fn')||!v('email')||!v('co')||!v('tel')){show(false,'Please fill in your first name, company name, email and phone number.');return}
+    if(!v('legal')||!v('vat')||!v('invaddr')){show(false,'Please fill in all invoicing details (legal name, VAT number, invoicing address).');return}
     if(!v('materials')){show(false,'Please provide a download link to your photos and logo (WeTransfer, Google Drive, Dropbox, etc.).');return}
     if(!document.getElementById('tc').checked){show(false,'Please accept the Terms & Conditions, Payment and Cancellation Policy.');return}
 
