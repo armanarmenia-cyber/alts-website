@@ -311,10 +311,10 @@
   }));
   // show second attendee only when an "Add Second Attendee" extra is checked
   function toggleAttendee(){
-    const need=[...document.querySelectorAll('.ex-lisbon:checked,.ex-warsaw:checked')].some(c=>c.value.includes('Second Attendee'));
+    const need=[...document.querySelectorAll('.ex-lisbon:checked,.ex-warsaw:checked,.ex-seville:checked,.ex-astana:checked,.ex-kotor:checked,.ex-porto:checked,.ex-warsaw27:checked')].some(c=>c.value.includes('Second Attendee')||c.value.includes('Second badge'));
     document.getElementById('sec-attendee').hidden=!need;
   }
-  document.querySelectorAll('.ex-lisbon,.ex-warsaw').forEach(c=>c.addEventListener('change',toggleAttendee));
+  document.querySelectorAll('.ex-lisbon,.ex-warsaw,.ex-seville,.ex-astana,.ex-kotor,.ex-porto,.ex-warsaw27').forEach(c=>c.addEventListener('change',toggleAttendee));
 
   async function submitFull(){
     const v=id=>document.getElementById(id).value.trim();
@@ -383,6 +383,16 @@
         extras_lisbon:exs('ex-lisbon').join(', '),
         package_warsaw:pk('pk-warsaw')||'',
         extras_warsaw:exs('ex-warsaw').join(', '),
+        package_seville:pk('pk-seville')||'',
+        extras_seville:exs('ex-seville').join(', '),
+        package_astana:pk('pk-astana')||'',
+        extras_astana:exs('ex-astana').join(', '),
+        package_kotor:pk('pk-kotor')||'',
+        extras_kotor:exs('ex-kotor').join(', '),
+        package_porto:pk('pk-porto')||'',
+        extras_porto:exs('ex-porto').join(', '),
+        package_warsaw27:pk('pk-warsaw27')||'',
+        extras_warsaw27:exs('ex-warsaw27').join(', '),
         legal_name:v('legal'),
         vat:v('vat'),
         invoice_address:v('invaddr'),
