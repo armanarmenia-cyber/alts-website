@@ -457,6 +457,7 @@
       const parts=[(g('fn')+' '+g('ln')).trim(),g('pos'),g('email'),g('tel')].filter(Boolean);
       const blk=document.getElementById('att-'+k);
       return (blk&&!blk.hidden&&parts.length)?parts.join(', '):''};
+    const extrasWith=(k,cls)=>{const list=exs(cls); const a=attFor(k); if(a) list.push('2nd attendee: '+a); return list.join(', ')};
     const attLines=[];
     [['lisbon','LISBON'],['warsaw','WARSAW 2026'],['seville','SEVILLE 2027'],['astana','ASTANA 2027'],['kotor','KOTOR 2027'],['porto','PORTO 2027'],['warsaw27','WARSAW 2027']].forEach(([k,label])=>{const a=attFor(k); if(a) attLines.push(label+' second attendee: '+a);});
     const pkLines=[];
@@ -509,29 +510,22 @@
         events:events,
         package_baltic:pk('pk-baltic')||'',
         package_lisbon:pk('pk-lisbon')||'',
-        extras_lisbon:exs('ex-lisbon').join(', '),
+        extras_lisbon:extrasWith('lisbon','ex-lisbon'),
         package_warsaw:pk('pk-warsaw')||'',
-        extras_warsaw:exs('ex-warsaw').join(', '),
+        extras_warsaw:extrasWith('warsaw','ex-warsaw'),
         package_seville:pk('pk-seville')||'',
-        extras_seville:exs('ex-seville').join(', '),
+        extras_seville:extrasWith('seville','ex-seville'),
         package_astana:pk('pk-astana')||'',
-        extras_astana:exs('ex-astana').join(', '),
+        extras_astana:extrasWith('astana','ex-astana'),
         package_kotor:pk('pk-kotor')||'',
-        extras_kotor:exs('ex-kotor').join(', '),
+        extras_kotor:extrasWith('kotor','ex-kotor'),
         package_porto:pk('pk-porto')||'',
-        extras_porto:exs('ex-porto').join(', '),
+        extras_porto:extrasWith('porto','ex-porto'),
         package_warsaw27:pk('pk-warsaw27')||'',
-        extras_warsaw27:exs('ex-warsaw27').join(', '),
+        extras_warsaw27:extrasWith('warsaw27','ex-warsaw27'),
         legal_name:v('legal'),
         vat:v('vat'),
         invoice_address:v('invaddr'),
-        attendee2_lisbon:attFor('lisbon'),
-        attendee2_warsaw:attFor('warsaw'),
-        attendee2_seville:attFor('seville'),
-        attendee2_astana:attFor('astana'),
-        attendee2_kotor:attFor('kotor'),
-        attendee2_porto:attFor('porto'),
-        attendee2_warsaw27:attFor('warsaw27'),
         catalogue:v('cat'),
         materials:v('materials'),
         question:report,
