@@ -334,3 +334,7 @@ footer hr{border:none;border-top:1px solid rgba(255,255,255,.25);margin:34px 0}
 .rate-benefits li:before{content:'•';position:absolute;left:0;color:var(--peri)}
 .rates-note{margin-top:28px;font-size:13.5px;color:var(--grey);line-height:1.8}
 .rates-note b{color:var(--navy)}
+
+/* team photos: unified tonality */
+.tm img{filter:grayscale(1) contrast(1.04) brightness(1.02)}
+.team .center{text-align:center}
