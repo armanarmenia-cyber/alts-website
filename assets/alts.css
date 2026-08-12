@@ -338,3 +338,11 @@ footer hr{border:none;border-top:1px solid rgba(255,255,255,.25);margin:34px 0}
 /* team photos: unified tonality */
 .tm img{filter:grayscale(1) contrast(1.04) brightness(1.02)}
 .team .center{text-align:center}
+
+/* simple agenda (day + description) */
+.ag-days{max-width:860px;margin:46px auto 0}
+.ag-day{display:grid;grid-template-columns:210px 1fr;gap:26px;align-items:baseline;padding:24px 0;border-top:1px solid var(--line)}
+.ag-day:last-child{border-bottom:1px solid var(--line)}
+.ag-day .d{font-family:var(--serif-it);font-style:italic;font-weight:400;font-size:31px;line-height:1.1;color:var(--peri)}
+.ag-day p{font-size:16px;line-height:1.75;color:var(--ink)}
+@media(max-width:760px){.ag-day{grid-template-columns:1fr;gap:8px}.ag-day .d{font-size:27px}}
