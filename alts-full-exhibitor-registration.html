@@ -444,9 +444,19 @@
     if(!el) return;
     const box=el.closest('.field')||el.closest('.checks')||el.closest('label')||el;
     box.classList.add('is-invalid');
-    const y=box.getBoundingClientRect().top+scrollY-140;
-    scrollTo({top:y,behavior:'smooth'});
-    if(el.focus) setTimeout(()=>{try{el.focus({preventScroll:true})}catch(e){}},400);
+    const goto=()=>{
+      const r=box.getBoundingClientRect();
+      const y=r.top+(window.pageYOffset||document.documentElement.scrollTop||0)-140;
+      try{window.scrollTo({top:y,behavior:'smooth'})}catch(e){window.scrollTo(0,y)}
+      setTimeout(()=>{
+        const rr=box.getBoundingClientRect();
+        if(rr.top<0||rr.top>innerHeight-80){
+          try{box.scrollIntoView({block:'center'})}catch(e){window.scrollTo(0,y)}
+        }
+        try{el.focus()}catch(e){}
+      },420);
+    };
+    goto();
   }
   function fail(el,msg){focusField(el);return msg}
   document.addEventListener('input',e=>{const b=e.target.closest('.field, .checks');if(b)b.classList.remove('is-invalid')},true);
