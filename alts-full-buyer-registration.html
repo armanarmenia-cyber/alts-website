@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/alts.css?v=16">
+<link rel="stylesheet" href="assets/alts.css?v=17">
 </head>
 <body>
 
@@ -250,21 +250,37 @@
 
   const MAKE_WEBHOOK_URL = 'https://hook.eu1.make.com/awvokqplkq7yc69hc7s5a641qfs46e7v';
 
+
+  // ---- field-level validation: highlight + scroll to the first missing field ----
+  function clearInvalid(){document.querySelectorAll('.is-invalid').forEach(e=>e.classList.remove('is-invalid'))}
+  function focusField(el){
+    if(!el) return;
+    const box=el.closest('.field')||el.closest('.checks')||el.closest('label')||el;
+    box.classList.add('is-invalid');
+    const y=box.getBoundingClientRect().top+scrollY-140;
+    scrollTo({top:y,behavior:'smooth'});
+    if(el.focus) setTimeout(()=>{try{el.focus({preventScroll:true})}catch(e){}},400);
+  }
+  function fail(el,msg){focusField(el);return msg}
+  document.addEventListener('input',e=>{const b=e.target.closest('.field, .checks');if(b)b.classList.remove('is-invalid')},true);
+  document.addEventListener('change',e=>{const b=e.target.closest('.field, .checks');if(b)b.classList.remove('is-invalid')},true);
+
   async function submitFull(){
     const v=id=>document.getElementById(id).value.trim();
     const status=document.getElementById('status');
     const btn=document.getElementById('submit-btn');
     const show=(ok,msg)=>{status.style.display='block';status.style.background=ok?'#E8F5EC':'#FDECEC';status.style.color=ok?'#1E7A3C':'#B3261E';status.textContent=msg};
 
-    const reqText=['fn','ln','co','pos','tel','email','web','year','city','country','descr','shows','clients','hotel1','hotel2','hotel3','booking1','booking2','booking3'];
-    const reqSel=['btype','emp','spend','turnover','five','consortia'];
-    if(reqText.some(i=>!v(i))||reqSel.some(i=>!v(i))){show(false,'All questions in this form are required – please fill in every field.');return}
-    if(v('btype')==='Other: Specify'&&!v('btype-other')){show(false,'Please specify your type of business.');return}
-    if(v('consortia')==='Other (Specify)'&&!v('consortia-other')){show(false,'Please specify your consortia.');return}
-    if(![...document.querySelectorAll('.ev:checked')].length){show(false,'Please select at least one event.');return}
-    if(![...document.querySelectorAll('.rg:checked')].length){show(false,'Please select at least one region you sell and source from.');return}
-    if(![...document.querySelectorAll('.pr:checked')].length){show(false,'Please select at least one type of travel products.');return}
-    if(!document.getElementById('tc').checked){show(false,'Please accept the Terms & Conditions, Payment and Cancellation Policy.');return}
+    clearInvalid();
+    const req=['fn','ln','co','pos','tel','email','web','year','city','country','descr','btype','emp','spend','turnover','five','consortia','shows','clients','hotel1','hotel2','hotel3','booking1','booking2','booking3'];
+    const missing=req.find(i=>!v(i));
+    if(missing){const el=document.getElementById(missing);const lbl=(el.closest('.field')?.querySelector('label')?.textContent||'this field').replace('*','').trim();show(false,'Please fill in: '+lbl);focusField(el);return}
+    if(v('btype')==='Other: Specify'&&!v('btype-other')){show(false,'Please specify your type of business.');focusField(document.getElementById('btype-other'));return}
+    if(v('consortia')==='Other (Specify)'&&!v('consortia-other')){show(false,'Please specify your consortia.');focusField(document.getElementById('consortia-other'));return}
+    if(![...document.querySelectorAll('.ev:checked')].length){show(false,'Please select at least one event.');focusField(document.querySelector('.ev'));return}
+    if(![...document.querySelectorAll('.rg:checked')].length){show(false,'Please select at least one region you sell and source from.');focusField(document.querySelector('.rg'));return}
+    if(![...document.querySelectorAll('.pr:checked')].length){show(false,'Please select at least one type of travel products.');focusField(document.querySelector('.pr'));return}
+    if(!document.getElementById('tc').checked){show(false,'Please accept the Terms & Conditions, Payment and Cancellation Policy.');focusField(document.getElementById('tc'));return}
 
     const events=[...document.querySelectorAll('.ev:checked')].map(c=>c.value);
     const regions=[...document.querySelectorAll('.rg:checked')].map(c=>c.value);

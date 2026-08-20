@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/alts.css?v=16">
+<link rel="stylesheet" href="assets/alts.css?v=17">
 </head>
 <body>
 
@@ -437,17 +437,33 @@
     update();
   });
 
+
+  // ---- field-level validation: highlight + scroll to the first missing field ----
+  function clearInvalid(){document.querySelectorAll('.is-invalid').forEach(e=>e.classList.remove('is-invalid'))}
+  function focusField(el){
+    if(!el) return;
+    const box=el.closest('.field')||el.closest('.checks')||el.closest('label')||el;
+    box.classList.add('is-invalid');
+    const y=box.getBoundingClientRect().top+scrollY-140;
+    scrollTo({top:y,behavior:'smooth'});
+    if(el.focus) setTimeout(()=>{try{el.focus({preventScroll:true})}catch(e){}},400);
+  }
+  function fail(el,msg){focusField(el);return msg}
+  document.addEventListener('input',e=>{const b=e.target.closest('.field, .checks');if(b)b.classList.remove('is-invalid')},true);
+  document.addEventListener('change',e=>{const b=e.target.closest('.field, .checks');if(b)b.classList.remove('is-invalid')},true);
+
   async function submitFull(){
     const v=id=>document.getElementById(id).value.trim();
     const status=document.getElementById('status');
     const btn=document.getElementById('submit-btn');
     const show=(ok,msg)=>{status.style.display='block';status.style.background=ok?'#E8F5EC':'#FDECEC';status.style.color=ok?'#1E7A3C':'#B3261E';status.textContent=msg};
 
-    if(!v('fn')||!v('email')||!v('co')||!v('tel')){show(false,'Please fill in your first name, company name, email and phone number.');return}
-    if(!v('legal')||!v('vat')||!v('invaddr')){show(false,'Please fill in all invoicing details (legal name, VAT number, invoicing address).');return}
-    if(!v('cat')){show(false,'Please fill in the description of your product for the exhibitors\' catalogue.');return}
-    if(!v('materials')){show(false,'Please provide a download link to your photos and logo (WeTransfer, Google Drive, Dropbox, etc.).');return}
-    if(!document.getElementById('tc').checked){show(false,'Please accept the Terms & Conditions, Payment and Cancellation Policy.');return}
+    clearInvalid();
+    const req=['fn','ln','co','tel','email','cat','materials','legal','vat','invaddr'];
+    const missing=req.find(i=>!v(i));
+    if(missing){const el=document.getElementById(missing);const lbl=(el.closest('.field')?.querySelector('label')?.textContent||'this field').replace('*','').trim();show(false,'Please fill in: '+lbl);focusField(el);return}
+    if(![...document.querySelectorAll('.ev:checked')].length){show(false,'Please select at least one event.');focusField(document.querySelector('.ev'));return}
+    if(!document.getElementById('tc').checked){show(false,'Please accept the Terms & Conditions, Payment and Cancellation Policy.');focusField(document.getElementById('tc'));return}
 
     const events=[...document.querySelectorAll('.ev:checked')].map(c=>c.value);
     const pk=n=>{const r=document.querySelector(`input[name="${n}"]:checked`);return r&&r.value?r.value:null};

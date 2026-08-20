@@ -348,3 +348,11 @@ footer hr{border:none;border-top:1px solid rgba(255,255,255,.25);margin:34px 0}
 
 /* past events: arrow to top-right corner */
 .past .list-card .ev-arrow{top:20px;right:20px;bottom:auto}
+
+/* invalid field highlight */
+.field.is-invalid label{color:#B3261E}
+.field.is-invalid input,.field.is-invalid textarea,.field.is-invalid select{border-color:#E4574C!important;background:#FDF3F2!important;box-shadow:0 0 0 3px rgba(228,87,76,.14)}
+.checks.is-invalid{border:1px solid #E4574C;border-radius:12px;padding:14px;background:#FDF3F2}
+.checks.is-invalid p.q{color:#B3261E}
+@keyframes invalid-pulse{0%{box-shadow:0 0 0 0 rgba(228,87,76,.35)}100%{box-shadow:0 0 0 10px rgba(228,87,76,0)}}
+.field.is-invalid input,.field.is-invalid textarea,.field.is-invalid select,.checks.is-invalid{animation:invalid-pulse .9s ease-out 1}
