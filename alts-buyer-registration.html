@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/alts.css?v=17">
+<link rel="stylesheet" href="assets/alts.css?v=18">
 </head>
 <body>
 
@@ -66,16 +66,32 @@
         <div class="field"><label for="b-email">Email *</label><input type="email" id="b-email"></div>
         <div class="field"><label for="b-tel">Phone Number *</label><input type="tel" id="b-tel"></div>
       </div>
+            <div class="checks" id="markets-block">
+        <p class="q">Where are the majority of your clients based? *</p>
+        <p class="hint" style="margin:-4px 0 12px;font-size:12.5px;color:var(--grey)">Select all that apply – this defines which ALTS events are open to you.</p>
+        <label class="check"><input type="checkbox" class="mk" data-ev="lis26,sev27,por27" value="UK & Ireland"> UK &amp; Ireland</label>
+        <label class="check"><input type="checkbox" class="mk" data-ev="lis26,sev27,por27" value="Western Europe"> Western Europe</label>
+        <label class="check"><input type="checkbox" class="mk" data-ev="lis26,sev27,por27" value="Southern Europe"> Southern Europe</label>
+        <label class="check"><input type="checkbox" class="mk" data-ev="lis26,sev27,por27" value="DACH"> DACH</label>
+        <label class="check"><input type="checkbox" class="mk" data-ev="lis26,sev27,por27" value="Benelux"> Benelux</label>
+        <label class="check"><input type="checkbox" class="mk" data-ev="lis26,sev27,por27" value="Nordics"> Nordics</label>
+        <label class="check"><input type="checkbox" class="mk" data-ev="bal26,war26,kot27,war27" value="Central & Eastern Europe"> Central &amp; Eastern Europe</label>
+        <label class="check"><input type="checkbox" class="mk" data-ev="ast27" value="Central Asia"> Central Asia</label>
+        <label class="check"><input type="checkbox" class="mk" data-ev="lis26,sev27,por27" value="North America"> North America</label>
+        <label class="check"><input type="checkbox" class="mk" id="mk-other" data-ev="*" value="Other"> Other</label>
+        <div class="field" id="mk-other-wrap" hidden style="margin-top:10px"><label for="mk-other-txt">Please specify your market *</label><input type="text" id="mk-other-txt" placeholder="Country or region"></div>
+      </div>
+
       <div class="checks">
         <p class="q">What event are you interested in?</p>
-        <label class="check"><input type="checkbox"> ALTS – Baltic Countries Roadshow · September 15–17, 2026</label>
-        <label class="check"><input type="checkbox"> ALTS – UK &amp; EU, Lisbon, Portugal · September 28–30, 2026</label>
-        <label class="check"><input type="checkbox"> ALTS – CEE Autumn Edition, Warsaw, Poland · October 21–22, 2026</label>
-        <label class="check"><input type="checkbox"> ALTS – UK &amp; Europe Spring Edition, Seville, Spain · March 9–11, 2027</label>
-        <label class="check"><input type="checkbox"> ALTS – Central Asia, Astana, Kazakhstan · April 7–8, 2027</label>
-        <label class="check"><input type="checkbox"> ALTS – CEE Offsite, Kotor Bay, Montenegro · April 13–15, 2027</label>
-        <label class="check"><input type="checkbox"> ALTS – UK &amp; Europe Autumn Edition, Porto, Portugal · September 28–30, 2027</label>
-        <label class="check"><input type="checkbox"> ALTS – CEE Autumn Edition, Warsaw, Poland · November 8–9, 2027</label>
+        <label class="check"><input type="checkbox" data-evkey="bal26"> ALTS – Baltic Countries Roadshow · September 15–17, 2026</label>
+        <label class="check"><input type="checkbox" data-evkey="lis26"> ALTS – UK &amp; EU, Lisbon, Portugal · September 28–30, 2026</label>
+        <label class="check"><input type="checkbox" data-evkey="war26"> ALTS – CEE Autumn Edition, Warsaw, Poland · October 21–22, 2026</label>
+        <label class="check"><input type="checkbox" data-evkey="sev27"> ALTS – UK &amp; Europe Spring Edition, Seville, Spain · March 9–11, 2027</label>
+        <label class="check"><input type="checkbox" data-evkey="ast27"> ALTS – Central Asia, Astana, Kazakhstan · April 7–8, 2027</label>
+        <label class="check"><input type="checkbox" data-evkey="kot27"> ALTS – CEE Offsite, Kotor Bay, Montenegro · April 13–15, 2027</label>
+        <label class="check"><input type="checkbox" data-evkey="por27"> ALTS – UK &amp; Europe Autumn Edition, Porto, Portugal · September 28–30, 2027</label>
+        <label class="check"><input type="checkbox" data-evkey="war27"> ALTS – CEE Autumn Edition, Warsaw, Poland · November 8–9, 2027</label>
       </div>
       <div class="field"><label for="b-q">Your Question *</label><textarea id="b-q"></textarea></div>
       <button class="btn btn-grad" id="b-submit" onclick="submitBuyer()">Submit application</button>
@@ -130,6 +146,25 @@
   // ===== Make.com webhook =====
   const MAKE_WEBHOOK_URL = 'https://hook.eu1.make.com/awvokqplkq7yc69hc7s5a641qfs46e7v';
 
+
+  // ---- markets gate: only matching events can be selected ----
+  const ALL_EV=['bal26','lis26','war26','sev27','ast27','kot27','por27','war27'];
+  function applyMarkets(){
+    const chosen=[...document.querySelectorAll('.mk:checked')];
+    const other=document.getElementById('mk-other');
+    document.getElementById('mk-other-wrap').hidden=!other.checked;
+    const allowed=new Set();
+    chosen.forEach(c=>{ if(c.dataset.ev==='*') ALL_EV.forEach(k=>allowed.add(k)); else c.dataset.ev.split(',').forEach(k=>allowed.add(k)); });
+    document.querySelectorAll('[data-evkey]').forEach(cb=>{
+      const ok=allowed.has(cb.dataset.evkey);
+      if(!ok&&cb.checked){cb.checked=false; cb.dispatchEvent(new Event('change',{bubbles:true}));}
+      cb.disabled=!ok;
+      const lab=cb.closest('label'); if(lab) lab.classList.toggle('locked',!ok);
+    });
+  }
+  document.querySelectorAll('.mk').forEach(c=>c.addEventListener('change',applyMarkets));
+  applyMarkets();
+
   async function submitBuyer(){
     const v=id=>document.getElementById(id).value.trim();
     const status=document.getElementById('b-status');
@@ -137,6 +172,8 @@
     const events=[...document.querySelectorAll('.checks input:checked')].map(c=>c.parentElement.textContent.trim());
     const show=(ok,msg)=>{status.style.display='block';status.style.background=ok?'#E8F5EC':'#FDECEC';status.style.color=ok?'#1E7A3C':'#B3261E';status.textContent=msg};
 
+    if(![...document.querySelectorAll('.mk:checked')].length){show(false,'Please select where the majority of your clients are based.');document.getElementById('markets-block').scrollIntoView({behavior:'smooth',block:'center'});return}
+    if(document.getElementById('mk-other').checked&&!v('mk-other-txt')){show(false,'Please specify your market.');document.getElementById('mk-other-txt').focus();return}
     const req=['b-fn','b-ln','b-pos','b-co','b-city','b-web','b-email','b-tel','b-q'];
     if(req.some(i=>!v(i))){show(false,'All fields in this form are required – please fill in every field.');return}
     if(![...document.querySelectorAll('.checks input:checked')].length){show(false,'Please select at least one event.');return}
@@ -148,6 +185,8 @@
         form:'buyer-registration',
         first_name:v('b-fn'),last_name:v('b-ln'),position:v('b-pos'),company:v('b-co'),
         country_city:v('b-city'),website:v('b-web'),email:v('b-email'),phone:v('b-tel'),
+        markets:[...document.querySelectorAll('.mk:checked')].map(c=>c.value).join(', '),
+        markets_other:v('mk-other-txt'),
         events:events,question:v('b-q'),
         page:location.href,submitted_at:new Date().toISOString()
       })});
