@@ -359,3 +359,6 @@ footer hr{border:none;border-top:1px solid rgba(255,255,255,.25);margin:34px 0}
 
 /* market-gated events */
 .check.locked{opacity:.42;pointer-events:none;filter:grayscale(1)}
+
+/* hero: keep the italic phrase together */
+.hero h1 em{display:inline-block}
