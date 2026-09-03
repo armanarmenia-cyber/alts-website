@@ -167,8 +167,10 @@
 <script>
   const hdr=document.getElementById('hdr');
   addEventListener('scroll',()=>hdr.classList.toggle('scrolled',scrollY>60),{passive:true});
-  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}}),{threshold:.12});
-  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  const io=('IntersectionObserver' in window)?new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}}),{threshold:0,rootMargin:'0px 0px -8% 0px'}):null;
+  if(!io){document.querySelectorAll('.reveal').forEach(el=>el.classList.add('on'));}
+  setTimeout(()=>document.querySelectorAll('.reveal:not(.on)').forEach(el=>{const r=el.getBoundingClientRect();if(r.top<innerHeight&&r.bottom>0)el.classList.add('on')}),1200);
+  if(io) document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 </script>
 </body>
 </html>
