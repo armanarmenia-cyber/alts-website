@@ -4,6 +4,19 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Apply as an Exhibitor | Access Luxury Travel Show</title>
+<meta name="description" content="Access Luxury Travel Show is a curated boutique travel event bringing together exceptional luxury travel brands with carefully selected travel buyers from Europe's key markets.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Access Luxury Travel Show">
+<meta property="og:title" content="Apply as an Exhibitor | Access Luxury Travel Show">
+<meta property="og:description" content="Access Luxury Travel Show is a curated boutique travel event bringing together exceptional luxury travel brands with carefully selected travel buyers from Europe's key markets.">
+<meta property="og:url" content="https://altsevents.com/alts-exhibitor-registration">
+<meta property="og:image" content="https://altsevents.com/assets/og-cover.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Apply as an Exhibitor | Access Luxury Travel Show">
+<meta name="twitter:description" content="Access Luxury Travel Show is a curated boutique travel event bringing together exceptional luxury travel brands with carefully selected travel buyers from Europe's key markets.">
+<meta name="twitter:image" content="https://altsevents.com/assets/og-cover.jpg">
 <link rel="icon" type="image/png" sizes="64x64" href="assets/favicon-64.png">
 <link rel="icon" type="image/png" sizes="512x512" href="assets/favicon.png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
@@ -11,6 +24,10 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/alts.css?v=19">
+<style>
+  .field.is-invalid input,.field.is-invalid textarea{border-color:#E4574C!important;background:#FDF3F2!important}
+  .field.is-invalid label{color:#B3261E}
+</style>
 </head>
 <body>
 
@@ -50,15 +67,15 @@
     </div>
     <div class="form-card reveal">
       <div class="f-row">
-        <div class="field"><label for="e-fn">First Name</label><input type="text" id="e-fn"></div>
-        <div class="field"><label for="e-ln">Last Name</label><input type="text" id="e-ln"></div>
+        <div class="field"><label for="e-fn">First Name *</label><input type="text" id="e-fn"></div>
+        <div class="field"><label for="e-ln">Last Name *</label><input type="text" id="e-ln"></div>
       </div>
       <div class="f-row">
-        <div class="field"><label for="e-email">Email</label><input type="email" id="e-email"></div>
-        <div class="field"><label for="e-tel">Phone Number</label><input type="tel" id="e-tel"></div>
+        <div class="field"><label for="e-email">Email *</label><input type="email" id="e-email"></div>
+        <div class="field"><label for="e-tel">Phone Number *</label><input type="tel" id="e-tel"></div>
       </div>
       <div class="f-row">
-        <div class="field"><label for="e-brand">Brand</label><input type="text" id="e-brand"></div>
+        <div class="field"><label for="e-brand">Brand *</label><input type="text" id="e-brand"></div>
         <div class="field"><label for="e-web">Website</label><input type="url" id="e-web"></div>
       </div>
       <div class="checks">
@@ -72,7 +89,7 @@
         <label class="check"><input type="checkbox"> ALTS – UK &amp; Europe Autumn Edition, Porto, Portugal · September 28–30, 2027</label>
         <label class="check"><input type="checkbox"> ALTS – CEE Autumn Edition, Warsaw, Poland · November 8–9, 2027</label>
       </div>
-      <div class="field"><label for="e-q">Your Question</label><textarea id="e-q"></textarea></div>
+      <div class="field"><label for="e-q">Your Question *</label><textarea id="e-q"></textarea></div>
       <button class="btn btn-grad" id="e-submit" onclick="submitExhibitor()">Request info &amp; prices</button>
       <p id="e-status" style="display:none;margin-top:16px;padding:14px 18px;border-radius:10px;font-size:14px;font-weight:500"></p>
       <p class="privacy">You agree to our friendly <a href="alts-privacy-policy.html">privacy policy</a>.</p>
@@ -127,6 +144,8 @@
   // ===== Make.com webhook =====
   const MAKE_WEBHOOK_URL = 'https://hook.eu1.make.com/awvokqplkq7yc69hc7s5a641qfs46e7v';
 
+  document.addEventListener('input',e=>{const b=e.target.closest('.field');if(b)b.classList.remove('is-invalid')},true);
+
   async function submitExhibitor(){
     const v=id=>document.getElementById(id).value.trim();
     const status=document.getElementById('e-status');
@@ -134,7 +153,10 @@
     const events=[...document.querySelectorAll('.checks input:checked')].map(c=>c.parentElement.textContent.trim());
     const show=(ok,msg)=>{status.style.display='block';status.style.background=ok?'#E8F5EC':'#FDECEC';status.style.color=ok?'#1E7A3C':'#B3261E';status.textContent=msg};
 
-    if(!v('e-fn')||!v('e-email')){show(false,'Please fill in at least your first name and email.');return}
+    const req=[['e-fn','First Name'],['e-ln','Last Name'],['e-email','Email'],['e-tel','Phone Number'],['e-brand','Brand'],['e-q','Your Question']];
+    const miss=req.find(([i])=>!v(i));
+    if(miss){show(false,'Please fill in: '+miss[1]);const el=document.getElementById(miss[0]);const b=el.closest('.field');if(b){b.classList.add('is-invalid');}el.scrollIntoView({behavior:'smooth',block:'center'});setTimeout(()=>el.focus(),400);return}
+    if(![...document.querySelectorAll('.checks input:checked')].length){show(false,'Please select at least one event.');document.querySelector('.checks').scrollIntoView({behavior:'smooth',block:'center'});return}
     if(MAKE_WEBHOOK_URL.startsWith('PASTE')){show(false,'Webhook is not configured yet – add your Make webhook URL to this page.');return}
 
     btn.disabled=true;btn.style.opacity=.6;
