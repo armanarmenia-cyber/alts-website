@@ -88,7 +88,7 @@
         <label class="check"><input type="checkbox" class="mk" data-ev="lis26,sev27,por27" value="DACH"> DACH</label>
         <label class="check"><input type="checkbox" class="mk" data-ev="lis26,sev27,por27" value="Benelux"> Benelux</label>
         <label class="check"><input type="checkbox" class="mk" data-ev="lis26,sev27,por27" value="Nordics"> Nordics</label>
-        <label class="check"><input type="checkbox" class="mk" data-ev="bal26,war26,kot27,war27" value="Central & Eastern Europe"> Central &amp; Eastern Europe</label>
+        <label class="check"><input type="checkbox" class="mk" data-ev="war26,kot27,war27" value="Central & Eastern Europe"> Central &amp; Eastern Europe</label>
         <label class="check"><input type="checkbox" class="mk" data-ev="ast27" value="Central Asia"> Central Asia</label>
         <label class="check"><input type="checkbox" class="mk" data-ev="lis26,sev27,por27" value="North America"> North America</label>
         <label class="check"><input type="checkbox" class="mk" id="mk-other" data-ev="*" value="Other"> Other</label>
@@ -97,7 +97,6 @@
 
       <div class="checks">
         <p class="q">What event are you interested in?</p>
-        <label class="check"><input type="checkbox" data-evkey="bal26"> ALTS – Baltic Countries Roadshow · September 15–17, 2026</label>
         <label class="check"><input type="checkbox" data-evkey="lis26"> ALTS – UK &amp; EU, Lisbon, Portugal · September 28–30, 2026</label>
         <label class="check"><input type="checkbox" data-evkey="war26"> ALTS – CEE Autumn Edition, Warsaw, Poland · October 21–22, 2026</label>
         <label class="check"><input type="checkbox" data-evkey="sev27"> ALTS – UK &amp; Europe Spring Edition, Seville, Spain · March 9–11, 2027</label>
@@ -163,7 +162,7 @@
 
 
   // ---- markets gate: only matching events can be selected ----
-  const ALL_EV=['bal26','lis26','war26','sev27','ast27','kot27','por27','war27'];
+  const ALL_EV=['lis26','war26','sev27','ast27','kot27','por27','war27'];
   function applyMarkets(){
     const chosen=[...document.querySelectorAll('.mk:checked')];
     const other=document.getElementById('mk-other');

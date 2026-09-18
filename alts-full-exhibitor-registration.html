@@ -62,7 +62,6 @@
       <!-- EVENTS -->
       <div class="checks">
         <p class="q">Choose your ALTS event:</p>
-        <label class="check"><input type="checkbox" class="ev" data-sec="sec-baltic" value="ALTS Baltic Countries Roadshow, Sep 15–17, 2026"> ALTS – Baltic Countries Roadshow · September 15–17, 2026</label>
         <label class="check"><input type="checkbox" class="ev" data-sec="sec-lisbon" value="ALTS UK & EU Lisbon, Sep 28–30, 2026"> ALTS – UK &amp; EU, Lisbon, Portugal · September 28–30, 2026</label>
         <label class="check"><input type="checkbox" class="ev" data-sec="sec-warsaw" value="ALTS CEE Autumn Edition Warsaw, Oct 21–22, 2026"> ALTS – CEE Autumn Edition, Warsaw, Poland · October 21–22, 2026</label>
         <label class="check"><input type="checkbox" class="ev" data-sec="sec-seville" value="ALTS UK & Europe Spring Edition Seville, Mar 9–11, 2027"> ALTS – UK &amp; Europe Spring Edition, Seville, Spain · March 9–11, 2027</label>
@@ -105,15 +104,6 @@
       <div class="field"><label for="invaddr">Invoicing Address *</label><input type="text" id="invaddr"></div>
 
       <!-- BALTIC PACKAGES -->
-      <div id="sec-baltic" hidden>
-      <div class="f-block"><h3>ALTS Baltic Countries Roadshow · Sep 15–17, 2026</h3>
-        <p class="hint">Prices include VAT. Available promo rates and discounts will be applied directly in your invoice.</p>
-      </div>
-      <div class="checks">
-        <label class="check"><input type="radio" name="pk-baltic" value="Standard Three Cities – 6900€"> Standard Three Cities (Vilnius, Riga, Tallinn), incl. Accommodation &amp; Transportation between cities – 6900€</label>
-        <label class="check disabled"><input type="radio" name="pk-baltic" value="Partnership All Cities – 9000€" disabled> Partnership All Cities – 9000€ <span class="sub">Sold Out</span></label>
-      </div>
-      </div><!-- /sec-baltic -->
 
       <!-- LISBON PACKAGES -->
       <div id="sec-lisbon" hidden>
@@ -502,7 +492,6 @@
     const attLines=[];
     [['lisbon','LISBON'],['warsaw','WARSAW 2026'],['seville','SEVILLE 2027'],['astana','ASTANA 2027'],['kotor','KOTOR 2027'],['porto','PORTO 2027'],['warsaw27','WARSAW 2027']].forEach(([k,label])=>{const a=attFor(k); if(a) attLines.push(label+' second attendee: '+a);});
     const pkLines=[];
-    if(pk('pk-baltic')) pkLines.push('BALTIC ROADSHOW: '+pk('pk-baltic'));
     if(pk('pk-lisbon')) pkLines.push('LISBON: '+pk('pk-lisbon'));
     exs('ex-lisbon').forEach(x=>pkLines.push('LISBON extra: '+x));
     if(pk('pk-warsaw')) pkLines.push('WARSAW: '+pk('pk-warsaw'));
@@ -549,7 +538,6 @@
         first_name:v('fn'),last_name:v('ln'),company:v('co'),position:v('pos'),
         country_city:v('countries'),website:v('web'),email:v('email'),phone:v('tel'),
         events:events,
-        package_baltic:pk('pk-baltic')||'',
         package_lisbon:pk('pk-lisbon')||'',
         extras_lisbon:extrasWith('lisbon','ex-lisbon'),
         package_warsaw:pk('pk-warsaw')||'',

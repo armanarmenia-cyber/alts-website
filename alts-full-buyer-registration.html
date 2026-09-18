@@ -81,7 +81,7 @@
         <label class="check"><input type="checkbox" class="mk" data-ev="lis26,sev27,por27" value="DACH"> DACH</label>
         <label class="check"><input type="checkbox" class="mk" data-ev="lis26,sev27,por27" value="Benelux"> Benelux</label>
         <label class="check"><input type="checkbox" class="mk" data-ev="lis26,sev27,por27" value="Nordics"> Nordics</label>
-        <label class="check"><input type="checkbox" class="mk" data-ev="bal26,war26,kot27,war27" value="Central & Eastern Europe"> Central &amp; Eastern Europe</label>
+        <label class="check"><input type="checkbox" class="mk" data-ev="war26,kot27,war27" value="Central & Eastern Europe"> Central &amp; Eastern Europe</label>
         <label class="check"><input type="checkbox" class="mk" data-ev="ast27" value="Central Asia"> Central Asia</label>
         <label class="check"><input type="checkbox" class="mk" data-ev="lis26,sev27,por27" value="North America"> North America</label>
         <label class="check"><input type="checkbox" class="mk" id="mk-other" data-ev="*" value="Other"> Other</label>
@@ -90,7 +90,6 @@
 
       <div class="checks">
         <p class="q">Choose your ALTS event:</p>
-        <label class="check"><input type="checkbox" class="ev" data-evkey="bal26" value="ALTS Baltic Countries Roadshow, Sep 15–17, 2026"> ALTS – Baltic Countries Roadshow · September 15–17, 2026 <span class="sub">Open exclusively to agencies based in the Baltic States</span></label>
         <label class="check"><input type="checkbox" class="ev" data-evkey="lis26" value="ALTS UK & EU Lisbon, Sep 28–30, 2026"> ALTS – UK &amp; EU, Lisbon, Portugal · September 28–30, 2026 <span class="sub">Open to agencies based in the UK, Southern Europe, Benelux, France, and the DACH region</span></label>
         <label class="check"><input type="checkbox" class="ev" data-evkey="war26" value="ALTS CEE Autumn Edition Warsaw, Oct 21–22, 2026"> ALTS – CEE Autumn Edition, Warsaw, Poland · October 21–22, 2026 <span class="sub">Open to agencies based in Hungary, Poland, Czech Republic, Romania, Bulgaria, Slovakia, Slovenia, Moldova, the Baltic States, and Serbia</span></label>
         <label class="check"><input type="checkbox" class="ev" data-evkey="sev27" value="ALTS UK & Europe Spring Edition Seville, Mar 9–11, 2027"> ALTS – UK &amp; Europe Spring Edition, Seville, Spain · March 9–11, 2027 <span class="sub">Open to agencies based in the US, UK, Southern Europe, Benelux, France, and the DACH region</span></label>
@@ -308,7 +307,7 @@
 
 
   // ---- markets gate: only matching events can be selected ----
-  const ALL_EV=['bal26','lis26','war26','sev27','ast27','kot27','por27','war27'];
+  const ALL_EV=['lis26','war26','sev27','ast27','kot27','por27','war27'];
   function applyMarkets(){
     const chosen=[...document.querySelectorAll('.mk:checked')];
     const other=document.getElementById('mk-other');
