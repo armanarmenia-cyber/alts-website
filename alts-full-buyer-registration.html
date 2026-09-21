@@ -75,22 +75,21 @@
       <div class="checks" id="markets-block">
         <p class="q">Where are the majority of your clients based? *</p>
         <p class="hint" style="margin:-4px 0 12px;font-size:12.5px;color:var(--grey)">Select all that apply – this defines which ALTS events are open to you.</p>
-        <label class="check"><input type="checkbox" class="mk" data-ev="lis26,sev27,por27" value="UK & Ireland"> UK &amp; Ireland</label>
-        <label class="check"><input type="checkbox" class="mk" data-ev="lis26,sev27,por27" value="Western Europe"> Western Europe</label>
-        <label class="check"><input type="checkbox" class="mk" data-ev="lis26,sev27,por27" value="Southern Europe"> Southern Europe</label>
-        <label class="check"><input type="checkbox" class="mk" data-ev="lis26,sev27,por27" value="DACH"> DACH</label>
-        <label class="check"><input type="checkbox" class="mk" data-ev="lis26,sev27,por27" value="Benelux"> Benelux</label>
-        <label class="check"><input type="checkbox" class="mk" data-ev="lis26,sev27,por27" value="Nordics"> Nordics</label>
+        <label class="check"><input type="checkbox" class="mk" data-ev="sev27,por27" value="UK & Ireland"> UK &amp; Ireland</label>
+        <label class="check"><input type="checkbox" class="mk" data-ev="sev27,por27" value="Western Europe"> Western Europe</label>
+        <label class="check"><input type="checkbox" class="mk" data-ev="sev27,por27" value="Southern Europe"> Southern Europe</label>
+        <label class="check"><input type="checkbox" class="mk" data-ev="sev27,por27" value="DACH"> DACH</label>
+        <label class="check"><input type="checkbox" class="mk" data-ev="sev27,por27" value="Benelux"> Benelux</label>
+        <label class="check"><input type="checkbox" class="mk" data-ev="sev27,por27" value="Nordics"> Nordics</label>
         <label class="check"><input type="checkbox" class="mk" data-ev="war26,kot27,war27" value="Central & Eastern Europe"> Central &amp; Eastern Europe</label>
         <label class="check"><input type="checkbox" class="mk" data-ev="ast27" value="Central Asia"> Central Asia</label>
-        <label class="check"><input type="checkbox" class="mk" data-ev="lis26,sev27,por27" value="North America"> North America</label>
+        <label class="check"><input type="checkbox" class="mk" data-ev="sev27,por27" value="North America"> North America</label>
         <label class="check"><input type="checkbox" class="mk" id="mk-other" data-ev="*" value="Other"> Other</label>
         <div class="field" id="mk-other-wrap" hidden style="margin-top:10px"><label for="mk-other-txt">Please specify your market *</label><input type="text" id="mk-other-txt" placeholder="Country or region"></div>
       </div>
 
       <div class="checks">
         <p class="q">Choose your ALTS event:</p>
-        <label class="check"><input type="checkbox" class="ev" data-evkey="lis26" value="ALTS UK & EU Lisbon, Sep 28–30, 2026"> ALTS – UK &amp; EU, Lisbon, Portugal · September 28–30, 2026 <span class="sub">Open to agencies based in the UK, Southern Europe, Benelux, France, and the DACH region</span></label>
         <label class="check"><input type="checkbox" class="ev" data-evkey="war26" value="ALTS CEE Autumn Edition Warsaw, Oct 21–22, 2026"> ALTS – CEE Autumn Edition, Warsaw, Poland · October 21–22, 2026 <span class="sub">Open to agencies based in Hungary, Poland, Czech Republic, Romania, Bulgaria, Slovakia, Slovenia, Moldova, the Baltic States, and Serbia</span></label>
         <label class="check"><input type="checkbox" class="ev" data-evkey="sev27" value="ALTS UK & Europe Spring Edition Seville, Mar 9–11, 2027"> ALTS – UK &amp; Europe Spring Edition, Seville, Spain · March 9–11, 2027 <span class="sub">Open to agencies based in the US, UK, Southern Europe, Benelux, France, and the DACH region</span></label>
         <label class="check"><input type="checkbox" class="ev" data-evkey="ast27" value="ALTS Central Asia Astana, Apr 7–8, 2027"> ALTS – Central Asia, Astana, Kazakhstan · April 7–8, 2027 <span class="sub">Open to agencies based in Kazakhstan, Uzbekistan, Tajikistan &amp; Kyrgyzstan</span></label>
@@ -307,7 +306,7 @@
 
 
   // ---- markets gate: only matching events can be selected ----
-  const ALL_EV=['lis26','war26','sev27','ast27','kot27','por27','war27'];
+  const ALL_EV=['war26','sev27','ast27','kot27','por27','war27'];
   function applyMarkets(){
     const chosen=[...document.querySelectorAll('.mk:checked')];
     const other=document.getElementById('mk-other');
