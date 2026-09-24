@@ -362,3 +362,10 @@ footer hr{border:none;border-top:1px solid rgba(255,255,255,.25);margin:34px 0}
 
 /* hero: keep the italic phrase together */
 .hero h1 em{display:inline-block}
+
+/* form success screen */
+.sent-box{text-align:center;padding:56px 24px}
+.sent-ico{width:74px;height:74px;margin-bottom:24px;fill:none;stroke:#3FA46A;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.sent-ico circle{stroke:#CBEBD8}
+.sent-box h3{font-family:var(--sans);font-weight:600;font-size:24px;color:var(--navy);margin-bottom:14px}
+.sent-box p{font-size:16px;line-height:1.8;color:var(--ink);max-width:520px;margin:0 auto 30px}

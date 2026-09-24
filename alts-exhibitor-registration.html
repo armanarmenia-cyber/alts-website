@@ -23,7 +23,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/alts.css?v=19">
+<link rel="stylesheet" href="assets/alts.css?v=20">
 <style>
   .field.is-invalid input,.field.is-invalid textarea{border-color:#E4574C!important;background:#FDF3F2!important}
   .field.is-invalid label{color:#B3261E}
@@ -144,7 +144,21 @@
 
   document.addEventListener('input',e=>{const b=e.target.closest('.field');if(b)b.classList.remove('is-invalid')},true);
 
+
+  // ---- success screen: replace the form, prevent double submits ----
+  window.__altsSent=false;
+  function altsSuccess(cardSel, title, text){
+    const card=document.querySelector(cardSel); if(!card) return;
+    card.innerHTML='<div class="sent-box">'+
+      '<svg viewBox="0 0 52 52" class="sent-ico"><circle cx="26" cy="26" r="24"/><path d="M15 27l8 8 15-16"/></svg>'+
+      '<h3>'+title+'</h3><p>'+text+'</p>'+
+      '<a class="btn btn-grad" href="/">Back to homepage</a></div>';
+    const y=card.getBoundingClientRect().top+(window.pageYOffset||0)-160;
+    try{window.scrollTo({top:y,behavior:'smooth'})}catch(e){window.scrollTo(0,y)}
+  }
+
   async function submitExhibitor(){
+    if(window.__altsSent) return;
     const v=id=>document.getElementById(id).value.trim();
     const status=document.getElementById('e-status');
     const btn=document.getElementById('e-submit');
@@ -166,10 +180,10 @@
         events:events,question:v('e-q'),
         page:location.href,submitted_at:new Date().toISOString()
       })});
-      if(r.ok){show(true,'Thank you for your application! We will contact you within 24 hours.');document.querySelectorAll('.form-card input,.form-card textarea').forEach(i=>i.type==='checkbox'?i.checked=false:i.value='')}
+      if(r.ok){window.__altsSent=true;altsSuccess('.form-card',"Thank you for your request!","We have received your details. Our team will get back to you with information and prices within 24 hours.");return}
       else show(false,'Something went wrong while submitting the form. Please try again.');
     }catch(e){show(false,'Network error. Please try again or email us directly.')}
-    btn.disabled=false;btn.style.opacity=1;
+    if(!window.__altsSent){btn.disabled=false;btn.style.opacity=1;}
   }
 </script>
 </body>
