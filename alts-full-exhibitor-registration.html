@@ -89,6 +89,8 @@
         <div class="field"><label for="tel">Phone Number *</label><input type="tel" id="tel"></div>
       </div>
 
+      <div class="field"><label for="diet">Dietary restrictions *</label><input type="text" id="diet" placeholder="E.g. vegetarian, gluten-free, allergies – or type 'none'"></div>
+
       <!-- EXHIBITOR PROFILE -->
       <div class="f-block"><h3>Exhibitor profile</h3></div>
       <div class="field"><label for="cat">Description of your product for the exhibitors' catalogue *</label><textarea id="cat" placeholder="Provide a brief and compelling overview highlighting the key strengths and unique aspects of your company. If your application is approved, ALTS buyers will use this information to determine their interest in scheduling a meeting with you and this text will be used in our catalogue. Maximum length: 400 characters."></textarea></div>
@@ -452,7 +454,7 @@
     const show=(ok,msg)=>{status.style.display='block';status.style.background=ok?'#E8F5EC':'#FDECEC';status.style.color=ok?'#1E7A3C':'#B3261E';status.textContent=msg};
 
     clearInvalid();
-    const req=['fn','ln','co','tel','email','cat','materials','legal','vat','invaddr'];
+    const req=['fn','ln','co','tel','email','diet','cat','materials','legal','vat','invaddr'];
     const missing=req.find(i=>!v(i));
     if(missing){const el=document.getElementById(missing);const lbl=(el.closest('.field')?.querySelector('label')?.textContent||'this field').replace('*','').trim();show(false,'Please fill in: '+lbl);focusField(el);return}
     if(![...document.querySelectorAll('.ev:checked')].length){show(false,'Please select at least one event.');focusField(document.querySelector('.ev'));return}
@@ -498,7 +500,8 @@
       'Invoicing Address: '+v('invaddr'),'','',
       'Description for the exhibitors\' catalogue:','',
       v('cat'),'',
-      'Materials link (photos & logo): '+v('materials'),'','',
+      'Materials link (photos & logo): '+v('materials'),
+      'Dietary restrictions: '+v('diet'),'','',
       'Selected events:','',
       ...events.map(e=>'• '+e),'',
       'Packages & additional services:','',
@@ -531,6 +534,7 @@
         invoice_address:v('invaddr'),
         catalogue:v('cat'),
         materials:v('materials'),
+        dietary:v('diet'),
         question:report,
         page:location.href,submitted_at:new Date().toISOString()
       })});
