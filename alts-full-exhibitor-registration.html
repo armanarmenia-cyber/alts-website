@@ -62,7 +62,6 @@
       <!-- EVENTS -->
       <div class="checks">
         <p class="q">Choose your ALTS event:</p>
-        <label class="check"><input type="checkbox" class="ev" data-sec="sec-warsaw" value="ALTS CEE Autumn Edition Warsaw, Oct 21–22, 2026"> ALTS – CEE Autumn Edition, Warsaw, Poland · October 21–22, 2026</label>
         <label class="check"><input type="checkbox" class="ev" data-sec="sec-seville" value="ALTS UK, Europe & US Spring Edition Seville, Mar 9–11, 2027"> ALTS – UK, Europe &amp; US Spring Edition, Seville, Spain · March 9–11, 2027</label>
         <label class="check"><input type="checkbox" class="ev" data-sec="sec-astana" value="ALTS Central Asia Astana, Apr 7–8, 2027"> ALTS – Central Asia, Astana, Kazakhstan · April 7–8, 2027</label>
         <label class="check"><input type="checkbox" class="ev" data-sec="sec-kotor" value="ALTS CEE Offsite Kotor Bay, Apr 13–15, 2027"> ALTS – CEE Offsite, Kotor Bay, Montenegro · April 13–15, 2027</label>
@@ -107,37 +106,6 @@
       <!-- BALTIC PACKAGES -->
 
 
-      <!-- WARSAW PACKAGES -->
-      <div id="sec-warsaw" hidden>
-      <div class="f-block"><h3>ALTS CEE Autumn Edition, Warsaw · Oct 21–22, 2026</h3>
-        <p class="hint">Prices include VAT. Available promo rates and discounts will be applied directly in your invoice.</p>
-      </div>
-      <div class="checks">
-        <label class="check"><input type="radio" name="pk-warsaw" value="Standard – 4700€"> Standard – 4700€</label>
-        <label class="check"><input type="radio" name="pk-warsaw" value="Premium – 6200€"> Premium – 6200€</label>
-        <label class="check"><input type="radio" name="pk-warsaw" value="Partnership – 7500€"> Partnership – 7500€</label>
-        <label class="check"><input type="radio" name="pk-warsaw" value="Standard Shared Table – 2750€"> Standard Shared Table – 2750€</label>
-        <label class="check"><input type="radio" name="pk-warsaw" value="Premium Shared Table – 3250€"> Premium Shared Table – 3250€</label>
-      </div>
-      <div class="checks">
-        <p class="q">Warsaw – additional services:</p>
-        <label class="check"><input type="checkbox" class="ex-warsaw" value="Add Second Attendee – 500€"> Add Second Attendee – 500€</label>
-      </div>
-      <div id="att-warsaw" hidden>
-      <div class="f-block"><h3 style="font-size:15px">Second attendee – Warsaw 2026</h3>
-        <p class="hint">Please fill out the details of the second attendee for this event.</p>
-      </div>
-      <div class="f-row">
-        <div class="field"><label>First Name</label><input type="text" id="att-warsaw-fn"></div>
-        <div class="field"><label>Last Name</label><input type="text" id="att-warsaw-ln"></div>
-      </div>
-      <div class="f-row">
-        <div class="field"><label>Position</label><input type="text" id="att-warsaw-pos"></div>
-        <div class="field"><label>Email Address</label><input type="email" id="att-warsaw-email"></div>
-      </div>
-      <div class="field"><label>Phone Number</label><input type="tel" id="att-warsaw-tel"></div>
-      </div>
-      </div><!-- /sec-warsaw -->
       <div id="sec-seville" hidden>
       <div class="f-block"><h3>ALTS UK, Europe &amp; US Spring Edition, Seville · Mar 9–11, 2027</h3>
         <p class="hint">Prices include VAT. Available promo rates and discounts will be applied directly in your invoice.</p>
@@ -372,7 +340,7 @@
   // Second badge availability depends on selected package:
   // Standard -> paid, Premium/Partnership -> free, Shared Table -> not available
   const badgeCfg=[
-    {pk:'pk-warsaw',cls:'ex-warsaw',key:'warsaw'},
+    
     {pk:'pk-seville',cls:'ex-seville',key:'seville'},{pk:'pk-astana',cls:'ex-astana',key:'astana'},
     {pk:'pk-kotor',cls:'ex-kotor',key:'kotor'},{pk:'pk-porto',cls:'ex-porto',key:'porto'},{pk:'pk-warsaw27',cls:'ex-warsaw27',key:'warsaw27'}
   ];
@@ -470,10 +438,8 @@
       return (blk&&!blk.hidden&&parts.length)?parts.join(', '):''};
     const extrasWith=(k,cls)=>{const list=exs(cls); const a=attFor(k); if(a) list.push('2nd attendee: '+a); return list.join(', ')};
     const attLines=[];
-    [['warsaw','WARSAW 2026'],['seville','SEVILLE 2027'],['astana','ASTANA 2027'],['kotor','KOTOR 2027'],['porto','PORTO 2027'],['warsaw27','WARSAW 2027']].forEach(([k,label])=>{const a=attFor(k); if(a) attLines.push(label+' second attendee: '+a);});
+    [['seville','SEVILLE 2027'],['astana','ASTANA 2027'],['kotor','KOTOR 2027'],['porto','PORTO 2027'],['warsaw27','WARSAW 2027']].forEach(([k,label])=>{const a=attFor(k); if(a) attLines.push(label+' second attendee: '+a);});
     const pkLines=[];
-    if(pk('pk-warsaw')) pkLines.push('WARSAW: '+pk('pk-warsaw'));
-    exs('ex-warsaw').forEach(x=>pkLines.push('WARSAW extra: '+x));
     if(pk('pk-seville')) pkLines.push('SEVILLE 2027: '+pk('pk-seville'));
     exs('ex-seville').forEach(x=>pkLines.push('SEVILLE 2027 extra: '+x));
     if(pk('pk-astana')) pkLines.push('ASTANA 2027: '+pk('pk-astana'));
@@ -517,8 +483,6 @@
         first_name:v('fn'),last_name:v('ln'),company:v('co'),position:v('pos'),
         country_city:v('countries'),website:v('web'),email:v('email'),phone:v('tel'),
         events:events,
-        package_warsaw:pk('pk-warsaw')||'',
-        extras_warsaw:extrasWith('warsaw','ex-warsaw'),
         package_seville:pk('pk-seville')||'',
         extras_seville:extrasWith('seville','ex-seville'),
         package_astana:pk('pk-astana')||'',
