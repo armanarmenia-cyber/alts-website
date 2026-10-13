@@ -23,7 +23,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/alts.css?v=21">
+<link rel="stylesheet" href="assets/alts.css?v=22">
 <style>
   .field.is-invalid input,.field.is-invalid textarea{border-color:#E4574C!important;background:#FDF3F2!important}
   .field.is-invalid label{color:#B3261E}
@@ -33,6 +33,8 @@
   .role-opt input:checked+.role-pill{background:var(--navy);color:#fff;border-color:var(--navy)}
   .role-opt:hover .role-pill{border-color:var(--navy)}
 </style>
+<link rel="stylesheet" href="https://assets.calendly.com/assets/external/widget.css">
+<script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 </head>
 <body>
 
@@ -69,6 +71,20 @@
       <h1 class="sec-h big reveal">Contact <em>us.</em></h1>
       <p class="reveal" style="margin-top:26px;font-size:16px;line-height:1.85;color:var(--ink)">You can reach us anytime via</p>
       <a class="mail-link reveal" href="mailto:hello@altsevents.com">hello@altsevents.com</a>
+
+      <div class="call-rows reveal">
+        <p class="call-rows-h">Prefer to talk it through? Book a 30-minute call:</p>
+        <div class="call-row reveal">
+          <img src="assets/team-julia.jpg" alt="Julia Milkina">
+          <div class="call-row-txt"><i>Exhibitors &amp; partnerships</i><b>Julia Milkina</b><span>Head of Sales</span></div>
+          <a class="btn btn-grad" href="https://calendly.com/julia-alts-30min/30min" target="_blank" rel="noopener" onclick="if(window.Calendly){Calendly.initPopupWidget({url:this.href});return false}">Schedule a call</a>
+        </div>
+        <div class="call-row reveal">
+          <img src="https://cdn.prod.website-files.com/6899b009eafbcc44466f60d3/68a4a668392f6c4499a9a728_Venera.jpg" alt="Venera Bednarskaia">
+          <div class="call-row-txt"><i>Buyers &amp; hosted buyer programme</i><b>Venera Bednarskaia</b><span>Hosted Buyer Manager</span></div>
+          <a class="btn btn-grad" href="https://calendly.com/venera-alts/30min" target="_blank" rel="noopener" onclick="if(window.Calendly){Calendly.initPopupWidget({url:this.href});return false}">Schedule a call</a>
+        </div>
+      </div>
 
       <div class="form-card reveal" style="margin-top:40px">
         <div class="field"><label>I am a...</label>
