@@ -398,3 +398,10 @@ footer hr{border:none;border-top:1px solid rgba(255,255,255,.25);margin:34px 0}
 .call-row-txt span{font-size:13px;color:var(--grey)}
 .call-row .btn{padding:11px 20px;font-size:11px;white-space:nowrap}
 @media(max-width:560px){.call-row{flex-wrap:wrap}.call-row .btn{width:100%;text-align:center}}
+
+/* schedule a call – sidebar version on form pages */
+.call-aside{margin-top:40px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:26px 24px;box-shadow:0 14px 34px rgba(35,38,76,.07)}
+.call-aside-h{font-family:var(--sans);font-weight:700;font-size:16px;color:var(--navy);margin-bottom:8px}
+.call-aside-sub{font-size:14px;line-height:1.7;color:var(--grey);margin-bottom:18px}
+.call-aside .call-row{padding:12px 0}
+.call-aside .call-row:first-of-type{border-top:1px solid var(--line)}
