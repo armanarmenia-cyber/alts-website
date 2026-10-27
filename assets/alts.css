@@ -224,7 +224,8 @@ nav.links a:hover{color:var(--peri-soft)}
 .pt-grid{display:flex;justify-content:center;gap:26px;flex-wrap:wrap;margin-top:50px}
 .pt-card{background:#fff;border-radius:14px;padding:34px 44px;text-align:center;box-shadow:0 18px 40px rgba(47,52,96,.10);min-width:240px}
 .pt-card span{display:block;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--peri);margin-bottom:20px}
-.pt-card img{max-height:64px;max-width:200px;margin:0 auto;object-fit:contain}
+.pt-card img{max-height:72px;max-width:210px;margin:0 auto;object-fit:contain}
+.pt-card img.tall{max-height:132px;max-width:170px}
 .gallery-sec{padding:100px 0}
 .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:56px}
 @media(max-width:960px){.gallery{grid-template-columns:1fr 1fr}}
