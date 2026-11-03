@@ -127,7 +127,7 @@
         <div class="field"><label for="city">City *</label><input type="text" id="city"></div>
         <div class="field"><label for="country">Country *</label><input type="text" id="country"></div>
       </div>
-      <div class="field"><label for="descr">Description *</label><textarea id="descr" placeholder="Company Description. Provide a brief and compelling overview highlighting the key strengths and unique aspects of your company. If your application is approved, ALTS exhibitors will use this information to determine their interest in scheduling a meeting with you. Maximum length: 400 characters."></textarea></div>
+      <div class="field"><label for="descr">Description *</label><textarea id="descr" placeholder="Company Description (max. 400 characters)&#10;Introduce your company to ALTS exhibitors.&#10;Highlight your luxury travel expertise, key destinations and client profile.&#10;Exhibitors will read this description when deciding whether to meet with you."></textarea></div>
       <div class="f-row">
         <div class="field"><label for="btype">Which category best represents your type of business? *</label>
           <select id="btype"><option value="">Please select</option><option>Travel Agency</option><option>Tour Operator</option><option>Lifestyle &amp; Travel Concierge</option><option>Independent Travel Designer</option><option>MICE &amp; Corporate Travel</option><option>Other: Specify</option></select>
@@ -475,11 +475,13 @@
         city:v('city'),
         country:v('country'),
         description:v('descr'),
+        business_started:v('year'),
         years_selling:v('year'),
-        business_type:v('btype')+(v('btype-other')?' ('+v('btype-other')+')':''),
+        business_type:v('btype')+(v('btype-other')?' ('+v('btype-other')+')':'')+(v('host')?' – host agency: '+v('host'):''),
         employees:v('emp'),
         client_spend:v('spend'),
         turnover:v('turnover'),
+        five_star_share:v('five'),
         luxury_share:v('five'),
         fit_group_split:v('fitgroup'),
         booking_channels:bookingChannels.join(', '),
@@ -495,6 +497,7 @@
         products:products.join(', '),
         clients_based:v('clients'),
         top_hotels:[v('hotel1'),v('hotel2'),v('hotel3')].filter(Boolean).join(' | '),
+        recent_bookings:v('reference'),
         professional_reference:v('reference'),
         question:report,
         page:location.href,submitted_at:new Date().toISOString()
