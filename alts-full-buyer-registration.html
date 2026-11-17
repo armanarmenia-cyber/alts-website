@@ -261,10 +261,20 @@
       </div>
       <div class="field"><label for="reference">Please provide a professional reference contact (name, role, hotel, DMC, company and business email) who may verify your booking activity. *</label><input type="text" id="reference" placeholder="Example: John Week, johnweek@gmail.com, Johns &amp; Johns Co."></div>
 
+      <div class="checks" style="margin-top:18px">
+        <p class="q">How did you first hear about this ALTS event? *</p>
+        <label class="check"><input type="checkbox" class="hh" value="I was invited directly by ALTS Team"> I was invited directly by ALTS Team</label>
+        <label class="check"><input type="checkbox" class="hh" value="I got a reference from a colleague/friend"> I got a reference from a colleague/friend</label>
+        <label class="check"><input type="checkbox" class="hh" value="I read about ALTS in professional media"> I read about ALTS in professional media</label>
+        <label class="check"><input type="checkbox" class="hh" value="I found ALTS on social media"> I found ALTS on social media</label>
+        <label class="check"><input type="checkbox" class="hh" id="hh-other" value="Other"> Other</label>
+      </div>
+      <div class="field" id="hh-other-wrap" hidden><label for="hh-other-txt">Other – please specify *</label><input type="text" id="hh-other-txt"></div>
+
       <!-- T&C -->
       <p class="hint" style="font-size:12.5px;color:var(--grey);margin:10px 0 14px">Please only submit this application if you are able to commit to the dates of the show of your choice, as cancellation upon acceptance of your application is subject to a Cancellation Fee.</p>
       <div class="checks">
-        <label class="check"><input type="checkbox" id="tc"> <span>I accept the <a href="alts-buyer-terms-conditions.html" style="color:var(--peri);text-decoration:underline">Terms &amp; Conditions</a>, Payment and Cancellation Policy *</span></label>
+        <label class="check"><input type="checkbox" id="tc"> <span>I accept the <a href="alts-buyer-terms-conditions.html" target="_blank" rel="noopener" style="color:var(--peri);text-decoration:underline">Terms &amp; Conditions</a>, Payment and Cancellation Policy *</span></label>
       </div>
 
       <button class="btn btn-grad" id="submit-btn" onclick="submitFull()">Submit application</button>
@@ -363,6 +373,9 @@
   const btypeSel=document.getElementById('btype'), hostRow=document.getElementById('host-row');
   const toggleHost=()=>{hostRow.hidden = btypeSel.value!=='Independent Travel Designer';};
   btypeSel.addEventListener('change',toggleHost); toggleHost();
+  const hhOther=document.getElementById('hh-other'), hhWrap=document.getElementById('hh-other-wrap');
+  const toggleHh=()=>{hhWrap.hidden=!hhOther.checked;};
+  hhOther.addEventListener('change',toggleHh); toggleHh();
   const csOther=document.getElementById('cs-other'), csWrap=document.getElementById('cs-other-wrap');
   const toggleCs=()=>{csWrap.hidden=!csOther.checked;};
   csOther.addEventListener('change',toggleCs); toggleCs();
@@ -405,6 +418,8 @@
     if(![...document.querySelectorAll('.ev:checked')].length){show(false,'Please select at least one event.');focusField(document.querySelector('.ev'));return}
     if(![...document.querySelectorAll('.rg:checked')].length){show(false,'Please select at least one region you sell and source from.');focusField(document.querySelector('.rg'));return}
     if(![...document.querySelectorAll('.pr:checked')].length){show(false,'Please select at least one type of travel products.');focusField(document.querySelector('.pr'));return}
+    if(![...document.querySelectorAll('.hh:checked')].length){show(false,'Please tell us how you first heard about this ALTS event.');focusField(document.querySelector('.hh'));return}
+    if(document.getElementById('hh-other').checked&&!v('hh-other-txt')){show(false,'Please specify how you heard about ALTS.');focusField(document.getElementById('hh-other-txt'));return}
     if(!document.getElementById('tc').checked){show(false,'Please accept the Terms & Conditions, Payment and Cancellation Policy.');focusField(document.getElementById('tc'));return}
 
     const events=[...document.querySelectorAll('.ev:checked')].map(c=>c.value);
@@ -414,6 +429,7 @@
     const bookingChannels=[...document.querySelectorAll('.bk:checked')].map(c=>c.value);
     const segments=[...document.querySelectorAll('.cs:checked')].map(c=>c.value);
     const specialties=[...document.querySelectorAll('.sp:checked')].map(c=>c.value);
+    const heard=[...document.querySelectorAll('.hh:checked')].map(c=>c.value==='Other'?('Other: '+v('hh-other-txt')):c.value);
 
 
     // ---- ready-made HTML email body (so Make needs no field mapping) ----
@@ -449,6 +465,7 @@
     row('Top 3 luxury hotels (12 months)', [v('hotel1'),v('hotel2'),v('hotel3')].filter(Boolean).join(' | '));
     row('Professional reference', v('reference'));
     sec('Application');
+    row('How they heard about ALTS', heard.join(', '));
     row('Selected events', events.join(', '));
     row('Page', location.href);
     row('Submitted at', new Date().toISOString());
@@ -500,6 +517,8 @@
       '2. '+v('hotel2'),
       '3. '+v('hotel3'),'',
       'Professional reference: '+v('reference'),'',
+      'How did you first hear about this ALTS event:','',
+      ...heard.map(x=>'• '+x),'',
       'Selected events:','',
       ...events.map(e=>'• '+e)
     ].join('\n');
@@ -528,6 +547,7 @@
         booking_channels:bookingChannels.join(', '),
         client_segments:segments.join(', ')+(v('cs-other-txt')?', Other: '+v('cs-other-txt'):''),
         specialties:specialties.join(', '),
+        heard_about:heard.join(', '),
         linkedin:v('li'),
         company_social:v('social'),
         host_agency:v('host'),
