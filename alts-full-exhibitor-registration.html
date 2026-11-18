@@ -474,6 +474,39 @@
     exs('ex-porto').forEach(x=>pkLines.push('PORTO 2027 extra: '+x));
     if(pk('pk-warsaw27')) pkLines.push('WARSAW 2027: '+pk('pk-warsaw27'));
     exs('ex-warsaw27').forEach(x=>pkLines.push('WARSAW 2027 extra: '+x));
+    // ---- ready-made HTML email body (so Make needs no field mapping) ----
+    const esc=t=>String(t||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/\n/g,'<br>');
+    const rows=[];
+    const sec=t=>rows.push('<tr><td colspan="2" style="padding:18px 8px 6px;font:700 13px Arial;color:#2F3460;border-bottom:1px solid #e6e6ee">'+t+'</td></tr>');
+    const row=(k,val)=>rows.push('<tr><td style="padding:7px 8px;font:400 13px Arial;color:#6E6E78;width:38%;vertical-align:top">'+k+'</td><td style="padding:7px 8px;font:400 13px Arial;color:#2B2B33">'+esc(val||'–')+'</td></tr>');
+    sec('Personal');
+    row('Name', v('fn')+' '+v('ln')); row('Position', v('pos')); row('Company', v('co'));
+    row('Email', v('email')); row('Phone', v('tel')); row('Website', v('web'));
+    row('Countries where the brand operates', v('countries'));
+    row('Dietary restrictions', v('diet'));
+    sec('Invoicing');
+    row('Company legal name', v('legal')); row('VAT number', v('vat'));
+    row('Invoicing address', v('invaddr'));
+    sec('Exhibitor profile');
+    row('Catalogue description', v('cat'));
+    row('Materials link (photos & logo)', v('materials'));
+    sec('Selected events');
+    row('Events', events.join(', '));
+    [['seville','Seville 2027'],['astana','Astana 2027'],['kotor','Kotor Bay 2027'],['porto','Porto 2027'],['warsaw27','Warsaw 2027']].forEach(([k,label])=>{
+      const p=pk('pk-'+k); const ex=exs('ex-'+k); const att=attFor(k);
+      if(!p&&!ex.length&&!att) return;
+      sec(label);
+      row('Package', p||'–');
+      row('Additional services', ex.length?ex.join(', '):'–');
+      row('Second attendee', att||'–');
+    });
+    sec('Application');
+    row('Meeting scheduling service', pk('ms'));
+    row('Page', location.href);
+    row('Submitted at', new Date().toISOString());
+    const emailHtml='<h2 style="font:700 18px Arial;color:#2F3460">Exhibitor application — full registration form</h2>'+
+      '<table cellpadding="0" cellspacing="0" style="border-collapse:collapse;width:100%;max-width:720px">'+rows.join('')+'</table>';
+
     const report=[
       'Personal Information:','',
       'First Name: '+v('fn'),
@@ -525,6 +558,7 @@
         materials:v('materials'),
         dietary:v('diet'),
         meeting_scheduling:pk('ms')||'',
+        email_html:emailHtml,
         question:report,
         page:location.href,submitted_at:new Date().toISOString()
       })});
