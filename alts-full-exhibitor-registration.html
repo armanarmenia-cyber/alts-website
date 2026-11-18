@@ -111,6 +111,7 @@
         <p class="hint">Prices include VAT. Available promo rates and discounts will be applied directly in your invoice.</p>
       </div>
       <div class="checks">
+        <p class="q">Choose your package *</p>
         <label class="check"><input type="radio" name="pk-seville" value="Standard Package – 5 800 EUR"> Standard Package – 5 800 EUR</label>
         <label class="check"><input type="radio" name="pk-seville" value="Premium Package – 6 800 EUR"> Premium Package – 6 800 EUR</label>
         <label class="check"><input type="radio" name="pk-seville" value="Partnership Package – 8 990 EUR"> Partnership Package – 8 990 EUR</label>
@@ -143,6 +144,7 @@
         <p class="hint">Prices include VAT. Available promo rates and discounts will be applied directly in your invoice.</p>
       </div>
       <div class="checks">
+        <p class="q">Choose your package *</p>
         <label class="check"><input type="radio" name="pk-astana" value="Standard Package Early Bird – 4 990 EUR"> Standard Package Early Bird – 4 990 EUR</label>
         <label class="check"><input type="radio" name="pk-astana" value="Premium Package Early Bird – 5 990 EUR"> Premium Package Early Bird – 5 990 EUR</label>
         <label class="check"><input type="radio" name="pk-astana" value="Partnership Package – 8 990 EUR"> Partnership Package – 8 990 EUR</label>
@@ -175,6 +177,7 @@
         <p class="hint">Prices include VAT. Available promo rates and discounts will be applied directly in your invoice.</p>
       </div>
       <div class="checks">
+        <p class="q">Choose your package *</p>
         <label class="check"><input type="radio" name="pk-kotor" value="Standard Package Early Bird – 4 990 EUR"> Standard Package Early Bird – 4 990 EUR</label>
         <label class="check"><input type="radio" name="pk-kotor" value="Premium Package Early Bird – 5 990 EUR"> Premium Package Early Bird – 5 990 EUR</label>
         <label class="check"><input type="radio" name="pk-kotor" value="Partnership Package – 8 990 EUR"> Partnership Package – 8 990 EUR</label>
@@ -207,6 +210,7 @@
         <p class="hint">Prices include VAT. Available promo rates and discounts will be applied directly in your invoice.</p>
       </div>
       <div class="checks">
+        <p class="q">Choose your package *</p>
         <label class="check"><input type="radio" name="pk-porto" value="Standard Package Early Bird – 4 990 EUR"> Standard Package Early Bird – 4 990 EUR</label>
         <label class="check"><input type="radio" name="pk-porto" value="Premium Package Early Bird – 5 990 EUR"> Premium Package Early Bird – 5 990 EUR</label>
         <label class="check"><input type="radio" name="pk-porto" value="Partnership Package – 8 990 EUR"> Partnership Package – 8 990 EUR</label>
@@ -239,6 +243,7 @@
         <p class="hint">Prices include VAT. Available promo rates and discounts will be applied directly in your invoice.</p>
       </div>
       <div class="checks">
+        <p class="q">Choose your package *</p>
         <label class="check"><input type="radio" name="pk-warsaw27" value="Standard Package Early Bird – 4 590 EUR"> Standard Package Early Bird – 4 590 EUR</label>
         <label class="check"><input type="radio" name="pk-warsaw27" value="Premium Package Early Bird – 5 490 EUR"> Premium Package Early Bird – 5 490 EUR</label>
         <label class="check"><input type="radio" name="pk-warsaw27" value="Partnership Package – 8 590 EUR"> Partnership Package – 8 590 EUR</label>
@@ -434,6 +439,16 @@
     const missing=req.find(i=>!v(i));
     if(missing){const el=document.getElementById(missing);const lbl=(el.closest('.field')?.querySelector('label')?.textContent||'this field').replace('*','').trim();show(false,'Please fill in: '+lbl);focusField(el);return}
     if(![...document.querySelectorAll('.ev:checked')].length){show(false,'Please select at least one event.');focusField(document.querySelector('.ev'));return}
+    const missingPk=[...document.querySelectorAll('.ev:checked')].find(c=>{
+      const key=(c.dataset.sec||'').replace('sec-','');
+      return key && !document.querySelector('input[name="pk-'+key+'"]:checked');
+    });
+    if(missingPk){
+      const key=(missingPk.dataset.sec||'').replace('sec-','');
+      const first=document.querySelector('input[name="pk-'+key+'"]');
+      show(false,'Please choose a package for every event you selected.');
+      focusField(first); return;
+    }
     if(!document.querySelector('input[name="ms"]:checked')){show(false,'Please choose a meeting scheduling option.');focusField(document.querySelector('input[name="ms"]'));return}
     if(!document.getElementById('tc').checked){show(false,'Please accept the Terms & Conditions, Payment and Cancellation Policy.');focusField(document.getElementById('tc'));return}
 
